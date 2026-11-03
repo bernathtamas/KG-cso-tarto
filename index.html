@@ -394,15 +394,38 @@
       <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Fekete modell a weben</h3><p>A 3D-néző az állványt teljesen feketén mutatta.</p></div>
       <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Hibakeresés a fájlban</h3><p>Az AI megvizsgálta a GLB-fájl belsejét, és rájött, hogy hiányoznak a felületi normálok. Most betöltéskor számolja ki őket.</p></div>
     </article>
+  </div>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">TANULSÁGOK MÁSOK PROJEKTJEIBŐL</p>
+        <h2>A lézervágott fa<br>tipikus buktatói.</h2>
+      </div>
+      <p class="band-note">Hasonló lézervágott polcok, tárolók és bútorok elemzésekor ugyanazok a hibák jöttek elő újra és újra. Ezeket már a tervezésnél kizártuk.</p>
+    </div>
+  </section>
+
+  <div class="obstacles">
     <article class="ob">
       <span class="ob-no mono">07</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Feltöltés kódolás nélkül</h3><p>Nem programozunk, és a gépen nem volt GitHub-hozzáférés.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Egy kód, egy kattintás</h3><p>Az AI letöltötte és ellenőrizte a GitHub hivatalos eszközét. Nekünk csak egy egyszeri kódot kellett jóváhagynunk a böngészőben, a feltöltés és az élesítés automatikusan történt.</p></div>
+      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Lötyög vagy be sem megy</h3><p>A „10 mm-es” rétegelt lemez a valóságban gyakran 9,6 mm, a lézer pedig minden vágásnál elvisz 0,1–0,2 mm-t. A névleges méretre rajzolt csap így hol lötyög, hol be sem megy.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Paraméteres ráhagyás</h3><p>A horonyráhagyás külön paraméter: 0,2 mm vastagságban és 0,4 mm hosszban. Egy próbafül kivágása után egyetlen szám átírásával mind a 18 alkatrész újragenerálódik a valós lemezhez.</p></div>
     </article>
     <article class="ob">
       <span class="ob-no mono">08</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Videó ffmpeg nélkül</h3><p>A gépen nem volt Node.js és ffmpeg. A Remotionnel érkező ffmpegből pedig hiányzott egy szűrő, amit a HyperFrames használ.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Képkockákból videó</h3><p>A HyperFrames képkockákat renderelt, ezekből a Remotion saját ffmpegje fűzte össze a videót. Minden eszköz a projektmappában fut, a rendszerre nem telepítettünk semmit.</p></div>
+      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>A csavar kiszakad</h3><p>Rétegelt lemez élébe hajtott csavar a rétegek mentén szétrepesztheti a fát, ismételt szereléskor pedig kilazul.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Ékes átmenő csap</h3><p>A csap 20 mm-rel átnyúlik az oldalfalon, a furatába egy 8 → 18 mm-re szélesedő ék kerül. Beütéskor az ék a falnak feszül, és szorosra húzza a kötést. Szerszám nélkül szétszedhető, és az ékeket ugyanabból a táblából vágjuk ki.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">09</span>
+      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Billeg a műhelypadlón</h3><p>Egy teljes élén álló, 1350 mm-es lemez soha nem fekszik fel egyenletesen az egyenetlen betonpadlón, így az állvány billeg.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Lábkivágás</h3><p>Az oldalfalak és a hátfal aljából 8 mm mély kivágás készül, így az állvány csak a két végén lévő talpakon áll. A felfekvés egyértelmű, és a billegés megszűnik.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">10</span>
+      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Gyors hozzáférés vagy biztonság?</h3><p>Az elölről nyitott fésűből gyorsan kivehető a cső, de ugyanilyen könnyen ki is billenhet. A rögzítés általában a hozzáférést lassítja.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Kiakasztható zároléc</h3><p>L-alakú horonyban ülő léc: 20 mm-t megemelve kiakasztható, visszaengedve a saját súlyától a helyére ül. A középső csap a fésűujjak közé támaszkodik, a fogantyú-kivágással egy kézzel kezelhető.</p></div>
     </article>
   </div>
 
