@@ -167,7 +167,7 @@ let viewer;
 async function startViewer() {
   try {
     viewer = await import('./viewer.js');
-    await viewer.loadGlb('assets/model/cso_tarto_V1_csovekkel.glb', 'PIPE_RACK_V1.1 / ASSEMBLY');
+    await viewer.loadGlb('assets/model/cso_tarto_V1_csovekkel.glb', 'PIPE_RACK / ASSEMBLY');
   } catch (err) {
     console.error(err);
     $('#model-status').textContent = 'THE 3D VIEWER COULD NOT LOAD.';
@@ -180,7 +180,7 @@ $('#load-step').addEventListener('click', async e => {
     viewer = viewer || await import('./viewer.js');
     $('#model-status').textContent = 'DOWNLOADING STEP (15 MB)…';
     const buf = await fetch(STEP_URL).then(r => r.arrayBuffer());
-    await viewer.loadStep(buf, 'PIPE_RACK_V1.1.STEP · ENGRAVED');
+    await viewer.loadStep(buf, 'PIPE_RACK.STEP · ENGRAVED');
     pipesBtn.setAttribute('aria-pressed', 'true');
     pipesBtn.classList.add('is-on');
   } catch (err) {
