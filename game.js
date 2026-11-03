@@ -29,6 +29,38 @@ function newGame() {
     got: 0, platforms: [], pipes: [], screws: [], nextPipe: 600, lastLevel: 0, nextScrew: 1100, fx: [], newBest: false};
 }
 
+/* ---------- sound: a synthesised cartoon "boing" on every jump ---------- */
+let audio, muted = (() => { try { return localStorage.getItem('pipeRunnerMuted') === '1'; } catch { return false; } })();
+function boing(second) {
+  if (muted) return;
+  try {
+    audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+    if (audio.state === 'suspended') audio.resume();
+    const t = audio.currentTime, f0 = second ? 330 : 220;
+    const osc = audio.createOscillator(), gain = audio.createGain();
+    const lfo = audio.createOscillator(), wobble = audio.createGain();   // the spring "wobble"
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(f0, t);
+    osc.frequency.exponentialRampToValueAtTime(f0 * 2.6, t + .11);
+    osc.frequency.exponentialRampToValueAtTime(f0 * 1.3, t + .38);
+    lfo.frequency.setValueAtTime(26, t);
+    wobble.gain.setValueAtTime(f0 * .12, t);
+    wobble.gain.exponentialRampToValueAtTime(1, t + .38);
+    gain.gain.setValueAtTime(.0001, t);
+    gain.gain.exponentialRampToValueAtTime(.22, t + .015);
+    gain.gain.exponentialRampToValueAtTime(.0001, t + .42);
+    lfo.connect(wobble).connect(osc.frequency);
+    osc.connect(gain).connect(audio.destination);
+    osc.start(t); lfo.start(t); osc.stop(t + .45); lfo.stop(t + .45);
+  } catch {}
+}
+export function toggleMute() {
+  muted = !muted;
+  try { localStorage.setItem('pipeRunnerMuted', muted ? '1' : '0'); } catch {}
+  return muted;
+}
+export const isMuted = () => muted;
+
 const rand = (a, b) => a + Math.random() * (b - a);
 const near = (list, x, d) => list.some(o => Math.abs(o.x - x) < d);
 
@@ -66,7 +98,7 @@ function generate() {
 function jump() {
   if (s.mode === 'ready') { s.mode = 'run'; return; }
   if (s.mode === 'over') { if (s.t > .6) { newGame(); s.mode = 'run'; } return; }
-  if (s.jumps < 2) { s.vy = -JUMP * (s.jumps ? .86 : 1); s.jumps++; }
+  if (s.jumps < 2) { boing(s.jumps === 1); s.vy = -JUMP * (s.jumps ? .86 : 1); s.jumps++; }
 }
 
 function update(dt) {
@@ -215,6 +247,7 @@ export function mountGame(el) {
   resize();
   newGame();
   addEventListener('keydown', e => {
+    if (active && e.code === 'KeyM' && !e.repeat) { el.dispatchEvent(new CustomEvent('mutechange', {detail: toggleMute()})); return; }
     if (!active || !['Space', 'ArrowUp', 'KeyW'].includes(e.code)) return;
     e.preventDefault();   // keep space from scrolling the page
     if (!e.repeat) jump();

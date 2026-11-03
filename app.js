@@ -26,8 +26,13 @@ function route() {
 let game;
 async function syncGame(on) {
   if (on && !game) {
-    game = await import('./game.js?v=20261103n');
-    game.mountGame($('#game-frame'));
+    game = await import('./game.js?v=20261103o');
+    const frame = $('#game-frame'), btn = $('#game-sound');
+    game.mountGame(frame);
+    const show = m => { btn.textContent = m ? 'Sound off' : 'Sound on'; btn.setAttribute('aria-pressed', String(!m)); btn.classList.toggle('is-on', !m); };
+    show(game.isMuted());
+    btn.addEventListener('click', () => show(game.toggleMute()));
+    frame.addEventListener('mutechange', e => show(e.detail));
   }
   game?.setActive(on);
 }
