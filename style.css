@@ -400,3 +400,4 @@ h3{font-size:1.45rem;letter-spacing:.05em}
 .game-frame canvas{display:block;outline:none;cursor:pointer}
 .game-keys{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:1rem;color:var(--muted)}
 .game-keys b{color:var(--gold);font-weight:500}
+.sheet-spare{text-align:center;line-height:1.8;color:#6d6a64}

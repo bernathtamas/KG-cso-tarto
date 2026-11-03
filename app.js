@@ -26,7 +26,7 @@ function route() {
 let game;
 async function syncGame(on) {
   if (on && !game) {
-    game = await import('./game.js?v=20261103o');
+    game = await import('./game.js?v=20261103p');
     const frame = $('#game-frame'), btn = $('#game-sound');
     game.mountGame(frame);
     const show = m => { btn.textContent = m ? 'Sound off' : 'Sound on'; btn.setAttribute('aria-pressed', String(!m)); btn.classList.toggle('is-on', !m); };
@@ -109,7 +109,8 @@ const PER_LANE = {100: 4, 150: 2, 200: 2};
 let summary = null;
 
 async function loadSummary() {
-  try { summary = await fetch('assets/osszesito.json').then(r => r.json()); } catch { return; }
+  renderSheets();   // independent of the summary, so the cutting files always show
+  try { summary = await fetch('assets/osszesito.json', {cache: 'no-cache'}).then(r => r.json()); } catch { return; }
 
   const lanes = $('#lanes');
   lanes.innerHTML = '';
@@ -129,15 +130,24 @@ async function loadSummary() {
     lanes.appendChild(m);
   }
 
+}
+
+async function renderSheets() {
   const grid = $('#sheet-grid');
-  const sheets = await fetch('assets/tablak.json').then(r => r.json()).catch(() => []);
+  // The manifest lists the sheet files; fall back to the known six sheets if it can't be fetched.
+  const FALLBACK = ['tabla_01_10mm', 'tabla_02_10mm', 'tabla_03_10mm', 'tabla_04_6mm', 'tabla_05_6mm', 'tabla_06_6mm', 'tartalek_ekek_4db_6mm'];
+  let sheets = FALLBACK;
+  try {
+    const list = await fetch('assets/tablak.json', {cache: 'no-cache'}).then(r => r.ok ? r.json() : null);
+    if (Array.isArray(list) && list.length) sheets = list;
+  } catch {}
   grid.innerHTML = sheets.map(file => {
     const m = file.match(/^tabla_(\d+)_(\d+)mm$/);
-    const title = m ? `SHEET ${m[1]} · ${m[2]} MM` : 'SPARE WEDGES · 6 MM';
-    const img = m ? `<img src="assets/elonezet/${file}.png" alt="${title} cutting layout" loading="lazy">` : '<span class="sheet-spare mono">4 wedges</span>';
+    const title = m ? `SHEET ${m[1]} · ${m[2]} MM` : 'SPARE WEDGES · OPTIONAL';
+    const img = m ? `<img src="assets/elonezet/${file}.png" alt="${title} cutting layout" loading="lazy">` : '<span class="sheet-spare mono">OPTIONAL<br>4 spare wedges<br>from any 6 mm offcut</span>';
     return `<a class="sheet" href="assets/dxf/${file}.dxf" download>
       <div class="sheet-img">${img}</div>
-      <div class="sheet-meta"><div><span class="mono">${title}</span><br><b>${m ? '1400 × 1400' : 'Small sheet'}</b></div><span class="mono">DXF ↓</span></div>
+      <div class="sheet-meta"><div><span class="mono">${title}</span><br><b>${m ? '1400 × 1400' : 'Any 6 mm offcut'}</b></div><span class="mono">DXF ↓</span></div>
     </a>`;
   }).join('');
 }
