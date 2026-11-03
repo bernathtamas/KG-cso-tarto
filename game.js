@@ -54,6 +54,25 @@ function boing(second) {
     osc.start(t); lfo.start(t); osc.stop(t + .45); lfo.stop(t + .45);
   } catch {}
 }
+// Pipe pickup: a short two-note "bling", like collecting a coin.
+function bling() {
+  if (muted) return;
+  try {
+    audio = audio || new (window.AudioContext || window.webkitAudioContext)();
+    const t = audio.currentTime;
+    [[988, 0], [1319, .075]].forEach(([f, d]) => {
+      const osc = audio.createOscillator(), gain = audio.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(f, t + d);
+      gain.gain.setValueAtTime(.0001, t + d);
+      gain.gain.exponentialRampToValueAtTime(.09, t + d + .008);
+      gain.gain.exponentialRampToValueAtTime(.0001, t + d + (d ? .28 : .1));
+      osc.connect(gain).connect(audio.destination);
+      osc.start(t + d); osc.stop(t + d + .3);
+    });
+  } catch {}
+}
+
 export function toggleMute() {
   muted = !muted;
   try { localStorage.setItem('pipeRunnerMuted', muted ? '1' : '0'); } catch {}
@@ -126,7 +145,7 @@ function update(dt) {
   const px = s.x + P_X;
   for (const p of s.pipes) {
     if (!p.got && Math.abs(p.x - px) < 40 && s.y < p.y + 60 && s.y + P_H > p.y) {
-      p.got = true; s.got++;
+      p.got = true; s.got++; bling();
       s.fx.push({x: p.x, y: p.y, t: 0, txt: '+1'});
     }
   }

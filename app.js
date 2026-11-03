@@ -26,7 +26,7 @@ function route() {
 let game;
 async function syncGame(on) {
   if (on && !game) {
-    game = await import('./game.js?v=20261103p');
+    game = await import('./game.js?v=20261103r');
     const frame = $('#game-frame'), btn = $('#game-sound');
     game.mountGame(frame);
     const show = m => { btn.textContent = m ? 'Sound off' : 'Sound on'; btn.setAttribute('aria-pressed', String(!m)); btn.classList.toggle('is-on', !m); };
