@@ -381,3 +381,22 @@ h3{font-size:1.45rem;letter-spacing:.05em}
   .nav-links a[aria-current="page"]{color:var(--gold)}
   .brand,.nav-toggle{position:relative;z-index:2}
 }
+
+/* Viewer controls: demo button and explode slider */
+.chip-cta{border-color:var(--gold);color:var(--gold)}
+.chip-cta:hover{background:var(--gold);color:#000}
+.chip-cta:disabled{opacity:.6;cursor:default}
+.chip-range{display:inline-flex;align-items:center;gap:.5rem;cursor:default}
+.chip-range input{width:110px;accent-color:var(--gold);cursor:pointer}
+
+/* Easter egg */
+.rudi-rain{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+.rudi{position:absolute;top:-80px;width:var(--w);animation:rudi-fall linear forwards;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5))}
+.rudi svg{display:block;width:100%;height:auto}
+@keyframes rudi-fall{to{transform:translateY(calc(100vh + 160px)) rotate(var(--spin))}}
+
+/* Game */
+.game-frame{border:1px solid var(--line);background:#05080d;line-height:0;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.game-frame canvas{display:block;outline:none;cursor:pointer}
+.game-keys{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:1rem;color:var(--muted)}
+.game-keys b{color:var(--gold);font-weight:500}

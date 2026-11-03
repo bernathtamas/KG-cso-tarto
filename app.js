@@ -3,7 +3,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 const exists = url => fetch(url, {method: 'HEAD', cache: 'no-store'}).then(r => r.ok).catch(() => false);
 
 /* ---------- Tabs (hash routing) ---------- */
-const PAGES = ['products', 'log', 'attachments', 'production', 'sponsors', 'about'];
+const PAGES = ['products', 'log', 'attachments', 'production', 'sponsors', 'game', 'about'];
 const SECTION_ALIASES = {model: 'products', video: 'products', stats: 'products', time: 'log'};
 let current;
 
@@ -18,6 +18,17 @@ function route() {
   if (SECTION_ALIASES[hash]) document.getElementById(hash)?.scrollIntoView();
   else if (changed || PAGES.includes(hash)) window.scrollTo({top: 0});
   revealIn(document.getElementById(`page-${page}`));
+  syncGame(page === 'game');
+}
+
+// The game is only loaded when its tab is opened, and pauses when you leave it.
+let game;
+async function syncGame(on) {
+  if (on && !game) {
+    game = await import('./game.js?v=20261103i');
+    game.mountGame($('#game-frame'));
+  }
+  game?.setActive(on);
 }
 window.addEventListener('hashchange', route);
 
@@ -210,6 +221,20 @@ spinBtn.addEventListener('click', () => {
 });
 $('#reset-view').addEventListener('click', () => viewer?.resetView());
 
+// Lift-the-rail demo and explode slider (GLB and STEP both carry module/part names).
+const liftBtn = $('#lift-demo'), explodeIn = $('#explode');
+liftBtn.addEventListener('click', async () => {
+  if (!viewer) return;
+  explodeIn.value = 0;
+  viewer.setExplode(0);
+  liftBtn.disabled = true;
+  liftBtn.classList.add('is-on');
+  await viewer.liftDemo();
+  liftBtn.disabled = false;
+  liftBtn.classList.remove('is-on');
+});
+explodeIn.addEventListener('input', () => viewer?.setExplode(explodeIn.value / 100));
+
 const input = $('#step-input');
 $('#open-step').addEventListener('click', () => input.click());
 input.addEventListener('change', async () => {
@@ -241,3 +266,39 @@ if (canWebGL()) import('./logo3d.js').then(m => m.mountLogo($('#hero-logo'))).ca
 route();
 loadSummary().then(loadBom);
 loadMedia();
+
+/* ---------- Easter egg: five quick clicks on a logo and Túró Rudi rains down ---------- */
+const RUDI = `<svg viewBox="0 0 160 52" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="rw" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#7a2a1a"/><stop offset=".45" stop-color="#4a160d"/><stop offset="1" stop-color="#2b0b06"/></linearGradient></defs>
+  <path d="M8 6h144l-4 4 4 4-4 4 4 4-4 4 4 4-4 4 4 4-4 4 4 4H8l4-4-4-4 4-4-4-4 4-4-4-4 4-4-4-4 4-4z" fill="#f4f1ec"/>
+  <rect x="26" y="5" width="108" height="42" rx="10" fill="url(#rw)"/>
+  <path d="M36 35c20-24 50 12 90-18" fill="none" stroke="#d6a85b" stroke-width="1.4" opacity=".8"/>
+  <text x="80" y="22" font-family="Georgia,serif" font-size="8" letter-spacing="2" fill="#f4f1ec" text-anchor="middle">CSERPES</text>
+  <text x="80" y="38" font-family="Georgia,serif" font-style="italic" font-size="17" fill="#d6a85b" text-anchor="middle">Rudi</text></svg>`;
+let eggClicks = [];
+function rudiRain() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const layer = document.createElement('div');
+  layer.className = 'rudi-rain';
+  layer.setAttribute('aria-hidden', 'true');
+  for (let i = 0; i < 18; i++) {
+    const r = document.createElement('div');
+    r.className = 'rudi';
+    r.innerHTML = RUDI;
+    r.style.left = `${Math.random() * 92}vw`;
+    r.style.animationDelay = `${Math.random() * 1.6}s`;
+    r.style.animationDuration = `${2.4 + Math.random() * 1.6}s`;
+    r.style.setProperty('--spin', `${(Math.random() < .5 ? -1 : 1) * (180 + Math.random() * 540)}deg`);
+    r.style.setProperty('--w', `${90 + Math.random() * 70}px`);
+    layer.appendChild(r);
+  }
+  document.body.appendChild(layer);
+  setTimeout(() => layer.remove(), 5200);
+}
+for (const el of [$('.brand-mark'), $('#hero-logo'), $('.about-logo')]) {
+  el?.addEventListener('click', e => {
+    const now = performance.now();
+    eggClicks = eggClicks.filter(t => now - t < 3000).concat(now);
+    if (eggClicks.length >= 5) { eggClicks = []; rudiRain(); }
+  });
+}

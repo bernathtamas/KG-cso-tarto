@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261103h">
+<link rel="stylesheet" href="style.css?v=20261103i">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 </head>
 <body>
@@ -25,6 +25,7 @@
     <a href="#attachments" data-tab="attachments">Attachments</a>
     <a href="#production" data-tab="production">Road to production</a>
     <a href="#sponsors" data-tab="sponsors">Sponsors</a>
+    <a href="#game" data-tab="game">Game</a>
     <a href="#about" data-tab="about">About us</a>
   </nav>
   <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
@@ -74,6 +75,8 @@
         <div class="viewer-actions">
           <button class="chip is-on" id="toggle-pipes" type="button" aria-pressed="true">Pipes</button>
           <button class="chip is-on" id="toggle-spin" type="button" aria-pressed="true">Spin</button>
+          <button class="chip chip-cta" id="lift-demo" type="button">Lift the rail ▶</button>
+          <label class="chip chip-range" for="explode"><span>Explode</span><input type="range" id="explode" min="0" max="100" value="0" aria-label="Explode the model"></label>
           <button class="chip" id="reset-view" type="button">Reset view ↺</button>
           <button class="chip" id="load-step" type="button">Engraved STEP (15 MB)</button>
           <button class="chip" id="open-step" type="button">Open your file ＋</button>
@@ -535,6 +538,19 @@
   </section>
 </section>
 
+<!-- ================= GAME ================= -->
+<section class="page" id="page-game" data-page="game" hidden>
+  <div class="page-hero">
+    <p class="eyebrow">GAME</p>
+    <h1>Pipe Runner.</h1>
+    <p class="lead">The rack runs on its own. Jump between three levels, collect the pipes, keep away from screws, and reach the finish. Every round asks for a different number of pipes.</p>
+  </div>
+  <section class="band">
+    <div class="game-frame" id="game-frame"></div>
+    <div class="game-keys mono"><span><b>SPACE</b> / <b>TAP</b> jump</span><span>jump again in the air to reach the top level</span><span>screw = −1 pipe</span></div>
+  </section>
+</section>
+
 <!-- ================= ABOUT ================= -->
 <section class="page" id="page-about" data-page="about" hidden>
   <div class="about-hero">
@@ -575,6 +591,6 @@
   <a class="mono" href="#products">BACK TO TOP ↑</a>
 </footer>
 
-<script type="module" src="app.js?v=20261103h"></script>
+<script type="module" src="app.js?v=20261103i"></script>
 </body>
 </html>

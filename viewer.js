@@ -17,6 +17,7 @@ const PIPE = {
 const WEDGE = new THREE.MeshStandardMaterial({color: 0x2a2018, roughness: .6});
 
 let renderer, scene, camera, controls, group, home, spin = true, lastInteraction = 0;
+let parts = [], explode = 0, demo = null;
 let occtPromise;
 
 function init() {
@@ -52,7 +53,8 @@ function init() {
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(container);
   renderer.setAnimationLoop(() => {
     if (!visible) return;
-    if (spin && group && performance.now() - lastInteraction > 2500) group.rotation.y += .0025;
+    if (spin && !demo && group && performance.now() - lastInteraction > 2500) group.rotation.y += .0025;
+    if (demo) poseParts();
     controls.update();
     renderer.render(scene, camera);
   });
@@ -87,6 +89,93 @@ function frame(object) {
   controls.minDistance = radius * .4;
   controls.maxDistance = dist * 3;
   controls.update();
+  prepareParts();
+}
+
+/* ---------- explode + lift-the-rail demo ----------
+   Offsets are worked out once in model space (Y up, +Z = front of the rack) and converted into each
+   mesh's parent frame, so they keep working while the group spins. Sizes are in mm. */
+const KIND = [
+  ['pipe', o => o.userData.isPipe], ['rail', o => /zarolec/i.test(o.name)], ['wedge', o => /(^|[_-])ek([_-]|\b)/i.test(o.name)],
+  ['wall', o => /oldalfal/i.test(o.name)], ['floor', o => /padlo/i.test(o.name)], ['comb', o => /fesu/i.test(o.name)],
+  ['back', o => /hatfal/i.test(o.name)],
+];
+
+function prepareParts() {
+  parts = [];
+  explode = 0;
+  demo = null;
+  group.updateMatrixWorld(true);
+  const meshes = [];
+  group.traverse(o => { if (o.isMesh) meshes.push(o); });
+  const info = meshes.map(o => ({o, c: new THREE.Box3().setFromObject(o).getCenter(new THREE.Vector3()),
+    kind: (KIND.find(([, f]) => f(o)) || ['other'])[0], mod: (o.name.match(/^([AB])[_-]/) || [])[1]}));
+  const centre = {};
+  for (const m of ['A', 'B']) {
+    const own = info.filter(i => i.mod === m);
+    if (own.length) centre[m] = own.reduce((a, i) => a.add(i.c), new THREE.Vector3()).divideScalar(own.length);
+  }
+  if (!centre.A || !centre.B) return;   // a model without module names: no explode / demo
+  for (const i of info) {
+    if (!i.mod) i.mod = Math.abs(i.c.x - centre.A.x) < Math.abs(i.c.x - centre.B.x) ? 'A' : 'B';
+    const mc = centre[i.mod], side = Math.sign(i.c.x - mc.x) || 1;
+    const v = new THREE.Vector3((i.mod === 'A' ? -1 : 1) * 260, 0, 0);
+    if (i.kind === 'pipe') v.y += 1100;
+    if (i.kind === 'wall') v.x += side * 420;
+    if (i.kind === 'wedge') v.x += side * 700;
+    if (i.kind === 'floor') v.y -= 280;
+    if (i.kind === 'comb') v.z += 380;
+    if (i.kind === 'rail') v.z += 650;
+    if (i.kind === 'back') v.z -= 380;
+    const parent = i.o.parent, inv = new THREE.Matrix4().copy(parent.matrixWorld).invert();
+    const toLocal = w => i.c.clone().add(w).applyMatrix4(inv).sub(i.c.clone().applyMatrix4(inv));
+    parts.push({...i, p0: i.o.position.clone(), ex: toLocal(v),
+      up: toLocal(new THREE.Vector3(0, 1, 0)), fwd: toLocal(new THREE.Vector3(0, 0, 1))});
+  }
+  // The demo lifts the front-most DN200 pipe of module A.
+  const pipesA = parts.filter(p => p.kind === 'pipe' && p.mod === 'A');
+  const pick = pipesA.sort((a, b) => b.c.z - a.c.z || b.c.x - a.c.x)[0];
+  if (pick) pick.demoPipe = true;
+}
+
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const seg = (t, a, b) => ease(Math.min(1, Math.max(0, (t - a) / (b - a))));
+
+function poseParts() {
+  let lift = 0, pull = 0, raise = 0;
+  if (demo) {
+    const t = (performance.now() - demo.t0) / 1000;
+    // up 20 mm → pull 160 mm forward → pipe comes up → hold → everything back
+    lift = seg(t, 0, .45) - seg(t, 3.9, 4.3);
+    pull = seg(t, .45, 1.1) - seg(t, 3.3, 3.9);
+    raise = seg(t, 1.1, 1.9) - seg(t, 2.6, 3.3);
+    if (t > 4.4) { demo.done(); demo = null; }
+  }
+  for (const p of parts) {
+    const pos = p.p0.clone().addScaledVector(p.ex, explode);
+    if (p.kind === 'rail') pos.addScaledVector(p.up, 20 * lift).addScaledVector(p.fwd, 160 * pull);
+    if (p.demoPipe) pos.addScaledVector(p.up, 700 * raise);
+    p.o.position.copy(pos);
+  }
+}
+
+export function setExplode(t) {
+  explode = t;
+  poseParts();
+}
+
+export function liftDemo() {
+  if (!parts.length) return Promise.resolve(false);
+  if (demo) return demo.promise;
+  setPipes(true);
+  group.rotation.y = 0;
+  camera.position.copy(home);
+  controls.target.set(0, 0, 0);
+  controls.update();
+  let done;
+  const promise = new Promise(r => { done = () => r(true); });
+  demo = {t0: performance.now(), done, promise};
+  return promise;
 }
 
 function styleGlb(root) {
@@ -101,7 +190,7 @@ function styleGlb(root) {
     const name = `${o.name} ${o.parent?.name || ''}`;
     const dn = (name.match(/DN(100|150|200)/) || [])[0];
     const isPipe = /cso_|KGEM/i.test(name);
-    o.material = isPipe ? PIPE[dn] || PIPE.DN150 : /^EK\b/.test(o.name) ? WEDGE : WOOD;
+    o.material = isPipe ? PIPE[dn] || PIPE.DN150 : /(^|[_-])ek([_-]|\b)/i.test(o.name) ? WEDGE : WOOD;
     o.userData.isPipe = isPipe;
   });
 }
