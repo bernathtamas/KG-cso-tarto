@@ -10,7 +10,7 @@ Lézervágott, rétegelt lemez csőtároló a műhelyünkbe, DN100 / DN150 / DN2
 | Kapacitás | 30 cső: 6 × DN200, 8 × DN150, 16 × DN100 |
 | Anyag | 6 tábla rétegelt lemez (3 × 10 mm, 3 × 6 mm), 1400 × 1400 mm, 64% kihasználás |
 | Felépítés | 2 modul, 14 lemez + 56 ék, ékes átmenő csapok, csavar nélkül, kiakasztható zároléc |
-| Videó | 2:14, Remotion + HyperFrames, magyar narráció |
+| Videó | 1:22, angol, Remotion + HyperFrames, neurális narráció, zene: Kevin MacLeod „Inspired” (CC BY 4.0) |
 
 ## Az oldal fülei
 `#termekek` · `#tervezes` · `#mellekletek` · `#megvalositas` · `#rolunk`
