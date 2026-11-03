@@ -224,6 +224,18 @@ h3{font-size:1.45rem;letter-spacing:.05em}
 .file b{font-weight:500;font-size:1.05rem}
 .file .arrow{font-family:var(--mono)}
 
+/* ---------- OBSTACLES ---------- */
+.obstacles{max-width:var(--maxw);margin:clamp(4rem,8vw,6rem) auto 0;padding:0 var(--gutter)}
+.ob{display:grid;grid-template-columns:4rem 1fr 1fr;gap:clamp(1rem,3vw,3rem);padding:2.4rem 0;border-top:1px solid var(--line)}
+.ob-no{font-size:1rem;color:var(--muted);padding-top:.25rem}
+.ob-col h3{margin:.7rem 0 .6rem}
+.ob-col p{margin:0;color:#cfcfcf;font-weight:300}
+.ob-col+.ob-col{border-left:1px solid var(--line);padding-left:clamp(1rem,3vw,3rem)}
+.ob-tag{display:inline-block;padding:.25rem .55rem;border:1px solid}
+.ob-tag.warn{color:var(--warn);border-color:rgba(232,169,74,.5)}
+.ob-tag.ok{color:var(--ok);border-color:rgba(127,211,155,.5)}
+@media (max-width:760px){.ob{grid-template-columns:1fr}.ob-col+.ob-col{border-left:0;padding-left:0;padding-top:1.2rem;border-top:1px dashed var(--line)}}
+
 /* ---------- ROADMAP ---------- */
 .roadmap{max-width:var(--maxw);margin:clamp(4rem,8vw,6rem) auto 0;padding:0 var(--gutter);display:grid;gap:0;counter-reset:rm}
 .rm{display:grid;grid-template-columns:5rem 1fr;gap:1.5rem;padding:2rem 0;border-top:1px solid var(--line);position:relative}

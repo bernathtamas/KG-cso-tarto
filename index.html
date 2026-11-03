@@ -40,7 +40,7 @@
       <img class="hero-logo-fallback" src="assets/product-team-logo.svg" alt="">
     </div>
     <div class="hero-copy">
-      <p class="eyebrow">AI KIHÍVÁS / 2026 · PROJEKT 02</p>
+      <p class="eyebrow">AI KIHÍVÁS / 2026 · CLAUDE OPUS 5.5</p>
       <h1>KG csőtároló <span class="thin">V1</span></h1>
       <p class="lead">Lézervágott, fa csőtároló a műhelyünkbe, DN100, DN150 és DN200 méretű KG csövekhez. Rendezett, stabil, egy mozdulattal hozzáférhető.</p>
       <div class="cta-row">
@@ -114,7 +114,7 @@
         <p class="eyebrow">03 / VIDEÓ</p>
         <h2>A projekt 2 percben.</h2>
       </div>
-      <p class="band-note">A témától a 3D modellen át a lézervágásig, narrációval.</p>
+      <p class="band-note">A témától a 3D modellen át a lézervágásig, narrációval. Kódból renderelt videó: Remotion (React), a 3D modell animációjával és AI-narrációval.</p>
     </div>
     <div class="video-frame" id="video-frame">
       <video id="project-video" playsinline controls preload="metadata" hidden>
@@ -168,8 +168,39 @@
   <div class="page-hero">
     <p class="eyebrow">02 / TERVEZÉS FOLYAMATA</p>
     <h1>Promptól<br>a vágási fájlig.</h1>
-    <p class="lead">Hogyan jutottunk el egy egyszerű műhelyproblémától a paraméteres, ütközésvizsgált 3D modellig, AI segítségével.</p>
+    <p class="lead">Hogyan jutottunk el egy egyszerű műhelyproblémától a paraméteres, ütközésvizsgált 3D modellig, a Claude Opus 5.5 segítségével.</p>
   </div>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">00 / KUTATÁS ÉS KÖZÖS TERVEZÉS</p>
+        <h2>Először megnéztük,<br>hogyan csinálják a profik.</h2>
+      </div>
+      <p class="band-note">Mielőtt egyetlen vonalat húztunk volna, közösen feltérképeztük, milyen eszközökkel és munkafolyamatokkal dolgoznak a tapasztalt tervezők, és mit alkottak már mások hasonló témában.</p>
+    </div>
+    <div class="tool-grid">
+      <div class="tool"><span class="mono">01 · ESZKÖZPIAC</span><b>Profi munkafolyamatok</b><p>Összevetettük a művészi (Blender), a parametrikus (Fusion 360, Onshape) és a kódalapú CAD-et (OpenSCAD, CadQuery), valamint az AI-s 3D-generátorokat. A kódalapú utat választottuk, mert ott az AI a legerősebb.</p></div>
+      <div class="tool"><span class="mono">02 · REFERENCIÁK</span><b>Mások munkái</b><p>Átnéztük nyílt forráskódú skillgyűjtemények (pl. claudedesignskills) Three.js- és webes 3D-mintáit, valamint műhelyes csőtárolók megoldásait.</p></div>
+      <div class="tool"><span class="mono">03 · ADATOK</span><b>Valós méretek</b><p>A KG csövek átmérőit és szálhosszait a gyártói katalógusból vettük, a helyet lemértük: 230 × 60 cm, legfeljebb 70 cm.</p></div>
+      <div class="tool"><span class="mono">04 · DIZÁJN</span><b>Vizuális irány</b><p>Weboldalhoz a SpaceX letisztult, mérnöki stílusát vettük alapul, márkához a saját Product Team logónkat és az előző projektünk elemeit.</p></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">AI-STACK</p>
+        <h2>Skillek, MCP, Opus 5.5.</h2>
+      </div>
+      <p class="band-note">A projekt minden lépését a Claude Opus 5.5 modellel, Claude Code-ban végeztük. A képességeit skillekkel és MCP-szerverekkel bővítettük.</p>
+    </div>
+    <div class="tool-grid three">
+      <div class="tool"><span class="mono">MODELL</span><b>Claude Opus 5.5</b><p>Tervezés, mérnöki döntések, paraméteres generátor, Fusion-szkript, weboldal, szövegek.</p></div>
+      <div class="tool"><span class="mono">SKILLEK</span><b>Skillkatalógusok</b><p>Átnéztük a skill- és pluginkatalógusokat és a claudedesignskills gyűjteményt. A webes 3D-hez és a felülettervezéshez belőlük vettünk mintákat.</p></div>
+      <div class="tool"><span class="mono">MCP</span><b>MCP-szerverek</b><p>MCP-regiszter a CAD-kapcsolat kereséséhez, munkamenet-MCP a párhuzamos fülek összehangolásához, böngésző-MCP az oldal élő teszteléséhez.</p></div>
+    </div>
+  </section>
 
   <ol class="timeline">
     <li class="tl-item">
@@ -241,6 +272,10 @@
       <div class="tool"><span class="mono">CAD</span><b>Python + Fusion 360</b><p>shapely, trimesh, ezdxf, manifold3d · Fusion szkript</p></div>
       <div class="tool"><span class="mono">GYÁRTÁS</span><b>CO₂ lézer</b><p>DXF táblák, VAGAS / JELOLES rétegek</p></div>
       <div class="tool"><span class="mono">WEB</span><b>Three.js + GitHub Pages</b><p>Forgatható GLB/STEP, statikus oldal</p></div>
+      <div class="tool"><span class="mono">VIDEÓ</span><b>Remotion</b><p>Kódból renderelt videó React-tel, a 3D modell animációjával</p></div>
+      <div class="tool"><span class="mono">HANG</span><b>AI-narráció</b><p>Claude-dal megírt forgatókönyv, szintetizált magyar hang</p></div>
+      <div class="tool"><span class="mono">MCP</span><b>Munkamenet + böngésző</b><p>Párhuzamos fülek összehangolása, élő tesztelés</p></div>
+      <div class="tool"><span class="mono">MODELL</span><b>Claude Opus 5.5</b><p>Minden lépés mögött</p></div>
     </div>
   </section>
 </section>
@@ -311,9 +346,56 @@
 <section class="page" id="page-megvalositas" data-page="megvalositas" hidden>
   <div class="page-hero">
     <p class="eyebrow">04 / ÚT A MEGVALÓSÍTÁSIG</p>
-    <h1>A képernyőtől<br>a műhely faláig.</h1>
-    <p class="lead">A gyártás és az összeszerelés lépései, a jelenlegi állapottal együtt.</p>
+    <h1>Akadályok.<br><span class="thin">Megoldások.</span></h1>
+    <p class="lead">Egyik lépés sem ment elsőre. Így jutottunk túl a projekt legnehezebb pontjain.</p>
   </div>
+
+  <div class="obstacles">
+    <article class="ob">
+      <span class="ob-no mono">01</span>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Nincs kész CAD-kapcsolat</h3><p>A Fusion 360-hoz nem találtunk közvetlenül használható MCP-kapcsolatot.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Kódból épülő modell</h3><p>Az AI paraméteres Python-generátort írt, ami DXF-et és 3D-t készít, mellé pedig egy Fusion-szkriptet, ami ugyanezt natívan felépíti. Egy szám átírásával az egész modell újragenerálható.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">02</span>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Az 1400 mm-es tábla</h3><p>A 2300 mm-es hely nem fér ki egyetlen lemezből.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Két modul</h3><p>Az állványt két modulra bontottuk (1170 + 1054 mm), amelyeket M8 csavarok fognak össze. Így minden alkatrész kifér egy táblából.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">03</span>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Kevés cső fért el</h3><p>Tokkal lefelé túl nagyok lettek a furatok, és a DN100-ból csak 3 fért egy sávba.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Tokkal felfelé</h3><p>Megfordítottuk a csöveket: a furat a csőhöz igazodik, a tok a felső fésű fölé kerül. Az eredmény: 30 cső.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">04</span>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Honnan tudjuk, hogy összeáll?</h3><p>18 alkatrész, csap-horony kötések. Egy rossz méret a lézervágás után derülne ki.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Automatikus ütközésvizsgálat</h3><p>A generátor minden futáskor minden alkatrészpárt ellenőriz. Szándékos 1 mm-es hibával teszteltük, és kimutatta.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">05</span>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Egy beszélgetés kevés</h3><p>A modell és a weboldal párhuzamosan készült, a határidő szoros volt.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Párhuzamos AI-munkamenetek</h3><p>Két Claude-munkamenet dolgozott egyszerre. A weboldalas MCP-n keresztül elolvasta a tervezős beszélgetését, és ugyanazokból az adatokból dolgozott.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">06</span>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Fekete modell a weben</h3><p>A 3D-néző az állványt teljesen feketén mutatta.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Hibakeresés a fájlban</h3><p>Az AI megvizsgálta a GLB-fájl belsejét, és rájött, hogy hiányoznak a felületi normálok. Most betöltéskor számolja ki őket.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">07</span>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Feltöltés kódolás nélkül</h3><p>Nem programozunk, és a gépen nem volt GitHub-hozzáférés.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Egy kód, egy kattintás</h3><p>Az AI letöltötte és ellenőrizte a GitHub hivatalos eszközét. Nekünk csak egy egyszeri kódot kellett jóváhagynunk a böngészőben, a feltöltés és az élesítés automatikusan történt.</p></div>
+    </article>
+  </div>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">A GYÁRTÁS FELÉ</p>
+        <h2>A képernyőtől a műhely faláig.</h2>
+      </div>
+    </div>
+  </section>
 
   <div class="roadmap" id="roadmap">
     <article class="rm done"><span class="rm-no mono">01</span><div><span class="rm-state mono">KÉSZ</span><h3>Paraméteres 3D modell</h3><p>Python-generátor, Fusion szkript, ütközésvizsgálat.</p></div></article>

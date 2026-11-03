@@ -44,7 +44,7 @@ const io = new IntersectionObserver(entries => entries.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
 }), {rootMargin: '0px 0px -8% 0px'});
 function revealIn(root) {
-  root.querySelectorAll('.band, .tl-item, .rm, .stat, .page-hero, .about-hero').forEach(el => {
+  root.querySelectorAll('.band, .tl-item, .rm, .ob, .stat, .page-hero, .about-hero').forEach(el => {
     if (el.classList.contains('is-in')) return;
     el.classList.add('reveal');
     io.observe(el);

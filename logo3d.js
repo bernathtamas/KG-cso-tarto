@@ -25,9 +25,11 @@ export async function mountLogo(host) {
       return;
     }
     const mat = style.fill?.toUpperCase() === '#F2E8D5' ? cream : gold;
+    // P and T overlap in the SVG (T drawn on top); give T its own front/back planes so they don't z-fight.
+    const depth = i === 2 ? 9 : 8, z = i === 2 ? -2 : -1.5;
     for (const shape of SVGLoader.createShapes(path)) {
-      const mesh = new THREE.Mesh(new THREE.ExtrudeGeometry(shape, {...bevel, depth: 8}), mat);
-      mesh.position.z = -1.5;
+      const mesh = new THREE.Mesh(new THREE.ExtrudeGeometry(shape, {...bevel, depth}), mat);
+      mesh.position.z = z;
       logo.add(mesh);
     }
   });
