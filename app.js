@@ -26,7 +26,7 @@ function route() {
 let game;
 async function syncGame(on) {
   if (on && !game) {
-    game = await import('./game.js?v=20261103k');
+    game = await import('./game.js?v=20261103l');
     game.mountGame($('#game-frame'));
   }
   game?.setActive(on);
