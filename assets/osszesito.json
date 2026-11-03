@@ -1,12 +1,12 @@
 {
  "befoglalo_mm": [
-  2224,
+  2265,
   600,
   1350
  ],
  "modulok": {
   "A": {
-   "belso_szelesseg": 1150,
+   "belso_szelesseg": 1130,
    "savok": [
     200,
     200,
@@ -16,7 +16,7 @@
    ]
   },
   "B": {
-   "belso_szelesseg": 1034,
+   "belso_szelesseg": 1009,
    "savok": [
     150,
     150,
@@ -37,20 +37,18 @@
    "n": 1,
    "vastagsag": 10.0,
    "alkatreszek": [
-    "A-OLDAL-BAL",
-    "A-OLDAL-JOBB",
-    "A-TALP-1",
-    "A-TALP-2"
+    "A-OLDALFAL",
+    "A-OLDALFAL",
+    "A-ZAROLEC"
    ]
   },
   {
    "n": 2,
    "vastagsag": 10.0,
    "alkatreszek": [
-    "B-OLDAL-BAL",
-    "B-OLDAL-JOBB",
-    "B-TALP-1",
-    "B-TALP-2"
+    "B-OLDALFAL",
+    "B-OLDALFAL",
+    "B-ZAROLEC"
    ]
   },
   {
@@ -63,190 +61,233 @@
   },
   {
    "n": 4,
-   "vastagsag": 10.0,
+   "vastagsag": 6.0,
    "alkatreszek": [
-    "A-LOKATOR",
-    "B-LOKATOR"
+    "A-HATFAL",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK",
+    "EK"
    ]
   },
   {
    "n": 5,
    "vastagsag": 6.0,
    "alkatreszek": [
-    "A-HATFAL"
+    "B-HATFAL"
    ]
   },
   {
    "n": 6,
    "vastagsag": 6.0,
    "alkatreszek": [
-    "B-HATFAL"
-   ]
-  },
-  {
-   "n": 7,
-   "vastagsag": 6.0,
-   "alkatreszek": [
     "A-FESU-ALSO",
-    "A-FESU-FELSO"
-   ]
-  },
-  {
-   "n": 8,
-   "vastagsag": 6.0,
-   "alkatreszek": [
+    "A-FESU-FELSO",
     "B-FESU-ALSO",
     "B-FESU-FELSO"
    ]
   }
  ],
- "alkatreszek": [
+ "bom": [
   {
-   "nev": "A-OLDAL-BAL",
-   "vastagsag": 10.0,
-   "meret": [
-    600,
-    1350
-   ]
+   "tetel": 1,
+   "azonosito": "A-OLDALFAL",
+   "megnevezes": "Oldalfal",
+   "db": 2,
+   "anyag": "rétegelt lemez 10 mm",
+   "meret_mm": "600 × 1350 × 10",
+   "megjegyzes": "ékes hornyok, zároléc L-horony"
   },
   {
-   "nev": "A-OLDAL-JOBB",
-   "vastagsag": 10.0,
-   "meret": [
-    600,
-    1350
-   ]
+   "tetel": 2,
+   "azonosito": "A-PADLO",
+   "megnevezes": "Padló / csőfészek",
+   "db": 1,
+   "anyag": "rétegelt lemez 10 mm",
+   "meret_mm": "1190 × 576 × 10",
+   "megjegyzes": "ékes csapok, csőfészkek"
   },
   {
-   "nev": "A-PADLO",
-   "vastagsag": 10.0,
-   "meret": [
-    1170,
-    586
-   ]
+   "tetel": 3,
+   "azonosito": "A-FESU-ALSO",
+   "megnevezes": "Vezetőfésű (alsó)",
+   "db": 1,
+   "anyag": "rétegelt lemez 6 mm",
+   "meret_mm": "1190 × 576 × 6",
+   "megjegyzes": "ékes csapok"
   },
   {
-   "nev": "A-LOKATOR",
-   "vastagsag": 10.0,
-   "meret": [
-    1148,
-    579
-   ]
+   "tetel": 4,
+   "azonosito": "A-FESU-FELSO",
+   "megnevezes": "Vezetőfésű (felső)",
+   "db": 1,
+   "anyag": "rétegelt lemez 6 mm",
+   "meret_mm": "1190 × 576 × 6",
+   "megjegyzes": "ékes csapok"
   },
   {
-   "nev": "A-TALP-1",
-   "vastagsag": 10.0,
-   "meret": [
-    1149,
-    70
-   ]
+   "tetel": 5,
+   "azonosito": "A-ZAROLEC",
+   "megnevezes": "Zároléc",
+   "db": 1,
+   "anyag": "rétegelt lemez 10 mm",
+   "meret_mm": "1150 × 102 × 10",
+   "megjegyzes": "oldalfalba akasztva, kiemelhető"
   },
   {
-   "nev": "A-TALP-2",
-   "vastagsag": 10.0,
-   "meret": [
-    1149,
-    70
-   ]
+   "tetel": 6,
+   "azonosito": "A-HATFAL",
+   "megnevezes": "Hátfal",
+   "db": 1,
+   "anyag": "rétegelt lemez 6 mm",
+   "meret_mm": "1190 × 1350 × 6",
+   "megjegyzes": "ékes csapok, szegezve a padlóhoz"
   },
   {
-   "nev": "A-FESU-ALSO",
-   "vastagsag": 6.0,
-   "meret": [
-    1170,
-    586
-   ]
+   "tetel": 7,
+   "azonosito": "B-OLDALFAL",
+   "megnevezes": "Oldalfal",
+   "db": 2,
+   "anyag": "rétegelt lemez 10 mm",
+   "meret_mm": "600 × 1350 × 10",
+   "megjegyzes": "ékes hornyok, zároléc L-horony"
   },
   {
-   "nev": "A-FESU-FELSO",
-   "vastagsag": 6.0,
-   "meret": [
-    1170,
-    586
-   ]
+   "tetel": 8,
+   "azonosito": "B-PADLO",
+   "megnevezes": "Padló / csőfészek",
+   "db": 1,
+   "anyag": "rétegelt lemez 10 mm",
+   "meret_mm": "1069 × 576 × 10",
+   "megjegyzes": "ékes csapok, csőfészkek"
   },
   {
-   "nev": "A-HATFAL",
-   "vastagsag": 6.0,
-   "meret": [
-    1170,
-    1350
-   ]
+   "tetel": 9,
+   "azonosito": "B-FESU-ALSO",
+   "megnevezes": "Vezetőfésű (alsó)",
+   "db": 1,
+   "anyag": "rétegelt lemez 6 mm",
+   "meret_mm": "1069 × 576 × 6",
+   "megjegyzes": "ékes csapok"
   },
   {
-   "nev": "B-OLDAL-BAL",
-   "vastagsag": 10.0,
-   "meret": [
-    600,
-    1350
-   ]
+   "tetel": 10,
+   "azonosito": "B-FESU-FELSO",
+   "megnevezes": "Vezetőfésű (felső)",
+   "db": 1,
+   "anyag": "rétegelt lemez 6 mm",
+   "meret_mm": "1069 × 576 × 6",
+   "megjegyzes": "ékes csapok"
   },
   {
-   "nev": "B-OLDAL-JOBB",
-   "vastagsag": 10.0,
-   "meret": [
-    600,
-    1350
-   ]
+   "tetel": 11,
+   "azonosito": "B-ZAROLEC",
+   "megnevezes": "Zároléc",
+   "db": 1,
+   "anyag": "rétegelt lemez 10 mm",
+   "meret_mm": "1029 × 102 × 10",
+   "megjegyzes": "oldalfalba akasztva, kiemelhető"
   },
   {
-   "nev": "B-PADLO",
-   "vastagsag": 10.0,
-   "meret": [
-    1054,
-    586
-   ]
+   "tetel": 12,
+   "azonosito": "B-HATFAL",
+   "megnevezes": "Hátfal",
+   "db": 1,
+   "anyag": "rétegelt lemez 6 mm",
+   "meret_mm": "1069 × 1350 × 6",
+   "megjegyzes": "ékes csapok, szegezve a padlóhoz"
   },
   {
-   "nev": "B-LOKATOR",
-   "vastagsag": 10.0,
-   "meret": [
-    1032,
-    579
-   ]
-  },
-  {
-   "nev": "B-TALP-1",
-   "vastagsag": 10.0,
-   "meret": [
-    1033,
-    70
-   ]
-  },
-  {
-   "nev": "B-TALP-2",
-   "vastagsag": 10.0,
-   "meret": [
-    1033,
-    70
-   ]
-  },
-  {
-   "nev": "B-FESU-ALSO",
-   "vastagsag": 6.0,
-   "meret": [
-    1054,
-    586
-   ]
-  },
-  {
-   "nev": "B-FESU-FELSO",
-   "vastagsag": 6.0,
-   "meret": [
-    1054,
-    586
-   ]
-  },
-  {
-   "nev": "B-HATFAL",
-   "vastagsag": 6.0,
-   "meret": [
-    1054,
-    1350
-   ]
+   "tetel": 13,
+   "azonosito": "EK",
+   "megnevezes": "Ék",
+   "db": 56,
+   "anyag": "rétegelt lemez 6 mm",
+   "meret_mm": "18 × 70 × 6",
+   "megjegyzes": "ebből 4 tartalék"
   }
  ],
+ "kotoelemek": [
+  {
+   "megnevezes": "Szeg (szegezőgép, 18 Ga) 1,2 × 25 mm",
+   "db": 10,
+   "megjegyzes": "hátfal → padló éle"
+  },
+  {
+   "megnevezes": "Faragasztó D3 (PVA)",
+   "db": "~0,5 kg",
+   "megjegyzes": "hátfal csapjai, fésűcsapok a hátfalban"
+  },
+  {
+   "megnevezes": "Falhoz rögzítő L-vas + tipli",
+   "db": 4,
+   "megjegyzes": "modulonként 2, borulás ellen"
+  }
+ ],
+ "lemezek": [
+  {
+   "vastagsag": 6.0,
+   "db": 3
+  },
+  {
+   "vastagsag": 10.0,
+   "db": 3
+  }
+ ],
+ "anyagkihasznalas": {
+  "alkatreszek_m2": 7.51,
+  "tablak_m2": 11.76,
+  "szazalek": 64
+ },
  "ellenorzes": [
-  "OK – nincs ütközés"
+  "OK – nincs ütközés, minden ék a csapjában ül"
  ]
 }

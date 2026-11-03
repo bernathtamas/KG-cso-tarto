@@ -14,6 +14,7 @@ const PIPE = {
   DN150: new THREE.MeshStandardMaterial({color: 0xcf6a2a, roughness: .42, metalness: .05}),
   DN100: new THREE.MeshStandardMaterial({color: 0xe0823a, roughness: .42, metalness: .05}),
 };
+const WEDGE = new THREE.MeshStandardMaterial({color: 0x2a2018, roughness: .6});
 
 let renderer, scene, camera, controls, group, home, spin = true, lastInteraction = 0;
 let occtPromise;
@@ -96,9 +97,11 @@ function styleGlb(root) {
       o.geometry = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry;
       o.geometry.computeVertexNormals();
     }
-    const dn = (o.name.match(/DN(100|150|200)/) || o.parent?.name.match(/DN(100|150|200)/) || [])[0];
-    const isPipe = /^cso_/i.test(o.name) || /^cso_/i.test(o.parent?.name || '');
-    o.material = isPipe ? PIPE[dn] || PIPE.DN150 : WOOD;
+    // GLB names pipes "cso_DN200_01", the Fusion STEP "KGEM DN200".
+    const name = `${o.name} ${o.parent?.name || ''}`;
+    const dn = (name.match(/DN(100|150|200)/) || [])[0];
+    const isPipe = /cso_|KGEM/i.test(name);
+    o.material = isPipe ? PIPE[dn] || PIPE.DN150 : /^EK\b/.test(o.name) ? WEDGE : WOOD;
     o.userData.isPipe = isPipe;
   });
 }
@@ -133,15 +136,24 @@ export async function loadStep(buffer, label) {
     linearUnit: 'millimeter', linearDeflectionType: 'bounding_box_ratio', linearDeflection: .001, angularDeflection: .5,
   });
   if (!result.success || !result.meshes?.length) throw Error('Invalid STEP');
+  // Fusion leaves the pipe bodies unnamed; their node ("KG csövek") carries the name.
+  const nodeOf = [];
+  (function walk(n) { n.meshes.forEach(i => { nodeOf[i] = n.name; }); n.children.forEach(walk); })(result.root);
   const root = new THREE.Group();
-  for (const m of result.meshes) {
+  for (const [i, m] of result.meshes.entries()) {
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.Float32BufferAttribute(m.attributes.position.array, 3));
     if (m.attributes.normal) g.setAttribute('normal', new THREE.Float32BufferAttribute(m.attributes.normal.array, 3));
     g.setIndex(m.index.array);
     if (!m.attributes.normal) g.computeVertexNormals();
     const mesh = new THREE.Mesh(g, WOOD);
-    mesh.name = m.name || '';
+    mesh.name = m.name || nodeOf[i] || '';
+    if (/KG cs/i.test(mesh.name)) {
+      // DN from the cross-section: pipe 110/160/200 mm, socket 128/183/228 mm (middle bbox side).
+      g.computeBoundingBox();
+      const d = g.boundingBox.getSize(new THREE.Vector3()).toArray().sort((a, b) => a - b)[1];
+      mesh.name = `KGEM DN${d <= 140 ? 100 : d <= 195 ? 150 : 200}`;
+    }
     root.add(mesh);
   }
   styleGlb(root);

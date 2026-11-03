@@ -52,10 +52,10 @@
   </div>
 
   <div class="stats" id="stats">
-    <div class="stat"><span class="stat-num" data-count="2224">2224</span><span class="stat-unit">mm</span><span class="stat-label">Befoglaló hossz<br>(2300 mm-es helyre)</span></div>
-    <div class="stat"><span class="stat-num" data-count="600">600</span><span class="stat-unit">mm</span><span class="stat-label">Mélység<br>(max. 700 mm)</span></div>
+    <div class="stat"><span class="stat-num" data-count="2265">2265</span><span class="stat-unit">mm</span><span class="stat-label">Befoglaló hossz, 600 mm mély<br>(2300 mm-es helyre)</span></div>
+    <div class="stat"><span class="stat-num" data-count="0">0</span><span class="stat-unit">csavar</span><span class="stat-label">Ékes átmenő csapok<br>52 ék + 4 tartalék</span></div>
     <div class="stat"><span class="stat-num" data-count="30">30</span><span class="stat-unit">db</span><span class="stat-label">Cső kapacitás<br>6 × DN200 · 8 × DN150 · 16 × DN100</span></div>
-    <div class="stat"><span class="stat-num" data-count="18">18</span><span class="stat-unit">db</span><span class="stat-label">Lézervágott alkatrész<br>8 tábla, 1400 × 1400 mm</span></div>
+    <div class="stat"><span class="stat-num" data-count="64">64</span><span class="stat-unit">%</span><span class="stat-label">Anyagkihasználás<br>6 tábla, 1400 × 1400 mm</span></div>
   </div>
 
   <section class="band" id="modell">
@@ -64,7 +64,7 @@
         <p class="eyebrow">01 / INTERAKTÍV MODELL</p>
         <h2>Járd körbe.</h2>
       </div>
-      <p class="band-note">Két modul, 18 rétegelt lemez alkatrész, csap-horony kötés. A modell forgatható, nagyítható, és a csövek ki-be kapcsolhatók.</p>
+      <p class="band-note">Két modul, 14 rétegelt lemez alkatrész és 56 ék, csavar nélkül. A Fusion 360-ból exportált STEP-modell forgatható, nagyítható, és a csövek ki-be kapcsolhatók.</p>
     </div>
 
     <div class="viewer-shell">
@@ -81,7 +81,7 @@
       <div class="viewer" id="viewer">
         <div class="viewer-status mono" id="model-status" role="status">3D MODELL BETÖLTÉSE…</div>
         <div class="viewer-hud mono" aria-hidden="true">
-          <span>X 2224</span><span>Y 600</span><span>Z 1350</span>
+          <span>X 2265</span><span>Y 600</span><span>Z 1350</span>
         </div>
       </div>
       <div class="viewer-foot mono">
@@ -94,17 +94,17 @@
   <section class="band band-split">
     <div class="split-text">
       <p class="eyebrow">02 / MŰKÖDÉSI ELV</p>
-      <h2>Tokkal felfelé.<br>Fésűben vezetve.</h2>
+      <h2>Tokkal felfelé.<br>Fésűben vezetve.<br><span class="thin">Csavar nélkül.</span></h2>
       <ul class="spec-list">
-        <li><span class="mono">LOKÁTOR</span>A 10 mm-es alsó lemez furataiban ülnek a csövek, így nem csúsznak el.</li>
+        <li><span class="mono">CSŐFÉSZEK</span>A csövek a talajon állnak. A 20 mm-rel megemelt padló furatai fogják meg az aljukat, így a padló egyben a csőfészek.</li>
         <li><span class="mono">FÉSŰ</span>Két, elölről nyitott vezetőfésű 650 és 1300 mm magasan. A cső elölről becsúszik, oldalra nem dől ki.</li>
-        <li><span class="mono">GUMIKÖTÉL</span>Keresztben feszül minden fésű elején, így a cső előre sem tud kidőlni.</li>
-        <li><span class="mono">MODUL</span>A (1170 mm) és B (1054 mm) modul, 6 db M8 csavarral összefogva, falhoz rögzítve.</li>
+        <li><span class="mono">ZÁROLÉC</span>Az alsó fésű felett fut végig, és megakadályozza, hogy a csövek előre kidőljenek. 20 mm-t megemelve kiakasztható, szerszám nélkül.</li>
+        <li><span class="mono">ÉKES CSAP</span>A fő kötések átmenő csapok, amelyeket egy beütött ék zár. Szétszedhető, és nincs benne egyetlen csavar sem. Modulonként 2 L-vas rögzíti a falhoz.</li>
       </ul>
     </div>
     <figure class="split-media">
-      <img src="assets/elonezet/osszeallitas_csovekkel_3d.png" alt="A csőtároló összeállítása csövekkel, 3D előnézet" loading="lazy">
-      <figcaption class="mono">ÖSSZEÁLLÍTÁS / 30 CSŐVEL</figcaption>
+      <img src="assets/kepek/osszeallitas_csovekkel.jpg" alt="A csőtároló összeállítása csövekkel, Fusion 360 render" loading="lazy">
+      <figcaption class="mono">FUSION 360 / ÖSSZEÁLLÍTÁS 30 CSŐVEL</figcaption>
     </figure>
   </section>
 
@@ -234,14 +234,27 @@
       <span class="tl-step mono">T+03 · ELAKADÁS</span>
       <div class="tl-body">
         <h3>Az 1400 mm-es tábla korlátoz</h3>
-        <p>A 2300 mm-es hossz nem fér ki egy táblából. <b>Megoldás:</b> két modul (1170 + 1054 mm), M8 csavarokkal összefogva.</p>
+        <p>A 2300 mm-es hossz nem fér ki egy táblából. <b>Megoldás:</b> két különálló modul (1150 és 1029 mm a falak között), egymás mellett, 46 mm hézaggal.</p>
       </div>
     </li>
     <li class="tl-item">
       <span class="tl-step mono">T+04 · ITERÁCIÓ</span>
       <div class="tl-body">
         <h3>Tokkal le vagy fel?</h3>
-        <p>Tokkal lefelé a lokátorfuratok túl nagyok lettek volna, és a DN100-ból csak 3 fért volna egy sávba. Tokkal felfelé a furat a cső átmérőjéhez igazodik, a tok a felső fésű fölé kerül. <b>Így 30 cső fér el.</b></p>
+        <p>Tokkal lefelé a padlófuratok túl nagyok lettek volna, és a DN100-ból csak 3 fért volna egy sávba. Tokkal felfelé a furat a cső átmérőjéhez igazodik, a tok a felső fésű fölé kerül. <b>Így 30 cső fér el.</b></p>
+      </div>
+    </li>
+    <li class="tl-item">
+      <span class="tl-step mono">T+04B · ITERÁCIÓ</span>
+      <div class="tl-body">
+        <h3>Csavar nélkül, kevesebb anyagból</h3>
+        <p>A második körben a csavaros T-hornyos kötéseket ékes átmenő csapokra cseréltük, és újraterveztük a táblakiosztást. A felső és az alsó fésű 180°-kal elforgatva, egymásba tolva fér el egy táblán. A külön csőtalp-lemez és a talpgerendák helyett a padló furatai fogják a csöveket.</p>
+        <div class="decision-grid">
+          <div><span class="mono">TÁBLA</span><b>8 → 6</b></div>
+          <div><span class="mono">KIHASZNÁLÁS</span><b>39 → 64 %</b></div>
+          <div><span class="mono">CSAVAR</span><b>34 → 0</b></div>
+          <div><span class="mono">ÉK</span><b>52 + 4</b></div>
+        </div>
       </div>
     </li>
     <li class="tl-item">
@@ -307,7 +320,7 @@
         <p class="eyebrow">01 / BOM</p>
         <h2>Darabjegyzék.</h2>
       </div>
-      <p class="band-note" id="bom-source">Betöltés…</p>
+      <div class="dl-row" id="bom-source"><a class="btn" href="assets/dok/BOM_cso_tarto_V1.csv" download>BOM (CSV) ↓</a><a class="btn btn-ghost" href="assets/dok/Cso_tarto_V1_szerelesi_rajz.pdf" target="_blank">Szerelési rajz (PDF) ↗</a></div>
     </div>
     <div class="table-wrap"><table class="bom" id="bom-table"></table></div>
   </section>
@@ -320,7 +333,7 @@
       </div>
     </div>
     <figure class="exploded" id="exploded">
-      <img id="exploded-img" src="assets/robbantott.png" alt="A csőtároló robbantott ábrája" hidden>
+      <img id="exploded-img" src="assets/robbantott.jpg" alt="A csőtároló robbantott ábrája, Fusion 360" hidden>
       <div class="placeholder" id="exploded-wait"><span class="pulse"></span><p class="mono">ROBBANTOTT ÁBRA KÉSZÜL</p></div>
     </figure>
   </section>
@@ -328,8 +341,24 @@
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">03 / LÉZERVÁGÁS</p>
-        <h2>8 tábla. 1400 × 1400 mm.</h2>
+        <p class="eyebrow">03 / CSOMÓPONTOK</p>
+        <h2>Közelről.</h2>
+      </div>
+      <p class="band-note">A kötések Fusion 360-ban renderelve. Minden ék a saját csapjában ül, ezt a generátor ütközésvizsgálata is ellenőrzi.</p>
+    </div>
+    <div class="detail-grid">
+      <figure><img src="assets/kepek/reszlet_padlo_ek.jpg" alt="Padló és oldalfal ékes csapja" loading="lazy"><figcaption class="mono">PADLÓ ↔ OLDALFAL · ÉKES CSAP</figcaption></figure>
+      <figure><img src="assets/kepek/reszlet_fesu_ek.jpg" alt="Vezetőfésű ékes csapjai" loading="lazy"><figcaption class="mono">VEZETŐFÉSŰ · ÉKES CSAP</figcaption></figure>
+      <figure><img src="assets/kepek/reszlet_hatfal_ek.jpg" alt="Hátfal ékes csapja" loading="lazy"><figcaption class="mono">HÁTFAL · ÉKES CSAP</figcaption></figure>
+      <figure><img src="assets/kepek/reszlet_zarolec.jpg" alt="Zároléc az L-horonyban" loading="lazy"><figcaption class="mono">ZÁROLÉC · L-HORONY</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">04 / LÉZERVÁGÁS</p>
+        <h2>6 tábla. 1400 × 1400 mm.</h2>
       </div>
       <div class="dl-row">
         <a class="btn" href="assets/dxf/dxf_tablak.zip" download>Összes tábla DXF ↓</a>
@@ -343,14 +372,15 @@
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">04 / 3D</p>
+        <p class="eyebrow">05 / 3D ÉS DOKUMENTÁCIÓ</p>
         <h2>Modellfájlok.</h2>
       </div>
     </div>
     <div class="file-list">
       <a class="file" href="assets/model/cso_tarto_V1_csovekkel.glb" download><span class="mono">GLB</span><b>Összeállítás csövekkel</b><span class="arrow">↓</span></a>
       <a class="file" href="assets/model/cso_tarto_V1_allvany.glb" download><span class="mono">GLB</span><b>Csak állvány</b><span class="arrow">↓</span></a>
-      <a class="file" id="step-file" href="assets/model/cso_tarto_V1.step" download hidden><span class="mono">STEP</span><b>Fusion 360 export</b><span class="arrow">↓</span></a>
+      <a class="file" id="step-file" href="assets/model/cso_tarto_V1.step" download><span class="mono">STEP</span><b>Fusion 360 összeállítás</b><span class="arrow">↓</span></a>
+      <a class="file" href="assets/dok/Cso_tarto_V1_szerelesi_rajz.pdf" target="_blank"><span class="mono">PDF</span><b>A3 szerelési rajz: robbantott ábra, BOM, csomópontok</b><span class="arrow">↗</span></a>
     </div>
   </section>
 </section>
@@ -372,7 +402,7 @@
     <article class="ob">
       <span class="ob-no mono">02</span>
       <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Az 1400 mm-es tábla</h3><p>A 2300 mm-es hely nem fér ki egyetlen lemezből.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Két modul</h3><p>Az állványt két modulra bontottuk (1170 + 1054 mm), amelyeket M8 csavarok fognak össze. Így minden alkatrész kifér egy táblából.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Két modul</h3><p>Az állványt két különálló modulra bontottuk (1150 és 1029 mm a falak között), amelyek egymás mellett állnak. Így minden alkatrész kifér egy táblából.</p></div>
     </article>
     <article class="ob">
       <span class="ob-no mono">03</span>
@@ -381,8 +411,8 @@
     </article>
     <article class="ob">
       <span class="ob-no mono">04</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Honnan tudjuk, hogy összeáll?</h3><p>18 alkatrész, csap-horony kötések. Egy rossz méret a lézervágás után derülne ki.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Automatikus ütközésvizsgálat</h3><p>A generátor minden futáskor minden alkatrészpárt ellenőriz. Szándékos 1 mm-es hibával teszteltük, és kimutatta.</p></div>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Honnan tudjuk, hogy összeáll?</h3><p>14 lemez és 56 ék, csapos-ékes kötésekkel. Egy rossz méret csak a lézervágás után derülne ki.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Automatikus ütközésvizsgálat</h3><p>A generátor minden futáskor minden alkatrészpárt ellenőriz, és azt is, hogy minden ék a saját csapjában ül-e. Szándékos 1 mm-es hibával teszteltük, és kimutatta.</p></div>
     </article>
     <article class="ob">
       <span class="ob-no mono">05</span>
@@ -427,6 +457,11 @@
       <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Gyors hozzáférés vagy biztonság?</h3><p>Az elölről nyitott fésűből gyorsan kivehető a cső, de ugyanilyen könnyen ki is billenhet. A rögzítés általában a hozzáférést lassítja.</p></div>
       <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Kiakasztható zároléc</h3><p>L-alakú horonyban ülő léc: 20 mm-t megemelve kiakasztható, visszaengedve a saját súlyától a helyére ül. A középső csap a fésűujjak közé támaszkodik, a fogantyú-kivágással egy kézzel kezelhető.</p></div>
     </article>
+    <article class="ob">
+      <span class="ob-no mono">11</span>
+      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Fizetünk a levegőért</h3><p>A lézervágott projekteknél gyakran a tábla fele hulladék. Az első kiosztásunk 8 táblát és 39%-os kihasználást adott, és a fésűk táblájának 82%-a ment volna a szemétbe.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Egymásba tolt alkatrészek</h3><p>A két fésű 180°-kal elforgatva, egymás ujjai közé tolva fér el egy táblán. A falakról elhagytuk a fölösleges ablakokat, a talpgerendákat pedig a padló váltotta ki. Eredmény: 6 tábla, 64% kihasználás, rövidebb lézeridő.</p></div>
+    </article>
   </div>
 
   <section class="band">
@@ -440,12 +475,12 @@
 
   <div class="roadmap" id="roadmap">
     <article class="rm done"><span class="rm-no mono">01</span><div><span class="rm-state mono">KÉSZ</span><h3>Paraméteres 3D modell</h3><p>Python-generátor, Fusion szkript, ütközésvizsgálat.</p></div></article>
-    <article class="rm done"><span class="rm-no mono">02</span><div><span class="rm-state mono">KÉSZ</span><h3>Vágási fájlok</h3><p>8 tábla DXF-ben, gravírozott alkatrésznevekkel.</p></div></article>
+    <article class="rm done"><span class="rm-no mono">02</span><div><span class="rm-state mono">KÉSZ</span><h3>Vágási fájlok és dokumentáció</h3><p>6 tábla DXF-ben, gravírozott alkatrésznevekkel. Fusion 360 összeállítás, STEP, A3 szerelési rajz BOM-mal.</p></div></article>
     <article class="rm next"><span class="rm-no mono">03</span><div><span class="rm-state mono">KÖVETKEZŐ</span><h3>Mérés és újragenerálás</h3><p>Valós tokátmérő (becsült: 128 / 183 / 228 mm) és lemezvastagság (gyakran 9,6 / 5,7 mm) lemérése, majd újragenerálás.</p></div></article>
-    <article class="rm"><span class="rm-no mono">04</span><div><span class="rm-state mono">TERVEZETT</span><h3>Próbavágás</h3><p>Egy 60 mm-es fül és a horonya. Akkor jó, ha kézzel, kis erővel becsúszik. A <span class="mono">CLR</span> ráhagyás alapértéke 0,2 mm.</p></div></article>
-    <article class="rm"><span class="rm-no mono">05</span><div><span class="rm-state mono">TERVEZETT</span><h3>Lézervágás</h3><p>100–150 W-os CO₂ lézer, 1400 × 1400 mm-es asztal. 4 tábla 10 mm-es és 4 tábla 6 mm-es lemez.</p></div></article>
-    <article class="rm"><span class="rm-no mono">06</span><div><span class="rm-state mono">TERVEZETT</span><h3>Összeszerelés</h3><p>Talp és padló → lokátor → bal oldalfal → hátfal és fésűk → jobb oldalfal → T-horony csavarok → a két modul összefogása M8 csavarral.</p></div></article>
-    <article class="rm"><span class="rm-no mono">07</span><div><span class="rm-state mono">TERVEZETT</span><h3>Telepítés a műhelyben</h3><p>Falhoz rögzítés 2 db L-vassal, gumikötél a fésűkre, aztán jöhetnek a csövek.</p></div></article>
+    <article class="rm"><span class="rm-no mono">04</span><div><span class="rm-state mono">TERVEZETT</span><h3>Próbavágás</h3><p>Egy csap a hornyával, és egy ék a hozzá tartozó ékfurattal. Akkor jó, ha a csap kézzel, kis erővel becsúszik, az ék pedig ütésre feszesen megül. Állítható: <span class="mono">CLR</span> és <span class="mono">WEDGE_HOLE_L</span>.</p></div></article>
+    <article class="rm"><span class="rm-no mono">05</span><div><span class="rm-state mono">TERVEZETT</span><h3>Lézervágás</h3><p>100–150 W-os CO₂ lézer, 1400 × 1400 mm-es asztal. 3 tábla 10 mm-es és 3 tábla 6 mm-es lemez.</p></div></article>
+    <article class="rm"><span class="rm-no mono">06</span><div><span class="rm-state mono">TERVEZETT</span><h3>Összeszerelés</h3><p>Hátfal a padlóhoz ragasztva és szegezve → padló, fésűk és hátfal csapjai az oldalfalak hornyaiba → ékek beütése → zároléc beakasztása az L-horonyba. Modulonként, szerszám nélkül.</p></div></article>
+    <article class="rm"><span class="rm-no mono">07</span><div><span class="rm-state mono">TERVEZETT</span><h3>Telepítés a műhelyben</h3><p>A két modul egymás mellé áll, és modulonként 2 db L-vas rögzíti a falhoz. Aztán jöhetnek a csövek.</p></div></article>
   </div>
 
   <section class="band">
@@ -456,18 +491,7 @@
       </div>
     </div>
     <div class="table-wrap">
-      <table class="bom">
-        <thead><tr><th>Tétel</th><th>Db</th><th>Hová</th></tr></thead>
-        <tbody>
-          <tr><td>M6×30 csavar + anya + alátét</td><td class="num">8</td><td>padló ↔ oldalfal</td></tr>
-          <tr><td>M4×25 csavar + anya + alátét</td><td class="num">20</td><td>fésűk és hátfal ↔ oldalfal</td></tr>
-          <tr><td>M8×35 csavar + anya + 2 alátét</td><td class="num">6</td><td>A ↔ B modul összefogása</td></tr>
-          <tr><td>Facsavar 3,5×16</td><td class="num">~20</td><td>lokátor rögzítése a padlóhoz alulról</td></tr>
-          <tr><td>Faragasztó (D3 PVA)</td><td class="num">1</td><td>talpgerendák, lokátor, fésűfülek</td></tr>
-          <tr><td>Gumikötél Ø6–8 mm + végzáró</td><td class="num">~5 m</td><td>előre dőlés elleni biztosítás</td></tr>
-          <tr><td>L-vas + tipli</td><td class="num">2</td><td>falhoz rögzítés, borulás ellen</td></tr>
-        </tbody>
-      </table>
+      <table class="bom" id="hardware-table"></table>
     </div>
   </section>
 </section>

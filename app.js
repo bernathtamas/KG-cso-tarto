@@ -92,45 +92,33 @@ async function loadSummary() {
   }
 
   const grid = $('#sheet-grid');
-  grid.innerHTML = summary.tablak.map(t => {
-    const id = String(t.n).padStart(2, '0'), file = `tabla_${id}_${t.vastagsag | 0}mm`;
+  const sheets = await fetch('assets/tablak.json').then(r => r.json()).catch(() => []);
+  grid.innerHTML = sheets.map(file => {
+    const m = file.match(/^tabla_(\d+)_(\d+)mm$/);
+    const title = m ? `TÁBLA ${m[1]} · ${m[2]} MM` : 'TARTALÉK ÉKEK · 6 MM';
+    const img = m ? `<img src="assets/elonezet/${file}.png" alt="${title} vágási terve" loading="lazy">` : '<span class="sheet-spare mono">4 db ék</span>';
     return `<a class="sheet" href="assets/dxf/${file}.dxf" download>
-      <div class="sheet-img"><img src="assets/elonezet/${file}.png" alt="${id}. tábla vágási terve" loading="lazy"></div>
-      <div class="sheet-meta"><div><span class="mono">TÁBLA ${id} · ${t.vastagsag | 0} MM</span><br><b>${t.alkatreszek.length} alkatrész</b></div><span class="mono">DXF ↓</span></div>
+      <div class="sheet-img">${img}</div>
+      <div class="sheet-meta"><div><span class="mono">${title}</span><br><b>${m ? '1400 × 1400' : 'Kis tábla'}</b></div><span class="mono">DXF ↓</span></div>
     </a>`;
   }).join('');
 }
 
-/* ---------- BOM: assets/bom.csv if present, else preliminary list from the generator ---------- */
-function parseCsv(text) {
-  const rows = text.replace(/^﻿/, '').trim().split(/\r?\n/);
-  const sep = (rows[0].match(/;/g) || []).length >= (rows[0].match(/,/g) || []).length ? ';' : ',';
-  return rows.map(r => r.split(sep).map(c => c.trim().replace(/^"|"$/g, '')));
-}
+/* ---------- BOM from the generator summary (same data as dokumentacio/BOM_cso_tarto_V1.csv) ---------- */
 function renderTable(table, rows) {
   const esc = s => String(s).replace(/[&<>]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;'})[c]);
-  const isNum = s => /^[~\d.,\s×x]+$/.test(s);
+  const isNum = s => /^[~\d.,\s]+(kg)?$/.test(s);
   table.innerHTML = `<thead><tr>${rows[0].map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
-    <tbody>${rows.slice(1).map(r => `<tr>${r.map(c => `<td${isNum(c) ? ' class="num"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+    <tbody>${rows.slice(1).map(r => `<tr>${r.map(c => `<td${isNum(String(c)) ? ' class="num"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody>`;
 }
-async function loadBom() {
+function loadBom() {
   const table = $('#bom-table'), note = $('#bom-source');
-  try {
-    const r = await fetch('assets/bom.csv', {cache: 'no-store'});
-    if (r.ok) {
-      renderTable(table, parseCsv(await r.text()));
-      note.innerHTML = '<a class="mono" href="assets/bom.csv" download>BOM letöltése (CSV) ↓</a>';
-      return;
-    }
-  } catch {}
-  if (!summary) { note.textContent = 'A BOM hamarosan elkészül.'; return; }
-  const sheetOf = name => summary.tablak.find(t => t.alkatreszek.includes(name))?.n;
-  const rows = [['Tétel', 'Alkatrész', 'Anyag', 'Vastagság (mm)', 'Méret (mm)', 'Tábla', 'Db']];
-  summary.alkatreszek.forEach((p, i) => rows.push([
-    String(i + 1).padStart(2, '0'), p.nev, 'Rétegelt lemez', String(p.vastagsag | 0), `${p.meret[0]} × ${p.meret[1]}`, String(sheetOf(p.nev) ?? '–'), '1',
-  ]));
+  if (!summary?.bom) { note.textContent = 'A BOM hamarosan elkészül.'; return; }
+  const rows = [['Tétel', 'Azonosító', 'Megnevezés', 'Db', 'Anyag', 'Méret (mm)', 'Megjegyzés']];
+  for (const b of summary.bom) rows.push([String(b.tetel).padStart(2, '0'), b.azonosito, b.megnevezes, String(b.db), b.anyag, b.meret_mm, b.megjegyzes]);
   renderTable(table, rows);
-  note.textContent = 'Előzetes alkatrészlista a generátor összesítőjéből. A végleges BOM hamarosan ide kerül.';
+  const hw = $('#hardware-table');
+  if (hw && summary.kotoelemek) renderTable(hw, [['Tétel', 'Db', 'Hová'], ...summary.kotoelemek.map(k => [k.megnevezes, String(k.db), k.megjegyzes])]);
 }
 
 /* ---------- Optional media: exploded view, video, STEP ---------- */

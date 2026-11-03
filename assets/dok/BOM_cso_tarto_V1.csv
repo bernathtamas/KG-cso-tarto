@@ -1,0 +1,22 @@
+﻿Tétel;Azonosító;Megnevezés;Db;Anyag;Méret (mm);Megjegyzés
+1;A-OLDALFAL;Oldalfal;2;rétegelt lemez 10 mm;600 × 1350 × 10;ékes hornyok, zároléc L-horony
+2;A-PADLO;Padló / csőfészek;1;rétegelt lemez 10 mm;1190 × 576 × 10;ékes csapok, csőfészkek
+3;A-FESU-ALSO;Vezetőfésű (alsó);1;rétegelt lemez 6 mm;1190 × 576 × 6;ékes csapok
+4;A-FESU-FELSO;Vezetőfésű (felső);1;rétegelt lemez 6 mm;1190 × 576 × 6;ékes csapok
+5;A-ZAROLEC;Zároléc;1;rétegelt lemez 10 mm;1150 × 102 × 10;oldalfalba akasztva, kiemelhető
+6;A-HATFAL;Hátfal;1;rétegelt lemez 6 mm;1190 × 1350 × 6;ékes csapok, szegezve a padlóhoz
+7;B-OLDALFAL;Oldalfal;2;rétegelt lemez 10 mm;600 × 1350 × 10;ékes hornyok, zároléc L-horony
+8;B-PADLO;Padló / csőfészek;1;rétegelt lemez 10 mm;1069 × 576 × 10;ékes csapok, csőfészkek
+9;B-FESU-ALSO;Vezetőfésű (alsó);1;rétegelt lemez 6 mm;1069 × 576 × 6;ékes csapok
+10;B-FESU-FELSO;Vezetőfésű (felső);1;rétegelt lemez 6 mm;1069 × 576 × 6;ékes csapok
+11;B-ZAROLEC;Zároléc;1;rétegelt lemez 10 mm;1029 × 102 × 10;oldalfalba akasztva, kiemelhető
+12;B-HATFAL;Hátfal;1;rétegelt lemez 6 mm;1069 × 1350 × 6;ékes csapok, szegezve a padlóhoz
+13;EK;Ék;56;rétegelt lemez 6 mm;18 × 70 × 6;ebből 4 tartalék
+
+;;Kötőelemek, kellékek;Db;;;Megjegyzés
+;;Szeg (szegezőgép, 18 Ga) 1,2 × 25 mm;10;;;hátfal → padló éle
+;;Faragasztó D3 (PVA);~0,5 kg;;;hátfal csapjai, fésűcsapok a hátfalban
+;;Falhoz rögzítő L-vas + tipli;4;;;modulonként 2, borulás ellen
+
+;;Rétegelt lemez tábla 1400×1400×6;3;;;lézervágáshoz
+;;Rétegelt lemez tábla 1400×1400×10;3;;;lézervágáshoz
