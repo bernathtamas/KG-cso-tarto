@@ -7,12 +7,17 @@ const C = {bg: '#05080d', grid: 'rgba(140,190,255,.07)', wood: '#cfa572', woodDa
 
 let canvas, ctx, scale = 1, raf = 0, last = 0, active = false;
 let s;   // game state
-const best = () => { try { return +localStorage.getItem('pipeRunnerBest') || 0; } catch { return 0; } };
-const saveBest = t => { try { localStorage.setItem('pipeRunnerBest', String(t)); } catch {} };
+// Score = run time minus a bonus per pipe, so rounds with more pipes compare fairly.
+// The bonus is the time the rack needed to reach that pipe from the previous one (gap / speed),
+// so a perfect run scores about the same whatever the target; misses and screws add time.
+const KEY = 'pipeRunnerBest2';
+const best = () => { try { return +localStorage.getItem(KEY) || 0; } catch { return 0; } };
+const saveBest = t => { try { localStorage.setItem(KEY, String(t)); } catch {} };
+const score = () => Math.max(0, s.t - s.bonus);
 
 function newGame() {
   s = {mode: 'ready', t: 0, x: 0, speed: 280, y: GROUND - P_H, vy: 0, jumps: 0, onGround: true,
-    target: 5 + Math.floor(Math.random() * 26), got: 0, platforms: [], pipes: [], screws: [], finish: null,
+    target: 5 + Math.floor(Math.random() * 26), got: 0, bonus: 0, lastGot: 0, platforms: [], pipes: [], screws: [], finish: null,
     nextPipe: 600, lastLevel: 0, nextScrew: 900, hurt: 0, fx: []};
 }
 
@@ -31,8 +36,9 @@ function generate() {
       s.platforms.push({x: px - rand(50, len - 60), w: len, y: LEVELS[level]});
       if (level === 2 && Math.random() < .6) s.platforms.push({x: px - rand(260, 340), w: rand(140, 200), y: LEVELS[1]});  // a step up
     }
-    s.pipes.push({x: px, y: LEVELS[level] - 64, got: false});
-    s.nextPipe += rand(260, 420) + s.speed * .15;
+    const gap = rand(260, 420) + s.speed * .15;
+    s.pipes.push({x: px, y: LEVELS[level] - 64, got: false, gap: px - (s.pipes.at(-1)?.x ?? P_X)});
+    s.nextPipe += gap;
   }
   while (s.nextScrew < ahead && !s.finish) {
     const clear = s.pipes.every(p => Math.abs(p.x - s.nextScrew) > 90);
@@ -75,14 +81,16 @@ function update(dt) {
   for (const p of s.pipes) {
     if (!p.got && Math.abs(p.x - px) < 40 && s.y < p.y + 60 && s.y + P_H > p.y) {
       p.got = true; s.got++;
-      s.fx.push({x: p.x, y: p.y, t: 0, txt: '+1'});
+      const b = p.gap / s.speed;
+      s.bonus += b; p.bonus = b; s.lastGot = b;
+      s.fx.push({x: p.x, y: p.y, t: 0, txt: `+1  −${b.toFixed(1)} s`});
       if (s.got >= s.target && !s.finish) s.finish = {x: s.x + W + 120};
     }
   }
   for (const sc of s.screws) {
     if (!sc.hit && s.hurt <= 0 && Math.abs(sc.x - px) < 30 && s.y + P_H > GROUND - 26) {
       sc.hit = true; s.hurt = 1;
-      if (s.got > 0 && !s.finish) s.got--;
+      if (s.got > 0 && !s.finish) { s.got--; s.bonus = Math.max(0, s.bonus - s.lastGot); }
       s.fx.push({x: sc.x, y: GROUND - 60, t: 0, txt: 'no screws!', bad: true});
     }
   }
@@ -92,7 +100,7 @@ function update(dt) {
 
   if (s.finish && px >= s.finish.x) {
     s.mode = 'won';
-    const t = Math.round(s.t * 10) / 10;
+    const t = Math.round(score() * 10) / 10;
     s.newBest = !best() || t < best();
     if (s.newBest) saveBest(t);
   }
@@ -173,7 +181,7 @@ function draw() {
   ctx.fillStyle = C.ink; ctx.font = '500 30px "Barlow Condensed", sans-serif';
   ctx.fillText(`PIPES ${s.got} / ${s.target}`, 24, 44);
   ctx.fillStyle = C.muted; ctx.font = '400 15px "JetBrains Mono", monospace';
-  ctx.fillText(`TIME ${s.t.toFixed(1)} s${best() ? `   BEST ${best().toFixed(1)} s` : ''}`, 26, 70);
+  ctx.fillText(`TIME ${score().toFixed(1)} s${best() ? `   BEST ${best().toFixed(1)} s` : ''}`, 26, 70);
   ctx.fillStyle = C.gold; ctx.fillRect(24, 82, 220 * Math.min(1, s.got / s.target), 4);
   ctx.fillStyle = 'rgba(255,255,255,.12)'; ctx.fillRect(24 + 220 * Math.min(1, s.got / s.target), 82, 220 * (1 - Math.min(1, s.got / s.target)), 4);
 
@@ -183,9 +191,10 @@ function draw() {
     ctx.fillStyle = C.gold; ctx.font = '400 16px "JetBrains Mono", monospace';
     ctx.fillText(s.mode === 'won' ? (s.newBest ? 'NEW BEST TIME' : 'RACK FULL') : 'PIPE RUNNER', W / 2, 200);
     ctx.fillStyle = C.ink; ctx.font = '600 64px "Barlow Condensed", sans-serif';
-    ctx.fillText(s.mode === 'won' ? `${s.target} PIPES IN ${s.t.toFixed(1)} S` : `COLLECT ${s.target} PIPES`, W / 2, 270);
+    ctx.fillText(s.mode === 'won' ? `${s.target} PIPES · ${score().toFixed(1)} S` : `COLLECT ${s.target} PIPES`, W / 2, 270);
     ctx.fillStyle = '#cfcfcf'; ctx.font = '400 20px Barlow, sans-serif';
-    ctx.fillText(s.mode === 'won' ? 'Space or tap for a new game' : 'Space or tap to jump · jump again in the air · avoid the screws', W / 2, 320);
+    ctx.fillText(s.mode === 'won' ? `Run ${s.t.toFixed(1)} s − pipe bonus ${s.bonus.toFixed(1)} s · space or tap for a new game`
+      : 'Space or tap to jump · every pipe takes time off the clock · avoid the screws', W / 2, 320);
     ctx.textAlign = 'left';
   }
 }
