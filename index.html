@@ -114,10 +114,10 @@
         <p class="eyebrow">03 / VIDEÓ</p>
         <h2>A projekt 2 percben.</h2>
       </div>
-      <p class="band-note">A témától a 3D modellen át a lézervágásig, narrációval. Kódból renderelt videó: Remotion (React), a 3D modell animációjával és AI-narrációval.</p>
+      <p class="band-note">A témától a 3D modellen át a lézervágásig, narrációval. Kódból renderelt videó: Remotion és HyperFrames, a 3D modell animációjával és narrációval.</p>
     </div>
     <div class="video-frame" id="video-frame">
-      <video id="project-video" playsinline controls preload="metadata" hidden>
+      <video id="project-video" playsinline controls preload="metadata" poster="assets/video-poster.jpg" hidden>
         <source src="assets/video.mp4" type="video/mp4">
       </video>
       <div class="video-waiting" id="video-waiting">
@@ -258,6 +258,19 @@
         <p>Amíg az egyik Claude-munkamenet a modellen dolgozott, egy másik a weboldalt építette. A második fül az első beszélgetését is el tudta olvasni, így ugyanazokból az adatokból dolgozott. Vizuális referencia: a SpaceX oldala. Mérnöki, sötét, letisztult.</p>
       </div>
     </li>
+    <li class="tl-item">
+      <span class="tl-step mono">T+07 · VIDEÓ</span>
+      <div class="tl-body">
+        <h3>Kódból renderelt film</h3>
+        <p>A 2 perces videó teljes egészében kódból készült. A <b>HyperFrames</b> (HTML + GSAP) rajzolta meg a probléma és a kutatás kinetikus jeleneteit. A <b>Remotion</b> (React + Three.js) a 3D logót, a körbeforgó csőtárolót a „beúszó” csövekkel, az akadályokat és a vágási táblákat. A narrációt Claude írta, a Mac beépített magyar hangja mondta fel, a feliratokat a kód időzíti.</p>
+        <div class="decision-grid">
+          <div><span class="mono">HOSSZ</span><b>~1:56</b></div>
+          <div><span class="mono">JELENET</span><b>7</b></div>
+          <div><span class="mono">FELBONTÁS</span><b>1080p</b></div>
+          <div><span class="mono">MOTOR</span><b>Remotion + HF</b></div>
+        </div>
+      </div>
+    </li>
   </ol>
 
   <section class="band">
@@ -385,6 +398,11 @@
       <span class="ob-no mono">07</span>
       <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Feltöltés kódolás nélkül</h3><p>Nem programozunk, és a gépen nem volt GitHub-hozzáférés.</p></div>
       <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Egy kód, egy kattintás</h3><p>Az AI letöltötte és ellenőrizte a GitHub hivatalos eszközét. Nekünk csak egy egyszeri kódot kellett jóváhagynunk a böngészőben, a feltöltés és az élesítés automatikusan történt.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">08</span>
+      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Videó ffmpeg nélkül</h3><p>A gépen nem volt Node.js és ffmpeg. A Remotionnel érkező ffmpegből pedig hiányzott egy szűrő, amit a HyperFrames használ.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Képkockákból videó</h3><p>A HyperFrames képkockákat renderelt, ezekből a Remotion saját ffmpegje fűzte össze a videót. Minden eszköz a projektmappában fut, a rendszerre nem telepítettünk semmit.</p></div>
     </article>
   </div>
 
