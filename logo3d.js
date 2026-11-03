@@ -71,12 +71,14 @@ export async function mountLogo(host) {
   new ResizeObserver(layout).observe(host);
   layout();
 
-  // Drag to spin; it eases back into the idle rotation.
-  let vel = .008, drag = null, tiltX = 0;
+  // Drag to spin; on release it settles on the nearest face-on turn and sways there.
+  // The back of the extruded letters reads mirrored, so the logo never rests on it.
+  let rotY = -Math.PI * 2, vel = 0, drag = null, tiltX = 0;
   host.addEventListener('pointerdown', e => { drag = {x: e.clientX, y: e.clientY}; host.setPointerCapture(e.pointerId); });
   host.addEventListener('pointermove', e => {
     if (!drag) return;
-    vel = (e.clientX - drag.x) * .004;
+    vel = (e.clientX - drag.x) * .006;
+    rotY += vel;
     tiltX = THREE.MathUtils.clamp(tiltX + (e.clientY - drag.y) * .004, -.5, .5);
     drag = {x: e.clientX, y: e.clientY};
   });
@@ -89,8 +91,12 @@ export async function mountLogo(host) {
   renderer.setAnimationLoop(() => {
     if (!visible || host.offsetParent === null) return;
     const t = clock.getElapsedTime();
-    if (!drag) vel += ((reduced ? 0 : .008) - vel) * .03;
-    pivot.rotation.y += vel;
+    if (!drag) {
+      vel *= .9;
+      const home = Math.round(rotY / (Math.PI * 2)) * Math.PI * 2 + (reduced ? 0 : Math.sin(t * .5) * .35);
+      rotY += vel + (home - rotY) * .035;
+    }
+    pivot.rotation.y = rotY;
     if (!drag) tiltX *= .95;
     pivot.rotation.x = tiltX + Math.sin(t * .6) * .05;
     pivot.position.y = Math.sin(t * .8) * 1.5;
