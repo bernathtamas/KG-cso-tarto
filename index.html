@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261103b">
+<link rel="stylesheet" href="style.css?v=20261103c">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 </head>
 <body>
@@ -231,6 +231,29 @@
       </table>
     </div>
     <p class="fine">Mérés: 2026. november 3., 08:53–11:17, a két Claude Code munkamenet naplójának időbélyegei alapján. Passzív idő: a kérésünktől az AI utolsó lépéséig. Aktív idő: az AI válaszától a következő kérésünkig, fordulónként legfeljebb 15 perc. A két munkamenet egy időben futott, ezért az átfedő aktív időt az összesítésben egyszer számoltuk (soronként 1:49, ténylegesen 1:32).</p>
+
+    <div class="band-head est-head">
+      <div>
+        <p class="eyebrow">BECSLÉS · HA KÉZZEL CSINÁLTUK VOLNA</p>
+        <h2>~52 óra helyett<br><span class="thin">2 óra 24 perc.</span></h2>
+      </div>
+      <p class="band-note">Mennyi idő lett volna ugyanez AI nélkül, egy tapasztalt tervezőnek és fejlesztőnek? Ez <b>becslés</b>, nem mérés. Tételenként a szokásos kézi munkaidővel számoltunk.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="bom time-table">
+        <thead><tr><th>Feladat</th><th>Kézzel (becslés)</th><th>Nálunk (mért)</th></tr></thead>
+        <tbody>
+          <tr><td>Paraméteres 3D modell: 14 lemez, 56 ék, csap-horony kötések, ütközésvizsgálat</td><td class="num">~12 óra</td><td class="num hot" rowspan="3">2:23<br><span class="sub">a modell-munkamenet</span></td></tr>
+          <tr><td>Táblakiosztás (nesting) 6 táblára, DXF rétegek, gravírozás</td><td class="num">~4 óra</td></tr>
+          <tr><td>Fusion 360 összeállítás, robbantott ábra, A3 szerelési rajz, BOM</td><td class="num">~6 óra</td></tr>
+          <tr><td>Weboldal: 5 fül, 3D-néző (STEP/GLB), reszponzív design, élesítés</td><td class="num">~16 óra</td><td class="num hot" rowspan="3">2:07<br><span class="sub">a web- és videó-munkamenet</span></td></tr>
+          <tr><td>Videó: két változat, 3D animáció, kinetikus tipográfia, narráció, zene</td><td class="num">~12 óra</td></tr>
+          <tr><td>Kutatás és dokumentáció</td><td class="num">~2 óra</td></tr>
+          <tr class="total"><td>Összesen</td><td class="num">~52 óra · kb. 6,5 munkanap</td><td class="num hot">2:24 eltelt idő</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine">A két munkamenet párhuzamosan futott, ezért az eltelt idő kevesebb, mint a két munkamenet összege. A kézi becslés egy tapasztalt CAD-tervező és frontend-fejlesztő szokásos munkaidejével számol, tanulási idő nélkül.</p>
   </section>
 
   <ol class="timeline">

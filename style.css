@@ -282,3 +282,8 @@ h3{font-size:1.45rem;letter-spacing:.05em}
 .time-table td.dim{color:var(--muted)}
 .time-table td:first-child{font-family:var(--font);font-size:.95rem}
 @media (max-width:900px){.time-grid{grid-template-columns:1fr 1fr}.time-card.is-hl{grid-column:1/-1}}
+.est-head{margin-top:clamp(3rem,6vw,5rem)}
+.time-table td[rowspan]{vertical-align:middle;text-align:center;border-left:1px solid var(--line);font-family:var(--font-cond);font-size:2rem;line-height:1.1}
+.time-table .sub{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-top:.3rem}
+.time-table tr.total td{border-top:1px solid var(--line-strong);font-weight:600;color:#fff}
+.time-table tr.total td.hot{color:var(--gold)}
