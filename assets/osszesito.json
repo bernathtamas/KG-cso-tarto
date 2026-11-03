@@ -1,0 +1,252 @@
+{
+ "befoglalo_mm": [
+  2224,
+  600,
+  1350
+ ],
+ "modulok": {
+  "A": {
+   "belso_szelesseg": 1150,
+   "savok": [
+    200,
+    200,
+    200,
+    150,
+    150
+   ]
+  },
+  "B": {
+   "belso_szelesseg": 1034,
+   "savok": [
+    150,
+    150,
+    100,
+    100,
+    100,
+    100
+   ]
+  }
+ },
+ "csovek": {
+  "DN100": 16,
+  "DN150": 8,
+  "DN200": 6
+ },
+ "tablak": [
+  {
+   "n": 1,
+   "vastagsag": 10.0,
+   "alkatreszek": [
+    "A-OLDAL-BAL",
+    "A-OLDAL-JOBB",
+    "A-TALP-1",
+    "A-TALP-2"
+   ]
+  },
+  {
+   "n": 2,
+   "vastagsag": 10.0,
+   "alkatreszek": [
+    "B-OLDAL-BAL",
+    "B-OLDAL-JOBB",
+    "B-TALP-1",
+    "B-TALP-2"
+   ]
+  },
+  {
+   "n": 3,
+   "vastagsag": 10.0,
+   "alkatreszek": [
+    "A-PADLO",
+    "B-PADLO"
+   ]
+  },
+  {
+   "n": 4,
+   "vastagsag": 10.0,
+   "alkatreszek": [
+    "A-LOKATOR",
+    "B-LOKATOR"
+   ]
+  },
+  {
+   "n": 5,
+   "vastagsag": 6.0,
+   "alkatreszek": [
+    "A-HATFAL"
+   ]
+  },
+  {
+   "n": 6,
+   "vastagsag": 6.0,
+   "alkatreszek": [
+    "B-HATFAL"
+   ]
+  },
+  {
+   "n": 7,
+   "vastagsag": 6.0,
+   "alkatreszek": [
+    "A-FESU-ALSO",
+    "A-FESU-FELSO"
+   ]
+  },
+  {
+   "n": 8,
+   "vastagsag": 6.0,
+   "alkatreszek": [
+    "B-FESU-ALSO",
+    "B-FESU-FELSO"
+   ]
+  }
+ ],
+ "alkatreszek": [
+  {
+   "nev": "A-OLDAL-BAL",
+   "vastagsag": 10.0,
+   "meret": [
+    600,
+    1350
+   ]
+  },
+  {
+   "nev": "A-OLDAL-JOBB",
+   "vastagsag": 10.0,
+   "meret": [
+    600,
+    1350
+   ]
+  },
+  {
+   "nev": "A-PADLO",
+   "vastagsag": 10.0,
+   "meret": [
+    1170,
+    586
+   ]
+  },
+  {
+   "nev": "A-LOKATOR",
+   "vastagsag": 10.0,
+   "meret": [
+    1148,
+    579
+   ]
+  },
+  {
+   "nev": "A-TALP-1",
+   "vastagsag": 10.0,
+   "meret": [
+    1149,
+    70
+   ]
+  },
+  {
+   "nev": "A-TALP-2",
+   "vastagsag": 10.0,
+   "meret": [
+    1149,
+    70
+   ]
+  },
+  {
+   "nev": "A-FESU-ALSO",
+   "vastagsag": 6.0,
+   "meret": [
+    1170,
+    586
+   ]
+  },
+  {
+   "nev": "A-FESU-FELSO",
+   "vastagsag": 6.0,
+   "meret": [
+    1170,
+    586
+   ]
+  },
+  {
+   "nev": "A-HATFAL",
+   "vastagsag": 6.0,
+   "meret": [
+    1170,
+    1350
+   ]
+  },
+  {
+   "nev": "B-OLDAL-BAL",
+   "vastagsag": 10.0,
+   "meret": [
+    600,
+    1350
+   ]
+  },
+  {
+   "nev": "B-OLDAL-JOBB",
+   "vastagsag": 10.0,
+   "meret": [
+    600,
+    1350
+   ]
+  },
+  {
+   "nev": "B-PADLO",
+   "vastagsag": 10.0,
+   "meret": [
+    1054,
+    586
+   ]
+  },
+  {
+   "nev": "B-LOKATOR",
+   "vastagsag": 10.0,
+   "meret": [
+    1032,
+    579
+   ]
+  },
+  {
+   "nev": "B-TALP-1",
+   "vastagsag": 10.0,
+   "meret": [
+    1033,
+    70
+   ]
+  },
+  {
+   "nev": "B-TALP-2",
+   "vastagsag": 10.0,
+   "meret": [
+    1033,
+    70
+   ]
+  },
+  {
+   "nev": "B-FESU-ALSO",
+   "vastagsag": 6.0,
+   "meret": [
+    1054,
+    586
+   ]
+  },
+  {
+   "nev": "B-FESU-FELSO",
+   "vastagsag": 6.0,
+   "meret": [
+    1054,
+    586
+   ]
+  },
+  {
+   "nev": "B-HATFAL",
+   "vastagsag": 6.0,
+   "meret": [
+    1054,
+    1350
+   ]
+  }
+ ],
+ "ellenorzes": [
+  "OK – nincs ütközés"
+ ]
+}

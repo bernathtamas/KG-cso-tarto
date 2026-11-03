@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Team — KG Csőtároló V1</title>
+<meta name="description" content="Lézervágott, fa KG csőtároló műhelybe – a Product Team AI kihívás projektje: 3D modell, videó, BOM, gyártási fájlok.">
+<link rel="icon" href="assets/product-team-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#termekek" aria-label="Product Team – főoldal">
+    <img class="brand-mark" src="assets/product-team-logo.svg" alt="">
+    <span class="brand-name">PRODUCT TEAM</span>
+  </a>
+  <nav class="nav-links" id="nav-links" aria-label="Fő navigáció">
+    <a href="#termekek" data-tab="termekek">Termékek</a>
+    <a href="#tervezes" data-tab="tervezes">Tervezés folyamata</a>
+    <a href="#mellekletek" data-tab="mellekletek">Mellékletek</a>
+    <a href="#megvalositas" data-tab="megvalositas">Út a megvalósításig</a>
+    <a href="#rolunk" data-tab="rolunk">Rólunk</a>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menü" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+</header>
+
+<main>
+
+<!-- ================= 01 TERMÉKEK ================= -->
+<section class="page" id="page-termekek" data-page="termekek">
+
+  <div class="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-logo" id="hero-logo" aria-hidden="true">
+      <img class="hero-logo-fallback" src="assets/product-team-logo.svg" alt="">
+    </div>
+    <div class="hero-copy">
+      <p class="eyebrow">AI KIHÍVÁS / 2026 · PROJEKT 02</p>
+      <h1>KG csőtároló <span class="thin">V1</span></h1>
+      <p class="lead">Lézervágott, fa csőtároló a műhelyünkbe, DN100, DN150 és DN200 méretű KG csövekhez. Rendezett, stabil, egy mozdulattal hozzáférhető.</p>
+      <div class="cta-row">
+        <a class="btn" href="#modell" data-scroll>3D modell</a>
+        <a class="btn btn-ghost" href="#tervezes">Tervezés folyamata</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true"><span></span></div>
+  </div>
+
+  <div class="stats" id="stats">
+    <div class="stat"><span class="stat-num" data-count="2224">2224</span><span class="stat-unit">mm</span><span class="stat-label">Befoglaló hossz<br>(2300 mm-es helyre)</span></div>
+    <div class="stat"><span class="stat-num" data-count="600">600</span><span class="stat-unit">mm</span><span class="stat-label">Mélység<br>(max. 700 mm)</span></div>
+    <div class="stat"><span class="stat-num" data-count="30">30</span><span class="stat-unit">db</span><span class="stat-label">Cső kapacitás<br>6 × DN200 · 8 × DN150 · 16 × DN100</span></div>
+    <div class="stat"><span class="stat-num" data-count="18">18</span><span class="stat-unit">db</span><span class="stat-label">Lézervágott alkatrész<br>8 tábla, 1400 × 1400 mm</span></div>
+  </div>
+
+  <section class="band" id="modell">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">01 / INTERAKTÍV MODELL</p>
+        <h2>Járd körbe.</h2>
+      </div>
+      <p class="band-note">Két modul, 18 rétegelt lemez alkatrész, csap-horony kötés. A modell forgatható, nagyítható, és a csövek ki-be kapcsolhatók.</p>
+    </div>
+
+    <div class="viewer-shell">
+      <div class="viewer-bar">
+        <span class="mono" id="model-name">CSO_TARTO_V1 / ÖSSZEÁLLÍTÁS</span>
+        <div class="viewer-actions">
+          <button class="chip is-on" id="toggle-pipes" type="button" aria-pressed="true">Csövek</button>
+          <button class="chip" id="toggle-spin" type="button" aria-pressed="true">Forgás</button>
+          <button class="chip" id="reset-view" type="button">Alapnézet ↺</button>
+          <button class="chip" id="open-step" type="button">STEP megnyitása ＋</button>
+          <input type="file" id="step-input" accept=".step,.stp,.glb" hidden>
+        </div>
+      </div>
+      <div class="viewer" id="viewer">
+        <div class="viewer-status mono" id="model-status" role="status">3D MODELL BETÖLTÉSE…</div>
+        <div class="viewer-hud mono" aria-hidden="true">
+          <span>X 2224</span><span>Y 600</span><span>Z 1350</span>
+        </div>
+      </div>
+      <div class="viewer-foot mono">
+        <span>HÚZÁS: FORGATÁS · GÖRGETÉS: NAGYÍTÁS · JOBB GOMB: MOZGATÁS</span>
+        <span id="model-format">.GLB / .STEP</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-split">
+    <div class="split-text">
+      <p class="eyebrow">02 / MŰKÖDÉSI ELV</p>
+      <h2>Tokkal felfelé.<br>Fésűben vezetve.</h2>
+      <ul class="spec-list">
+        <li><span class="mono">LOKÁTOR</span>A 10 mm-es alsó lemez furataiban ülnek a csövek, így nem csúsznak el.</li>
+        <li><span class="mono">FÉSŰ</span>Két, elölről nyitott vezetőfésű 650 és 1300 mm magasan. A cső elölről becsúszik, oldalra nem dől ki.</li>
+        <li><span class="mono">GUMIKÖTÉL</span>Keresztben feszül minden fésű elején, így a cső előre sem tud kidőlni.</li>
+        <li><span class="mono">MODUL</span>A (1170 mm) és B (1054 mm) modul, 6 db M8 csavarral összefogva, falhoz rögzítve.</li>
+      </ul>
+    </div>
+    <figure class="split-media">
+      <img src="assets/elonezet/osszeallitas_csovekkel_3d.png" alt="A csőtároló összeállítása csövekkel, 3D előnézet" loading="lazy">
+      <figcaption class="mono">ÖSSZEÁLLÍTÁS / 30 CSŐVEL</figcaption>
+    </figure>
+  </section>
+
+  <section class="band" id="video">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">03 / VIDEÓ</p>
+        <h2>A projekt 2 percben.</h2>
+      </div>
+      <p class="band-note">A témától a 3D modellen át a lézervágásig, narrációval.</p>
+    </div>
+    <div class="video-frame" id="video-frame">
+      <video id="project-video" playsinline controls preload="metadata" hidden>
+        <source src="assets/video.mp4" type="video/mp4">
+      </video>
+      <div class="video-waiting" id="video-waiting">
+        <span class="pulse"></span>
+        <p class="mono">VIDEÓ KÉSZÜL</p>
+        <p>A kész videó ide kerül fel.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">04 / SÁVKIOSZTÁS</p>
+        <h2>Minden csőnek saját helye van.</h2>
+      </div>
+    </div>
+    <div class="lanes" id="lanes" aria-label="Sávkiosztás balról jobbra"></div>
+    <p class="fine">A cső DN-mérete / KG külső átmérő: DN100 = Ø110 · DN150 = Ø160 · DN200 = Ø200 mm (forrás: idomok.hu, KG cső). A tokátmérők becsültek, vágás előtt mérjük.</p>
+  </section>
+
+  <section class="band band-products">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">05 / TERMÉKEINK</p>
+        <h2>A Product Team projektjei.</h2>
+      </div>
+    </div>
+    <div class="product-cards">
+      <a class="product-card is-current" href="#modell" data-scroll>
+        <span class="mono">P02 · 2026</span>
+        <h3>KG csőtároló V1</h3>
+        <p>Lézervágott rétegelt lemez · 30 cső · műhely</p>
+        <span class="arrow">Megnézem →</span>
+      </a>
+      <a class="product-card" href="https://bernathtamas.github.io/product-team-gitartarto/" target="_blank" rel="noopener">
+        <span class="mono">P01 · 2026</span>
+        <h3>Autolockos gitártartó</h3>
+        <p>3D nyomtatott PETG · fali tartó · 6 alkatrész</p>
+        <span class="arrow">Külön oldalon ↗</span>
+      </a>
+    </div>
+  </section>
+</section>
+
+<!-- ================= 02 TERVEZÉS ================= -->
+<section class="page" id="page-tervezes" data-page="tervezes" hidden>
+  <div class="page-hero">
+    <p class="eyebrow">02 / TERVEZÉS FOLYAMATA</p>
+    <h1>Promptól<br>a vágási fájlig.</h1>
+    <p class="lead">Hogyan jutottunk el egy egyszerű műhelyproblémától a paraméteres, ütközésvizsgált 3D modellig, AI segítségével.</p>
+  </div>
+
+  <ol class="timeline">
+    <li class="tl-item">
+      <span class="tl-step mono">T+00 · KIINDULÁS</span>
+      <div class="tl-body">
+        <h3>A feladat megfogalmazása</h3>
+        <blockquote class="prompt">„Szükségünk van egy PVC csőtartóra a műhelyünkbe. 230 cm hosszú és max. 70, de inkább 60 cm széles tér áll rendelkezésre. DN100, DN150 és DN200-as csöveket akarunk ott tárolni […] fából, lézervágással.”</blockquote>
+        <p>A csőméreteket az idomok.hu KG cső oldaláról vettük: Ø110 / 160 / 200 mm, 0,5–5 m-es szálhosszok.</p>
+      </div>
+    </li>
+    <li class="tl-item">
+      <span class="tl-step mono">T+01 · DÖNTÉSEK</span>
+      <div class="tl-body">
+        <h3>Claude kérdezett, mi döntöttünk</h3>
+        <div class="decision-grid">
+          <div><span class="mono">TÁJOLÁS</span><b>Függőleges</b></div>
+          <div><span class="mono">CSŐHOSSZ</span><b>2 m</b></div>
+          <div><span class="mono">MENNYISÉG</span><b>Ami kifér</b></div>
+          <div><span class="mono">LEMEZ</span><b>10 + 6 mm</b></div>
+        </div>
+      </div>
+    </li>
+    <li class="tl-item is-block">
+      <span class="tl-step mono">T+02 · ELAKADÁS</span>
+      <div class="tl-body">
+        <h3>Nem volt Fusion MCP</h3>
+        <p>Sem a connector-regiszterben, sem a skillek között nem volt Fusion-kapcsolat. <b>Megoldás:</b> Claude Python-generátort írt, ami közvetlenül készít DXF-et és 3D-t. Mellé egy Fusion 360 szkriptet is, ami a Fusionben natívan felépíti ugyanazt a modellt.</p>
+      </div>
+    </li>
+    <li class="tl-item is-block">
+      <span class="tl-step mono">T+03 · ELAKADÁS</span>
+      <div class="tl-body">
+        <h3>Az 1400 mm-es tábla korlátoz</h3>
+        <p>A 2300 mm-es hossz nem fér ki egy táblából. <b>Megoldás:</b> két modul (1170 + 1054 mm), M8 csavarokkal összefogva.</p>
+      </div>
+    </li>
+    <li class="tl-item">
+      <span class="tl-step mono">T+04 · ITERÁCIÓ</span>
+      <div class="tl-body">
+        <h3>Tokkal le vagy fel?</h3>
+        <p>Tokkal lefelé a lokátorfuratok túl nagyok lettek volna, és a DN100-ból csak 3 fért volna egy sávba. Tokkal felfelé a furat a cső átmérőjéhez igazodik, a tok a felső fésű fölé kerül. <b>Így 30 cső fér el.</b></p>
+      </div>
+    </li>
+    <li class="tl-item">
+      <span class="tl-step mono">T+05 · ELLENŐRZÉS</span>
+      <div class="tl-body">
+        <h3>3D ütközésvizsgálat minden alkatrészpárra</h3>
+        <p>A generátor minden futáskor ellenőrzi az összes alkatrészpárt. Próbaként egy 1 mm-es elcsúsztatást is kimutatott, tehát a vizsgálat valóban működik. Eredmény: <span class="ok mono">OK · NINCS ÜTKÖZÉS</span></p>
+      </div>
+    </li>
+    <li class="tl-item">
+      <span class="tl-step mono">T+06 · WEBOLDAL</span>
+      <div class="tl-body">
+        <h3>Párhuzamos munka két fülön</h3>
+        <p>Amíg az egyik Claude-munkamenet a modellen dolgozott, egy másik a weboldalt építette. A második fül az első beszélgetését is el tudta olvasni, így ugyanazokból az adatokból dolgozott. Vizuális referencia: a SpaceX oldala. Mérnöki, sötét, letisztult.</p>
+      </div>
+    </li>
+  </ol>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">ESZKÖZÖK</p>
+        <h2>Amivel dolgoztunk.</h2>
+      </div>
+    </div>
+    <div class="tool-grid">
+      <div class="tool"><span class="mono">AI</span><b>Claude Code</b><p>Tervezés, kódgenerálás, weboldal</p></div>
+      <div class="tool"><span class="mono">CAD</span><b>Python + Fusion 360</b><p>shapely, trimesh, ezdxf, manifold3d · Fusion szkript</p></div>
+      <div class="tool"><span class="mono">GYÁRTÁS</span><b>CO₂ lézer</b><p>DXF táblák, VAGAS / JELOLES rétegek</p></div>
+      <div class="tool"><span class="mono">WEB</span><b>Three.js + GitHub Pages</b><p>Forgatható GLB/STEP, statikus oldal</p></div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= 03 MELLÉKLETEK ================= -->
+<section class="page" id="page-mellekletek" data-page="mellekletek" hidden>
+  <div class="page-hero">
+    <p class="eyebrow">03 / MELLÉKLETEK</p>
+    <h1>Minden fájl,<br>ami a gyártáshoz kell.</h1>
+    <p class="lead">BOM, robbantott ábra, vágásra kész DXF táblák és 3D modell egy helyen.</p>
+  </div>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">01 / BOM</p>
+        <h2>Darabjegyzék.</h2>
+      </div>
+      <p class="band-note" id="bom-source">Betöltés…</p>
+    </div>
+    <div class="table-wrap"><table class="bom" id="bom-table"></table></div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">02 / ROBBANTOTT ÁBRA</p>
+        <h2>Szétszedve.</h2>
+      </div>
+    </div>
+    <figure class="exploded" id="exploded">
+      <img id="exploded-img" src="assets/robbantott.png" alt="A csőtároló robbantott ábrája" hidden>
+      <div class="placeholder" id="exploded-wait"><span class="pulse"></span><p class="mono">ROBBANTOTT ÁBRA KÉSZÜL</p></div>
+    </figure>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">03 / LÉZERVÁGÁS</p>
+        <h2>8 tábla. 1400 × 1400 mm.</h2>
+      </div>
+      <div class="dl-row">
+        <a class="btn" href="assets/dxf/dxf_tablak.zip" download>Összes tábla DXF ↓</a>
+        <a class="btn btn-ghost" href="assets/dxf/dxf_alkatreszek.zip" download>Alkatrészenként ↓</a>
+      </div>
+    </div>
+    <div class="sheet-grid" id="sheet-grid"></div>
+    <p class="fine">Rétegek: <span class="mono">VAGAS</span> (piros, vágás) · <span class="mono">JELOLES</span> (kék, gravírozott alkatrésznév) · <span class="mono">TABLA</span> (táblakontúr, nem vágandó).</p>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">04 / 3D</p>
+        <h2>Modellfájlok.</h2>
+      </div>
+    </div>
+    <div class="file-list">
+      <a class="file" href="assets/model/cso_tarto_V1_csovekkel.glb" download><span class="mono">GLB</span><b>Összeállítás csövekkel</b><span class="arrow">↓</span></a>
+      <a class="file" href="assets/model/cso_tarto_V1_allvany.glb" download><span class="mono">GLB</span><b>Csak állvány</b><span class="arrow">↓</span></a>
+      <a class="file" id="step-file" href="assets/model/cso_tarto_V1.step" download hidden><span class="mono">STEP</span><b>Fusion 360 export</b><span class="arrow">↓</span></a>
+    </div>
+  </section>
+</section>
+
+<!-- ================= 04 MEGVALÓSÍTÁS ================= -->
+<section class="page" id="page-megvalositas" data-page="megvalositas" hidden>
+  <div class="page-hero">
+    <p class="eyebrow">04 / ÚT A MEGVALÓSÍTÁSIG</p>
+    <h1>A képernyőtől<br>a műhely faláig.</h1>
+    <p class="lead">A gyártás és az összeszerelés lépései, a jelenlegi állapottal együtt.</p>
+  </div>
+
+  <div class="roadmap" id="roadmap">
+    <article class="rm done"><span class="rm-no mono">01</span><div><span class="rm-state mono">KÉSZ</span><h3>Paraméteres 3D modell</h3><p>Python-generátor, Fusion szkript, ütközésvizsgálat.</p></div></article>
+    <article class="rm done"><span class="rm-no mono">02</span><div><span class="rm-state mono">KÉSZ</span><h3>Vágási fájlok</h3><p>8 tábla DXF-ben, gravírozott alkatrésznevekkel.</p></div></article>
+    <article class="rm next"><span class="rm-no mono">03</span><div><span class="rm-state mono">KÖVETKEZŐ</span><h3>Mérés és újragenerálás</h3><p>Valós tokátmérő (becsült: 128 / 183 / 228 mm) és lemezvastagság (gyakran 9,6 / 5,7 mm) lemérése, majd újragenerálás.</p></div></article>
+    <article class="rm"><span class="rm-no mono">04</span><div><span class="rm-state mono">TERVEZETT</span><h3>Próbavágás</h3><p>Egy 60 mm-es fül és a horonya. Akkor jó, ha kézzel, kis erővel becsúszik. A <span class="mono">CLR</span> ráhagyás alapértéke 0,2 mm.</p></div></article>
+    <article class="rm"><span class="rm-no mono">05</span><div><span class="rm-state mono">TERVEZETT</span><h3>Lézervágás</h3><p>100–150 W-os CO₂ lézer, 1400 × 1400 mm-es asztal. 4 tábla 10 mm-es és 4 tábla 6 mm-es lemez.</p></div></article>
+    <article class="rm"><span class="rm-no mono">06</span><div><span class="rm-state mono">TERVEZETT</span><h3>Összeszerelés</h3><p>Talp és padló → lokátor → bal oldalfal → hátfal és fésűk → jobb oldalfal → T-horony csavarok → a két modul összefogása M8 csavarral.</p></div></article>
+    <article class="rm"><span class="rm-no mono">07</span><div><span class="rm-state mono">TERVEZETT</span><h3>Telepítés a műhelyben</h3><p>Falhoz rögzítés 2 db L-vassal, gumikötél a fésűkre, aztán jöhetnek a csövek.</p></div></article>
+  </div>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">KÖTŐELEMEK</p>
+        <h2>Ami a lemezeken kívül kell.</h2>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="bom">
+        <thead><tr><th>Tétel</th><th>Db</th><th>Hová</th></tr></thead>
+        <tbody>
+          <tr><td>M6×30 csavar + anya + alátét</td><td class="num">8</td><td>padló ↔ oldalfal</td></tr>
+          <tr><td>M4×25 csavar + anya + alátét</td><td class="num">20</td><td>fésűk és hátfal ↔ oldalfal</td></tr>
+          <tr><td>M8×35 csavar + anya + 2 alátét</td><td class="num">6</td><td>A ↔ B modul összefogása</td></tr>
+          <tr><td>Facsavar 3,5×16</td><td class="num">~20</td><td>lokátor rögzítése a padlóhoz alulról</td></tr>
+          <tr><td>Faragasztó (D3 PVA)</td><td class="num">1</td><td>talpgerendák, lokátor, fésűfülek</td></tr>
+          <tr><td>Gumikötél Ø6–8 mm + végzáró</td><td class="num">~5 m</td><td>előre dőlés elleni biztosítás</td></tr>
+          <tr><td>L-vas + tipli</td><td class="num">2</td><td>falhoz rögzítés, borulás ellen</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</section>
+
+<!-- ================= 05 RÓLUNK ================= -->
+<section class="page" id="page-rolunk" data-page="rolunk" hidden>
+  <div class="about-hero">
+    <div class="about-logo" aria-hidden="true"><img src="assets/product-team-logo.svg" alt=""></div>
+    <div>
+      <p class="eyebrow">05 / RÓLUNK</p>
+      <h1>Product Team</h1>
+      <p class="lead">Közös ötlet. Saját terv. Kis csapat vagyunk, és az AI kihívásban azt mutatjuk meg, hogyan lehet néhány nap alatt valami teljesen újat megtanulni, a 3D tervezéstől a videón át a weboldalig.</p>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="tool-grid three">
+      <div class="tool"><span class="mono">01</span><b>Megtervezni</b><p>Valós problémából indulunk, és gyártható 3D modellig jutunk.</p></div>
+      <div class="tool"><span class="mono">02</span><b>Elmesélni</b><p>Rövid videóban mutatjuk meg a folyamatot.</p></div>
+      <div class="tool"><span class="mono">03</span><b>Megmutatni</b><p>Mindent egy helyen, nyíltan: fájlok, napló, tanulságok.</p></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">KAPCSOLAT</p>
+        <h2>Kérdésed van a projekttel kapcsolatban?</h2>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn" href="https://github.com/bernathtamas" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://bernathtamas.github.io/product-team-gitartarto/" target="_blank" rel="noopener">Előző projektünk ↗</a>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span class="mono">PRODUCT TEAM © 2026</span>
+  <span class="mono">AI KIHÍVÁS · CSO_TARTO_V1</span>
+  <a class="mono" href="#termekek">VISSZA FEL ↑</a>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
