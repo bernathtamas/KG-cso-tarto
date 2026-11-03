@@ -60,7 +60,7 @@ function jump() {
 function update(dt) {
   if (s.mode !== 'run') return;
   s.t += dt;
-  s.speed = Math.min(440, 280 + s.t * 4);
+  s.speed = Math.min(620, 280 + s.x * .016);   // the further you get, the faster it runs
   s.x += s.speed * dt;
   generate();
 

@@ -19,13 +19,14 @@ function route() {
   else if (changed || PAGES.includes(hash)) window.scrollTo({top: 0});
   revealIn(document.getElementById(`page-${page}`));
   syncGame(page === 'game');
+  if (page !== 'products') $('#project-video')?.pause();   // the video lives on Products; don't let it play behind other tabs
 }
 
 // The game is only loaded when its tab is opened, and pauses when you leave it.
 let game;
 async function syncGame(on) {
   if (on && !game) {
-    game = await import('./game.js?v=20261103j');
+    game = await import('./game.js?v=20261103k');
     game.mountGame($('#game-frame'));
   }
   game?.setActive(on);
