@@ -1,0 +1,21 @@
+﻿Item;ID;Part;Qty;Material;Size (mm);Note
+1;A-OLDALFAL;Side wall;1;plywood 10 mm;600 × 1350 × 10;wedge slots, rail L-slot
+2;A-OLDALFAL-KULSO;Outer side wall (engraved);1;plywood 10 mm;600 × 1350 × 10;wedge slots, rail L-slot
+3;A-PADLO;Base / pipe seat;1;plywood 10 mm;1190 × 576 × 10;wedged tenons, pipe seats
+4;A-FESU-ALSO;Guide comb (lower);1;plywood 6 mm;1190 × 576 × 6;wedged tenons
+5;A-FESU-FELSO;Guide comb (upper);1;plywood 6 mm;1190 × 576 × 6;wedged tenons
+6;A-ZAROLEC;Front rail;1;plywood 10 mm;1150 × 102 × 10;hooks into side walls, lifts out
+7;A-HATFAL;Back panel;1;plywood 6 mm;1190 × 1350 × 6;wedged tenons
+8;B-OLDALFAL;Side wall;1;plywood 10 mm;600 × 1350 × 10;wedge slots, rail L-slot
+9;B-OLDALFAL-KULSO;Outer side wall (engraved);1;plywood 10 mm;600 × 1350 × 10;wedge slots, rail L-slot
+10;B-PADLO;Base / pipe seat;1;plywood 10 mm;1069 × 576 × 10;wedged tenons, pipe seats
+11;B-FESU-ALSO;Guide comb (lower);1;plywood 6 mm;1069 × 576 × 6;wedged tenons
+12;B-FESU-FELSO;Guide comb (upper);1;plywood 6 mm;1069 × 576 × 6;wedged tenons
+13;B-ZAROLEC;Front rail;1;plywood 10 mm;1029 × 102 × 10;hooks into side walls, lifts out
+14;B-HATFAL;Back panel;1;plywood 6 mm;1069 × 1350 × 6;wedged tenons
+15;EK;Wedge;56;plywood 6 mm;18 × 70 × 6;incl. 4 spares
+
+;;Hardware;none;;;all-wood: wedged through-tenons, no screws, nails, glue or brackets
+
+;;Plywood sheet 1400 × 1400 × 6;3;plywood 6 mm;1400 × 1400;for laser cutting
+;;Plywood sheet 1400 × 1400 × 10;3;plywood 10 mm;1400 × 1400;for laser cutting

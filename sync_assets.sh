@@ -13,7 +13,7 @@ cp "$SRC"/3D_export/cso_tarto_V1_1_osszeallitas.step assets/model/cso_tarto_V1.s
 
 # Summary (BOM, fasteners, sheet usage) drives the lanes, BOM table and stats.
 cp "$SRC"/osszesito.json assets/osszesito.json
-cp "$SRC"/dokumentacio/BOM_cso_tarto_V1.csv assets/dok/BOM_cso_tarto_V1.csv
+python3 -I make_bom_en.py   # English, all-wood BOM from osszesito.json
 cp "$SRC"/dokumentacio/Cso_tarto_V1_1_szerelesi_rajz.pdf assets/dok/Cso_tarto_V1_szerelesi_rajz.pdf
 
 # Fusion renders and drawings, downsized for the web.

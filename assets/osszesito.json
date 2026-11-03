@@ -198,7 +198,7 @@
    "db": 1,
    "anyag": "rétegelt lemez 6 mm",
    "meret_mm": "1190 × 1350 × 6",
-   "megjegyzes": "ékes csapok, szegezve a padlóhoz"
+   "megjegyzes": "ékes csapok"
   },
   {
    "tetel": 8,
@@ -261,7 +261,7 @@
    "db": 1,
    "anyag": "rétegelt lemez 6 mm",
    "meret_mm": "1069 × 1350 × 6",
-   "megjegyzes": "ékes csapok, szegezve a padlóhoz"
+   "megjegyzes": "ékes csapok"
   },
   {
    "tetel": 15,
@@ -273,23 +273,7 @@
    "megjegyzes": "ebből 4 tartalék"
   }
  ],
- "kotoelemek": [
-  {
-   "megnevezes": "Szeg (szegezőgép, 18 Ga) 1,2 × 25 mm",
-   "db": 10,
-   "megjegyzes": "hátfal → padló éle"
-  },
-  {
-   "megnevezes": "Faragasztó D3 (PVA)",
-   "db": "~0,5 kg",
-   "megjegyzes": "hátfal csapjai, fésűcsapok a hátfalban"
-  },
-  {
-   "megnevezes": "Falhoz rögzítő L-vas + tipli",
-   "db": 4,
-   "megjegyzes": "modulonként 2, borulás ellen"
-  }
- ],
+ "kotoelemek": [],
  "lemezek": [
   {
    "vastagsag": 6.0,

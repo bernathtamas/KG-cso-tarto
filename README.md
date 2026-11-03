@@ -1,27 +1,31 @@
-# Product Team – KG csőtároló V1
+# Product Team – Pipe Rack
 
-Lézervágott, rétegelt lemez csőtároló (V1.1, gravírozott) a műhelyünkbe, DN100 / DN150 / DN200 KG csövekhez. A projekt az AI kihívásra készült, Claude Opus 5.5 segítségével.
+A laser-cut, all-wood rack for our workshop, holding DN100, DN150 and DN200 KG pipes. Built for an internal AI Challenge with Claude Opus 5.5.
 
-**Élő oldal:** https://bernathtamas.github.io/KG-cso-tarto/
+**Live site:** https://bernathtamas.github.io/KG-cso-tarto/
+
+<img src="assets/qr.svg" alt="QR code to the live site" width="180">
 
 | | |
 |---|---|
-| Befoglaló méret | 2265 × 600 × 1350 mm (2300 × 600 mm-es helyre) |
-| Kapacitás | 30 cső: 6 × DN200, 8 × DN150, 16 × DN100 |
-| Anyag | 6 tábla rétegelt lemez (3 × 10 mm, 3 × 6 mm), 1400 × 1400 mm, 73% kihasználás |
-| Felépítés | 2 modul, 14 lemez + 56 ék, ékes átmenő csapok, csavar nélkül, kiakasztható zároléc |
-| Videó | 1:24, angol, Remotion + HyperFrames, neurális narráció, zene: Kevin MacLeod „Inspired” (CC BY 4.0) |
+| Overall size | 2265 × 600 × 1350 mm (fits a 2300 × 600 mm wall) |
+| Capacity | 30 pipes: 6 × DN200, 8 × DN150, 16 × DN100 |
+| Material | 6 plywood sheets (3 × 10 mm, 3 × 6 mm), 1400 × 1400 mm, 73% material use |
+| Construction | 2 modules, 14 plates + 56 wedges, wedged through-tenons, lift-out front rail |
+| Hardware | none – no screws, nails, glue or brackets |
+| Video | 1:24, English, rendered with Remotion + HyperFrames, neural voice-over; music: “Inspired” by Kevin MacLeod (incompetech.com), CC BY 4.0 |
 
-## Az oldal fülei
-`#termekek` · `#tervezes` · `#mellekletek` · `#megvalositas` · `#rolunk`
+## Site tabs
+`#products` · `#log` · `#attachments` · `#production` · `#sponsors` · `#about`
 
-Statikus oldal (HTML + CSS + Three.js CDN-ről), build nélkül.
+A static site (HTML + CSS + Three.js from a CDN), no build step.
 
-## Tartalom frissítése
-`./sync_assets.sh` átmásolja a `../3D_modell` aktuális kimeneteit: STEP és GLB modell, `osszesito.json` (BOM, kötőelemek, sávkiosztás), Fusion-renderek, szerelési rajz (PDF), DXF táblák. A videó: `assets/video.mp4` (forrás: `../video`).
+## Updating content
+- `./sync_assets.sh` copies the current model outputs (3D model, renders, assembly drawing, DXF sheets) from the model folder and builds the English BOM with `make_bom_en.py`.
+- The video lives in `assets/video.mp4` (source project: `../video`).
 
-## Helyi előnézet
+## Local preview
 ```bash
 python3 -m http.server 8765
 ```
-Utána nyisd meg: http://localhost:8765
+Then open http://localhost:8765
