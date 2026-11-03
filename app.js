@@ -26,10 +26,11 @@ const nav = $('#nav'), toggle = $('#nav-toggle'), links = $('#nav-links');
 const solid = () => nav.classList.toggle('is-solid', scrollY > 40);
 addEventListener('scroll', solid, {passive: true});
 solid();
-function closeMenu() { links.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
+function closeMenu() { links.classList.remove('is-open'); document.body.classList.remove('menu-open'); toggle.setAttribute('aria-expanded', 'false'); }
 toggle.addEventListener('click', () => {
   const open = !links.classList.contains('is-open');
   links.classList.toggle('is-open', open);
+  document.body.classList.toggle('menu-open', open);
   toggle.setAttribute('aria-expanded', String(open));
 });
 $$('[data-scroll]').forEach(a => a.addEventListener('click', e => {

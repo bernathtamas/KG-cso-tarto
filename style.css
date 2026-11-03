@@ -369,3 +369,15 @@ h3{font-size:1.45rem;letter-spacing:.05em}
 .sponsor-trudi{background:radial-gradient(circle at 50% 40%,#6b1420,#2a080d 75%)}
 .sponsor-trudi img{object-fit:contain;padding:6% 4% 0;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
 .product-cards.is-single{grid-template-columns:1fr}
+
+/* Mobile menu: a backdrop-filter on the header would make the fixed overlay size itself to the
+   header, so while the menu is open the header drops the blur and the overlay fills the screen. */
+@media (max-width:1060px){
+  body.menu-open{overflow:hidden}
+  body.menu-open .nav{background:#000;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:var(--line)}
+  .nav-links{height:100vh;height:100dvh;background:#000;justify-content:flex-start;padding-top:calc(88px + 2vh);gap:0;overflow-y:auto}
+  .nav-links a{width:100%;padding:1.05rem 0;border-bottom:1px solid var(--line);font-size:1.6rem;letter-spacing:.08em}
+  .nav-links a::after{display:none}
+  .nav-links a[aria-current="page"]{color:var(--gold)}
+  .brand,.nav-toggle{position:relative;z-index:2}
+}
