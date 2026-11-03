@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261103b">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 </head>
 <body>
@@ -200,6 +200,37 @@
       <div class="tool"><span class="mono">SKILLEK</span><b>Skillkatalógusok</b><p>Átnéztük a skill- és pluginkatalógusokat és a claudedesignskills gyűjteményt. A webes 3D-hez és a felülettervezéshez belőlük vettünk mintákat.</p></div>
       <div class="tool"><span class="mono">MCP</span><b>MCP-szerverek</b><p>MCP-regiszter a CAD-kapcsolat kereséséhez, munkamenet-MCP a párhuzamos fülek összehangolásához, böngésző-MCP az oldal élő teszteléséhez.</p></div>
     </div>
+  </section>
+
+  <section class="band" id="ido">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">IDŐMÉRÉS</p>
+        <h2>Az idő nagy részében<br>az AI dolgozott.</h2>
+      </div>
+      <p class="band-note">Megmértük, mennyi időbe telt a projekt. Az <b>aktív</b> idő a mi kérdéseink, döntéseink és ellenőrzéseink ideje. A <b>passzív</b> időben az AI önállóan modellezett, kódot írt, renderelt és élesített, mi pedig közben a másik munkameneten dolgoztunk.</p>
+    </div>
+    <div class="time-grid">
+      <div class="time-card is-hl"><b data-count="64">64</b><span class="unit">%</span><p>passzív idő: ennyi ideig dolgozott helyettünk az AI</p></div>
+      <div class="time-card"><b>1:32</b><p>aktív munkánk</p></div>
+      <div class="time-card"><b>2:44</b><p>passzív, AI-munka</p></div>
+      <div class="time-card"><b>2:24</b><p>eltelt idő: két AI-munkamenet dolgozott párhuzamosan</p></div>
+    </div>
+    <div class="table-wrap">
+      <table class="bom time-table">
+        <thead><tr><th>Szakasz</th><th>Munkamenet</th><th>Aktív</th><th>Passzív</th><th>Összesen</th></tr></thead>
+        <tbody>
+          <tr><td>3D modell V1: paraméteres generátor, DXF, ütközésvizsgálat</td><td>Modell</td><td class="num">0:14</td><td class="num hot">0:18</td><td class="num dim">0:32</td></tr>
+          <tr><td>V2: csavar nélküli ékes kötések, anyagoptimalizálás (8 → 6 tábla)</td><td>Modell</td><td class="num">0:11</td><td class="num hot">0:52</td><td class="num dim">1:03</td></tr>
+          <tr><td>Fusion 360: összeállítás, STEP, robbantott ábra, szerelési rajz</td><td>Modell</td><td class="num">0:19</td><td class="num hot">0:31</td><td class="num dim">0:50</td></tr>
+          <tr><td>Weboldal tervezése és élesítése GitHub Pages-en</td><td>Web + videó</td><td class="num">0:32</td><td class="num">0:16</td><td class="num dim">0:48</td></tr>
+          <tr><td>Első videó (Remotion + HyperFrames), naplózás</td><td>Web + videó</td><td class="num">0:09</td><td class="num hot">0:16</td><td class="num dim">0:25</td></tr>
+          <tr><td>Tartalom és weboldal frissítése az új modellre</td><td>Web + videó</td><td class="num">0:13</td><td class="num">0:07</td><td class="num dim">0:20</td></tr>
+          <tr><td>Reklámkutatás, angol reklámvideó: zene, narráció, újravágás</td><td>Web + videó</td><td class="num">0:11</td><td class="num hot">0:24</td><td class="num dim">0:35</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine">Mérés: 2026. november 3., 08:53–11:17, a két Claude Code munkamenet naplójának időbélyegei alapján. Passzív idő: a kérésünktől az AI utolsó lépéséig. Aktív idő: az AI válaszától a következő kérésünkig, fordulónként legfeljebb 15 perc. A két munkamenet egy időben futott, ezért az átfedő aktív időt az összesítésben egyszer számoltuk (soronként 1:49, ténylegesen 1:32).</p>
   </section>
 
   <ol class="timeline">
@@ -537,6 +568,6 @@
   <a class="mono" href="#termekek">VISSZA FEL ↑</a>
 </footer>
 
-<script type="module" src="app.js"></script>
+<script type="module" src="app.js?v=20261103b"></script>
 </body>
 </html>
