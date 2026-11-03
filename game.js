@@ -12,7 +12,7 @@ const KEY = 'pipeRunnerBestScore';
 const best = () => { try { return +localStorage.getItem(KEY) || 0; } catch { return 0; } };
 const saveBest = n => { try { localStorage.setItem(KEY, String(n)); } catch {} };
 
-// Speed by pipes collected: 0–10 slow, 10–15 a little faster, 20–25 fast, 25–35 very fast,
+// Speed tier by pipes collected (plus a distance push in update()): 0–10 slow, 10–15 a little faster, 20–25 fast, 25–35 very fast,
 // beyond 35 it keeps accelerating, harder and harder.
 const TIERS = [[0, 260], [10, 290], [15, 350], [20, 420], [25, 480], [35, 600]];
 function targetSpeed(n) {
@@ -73,7 +73,10 @@ function update(dt) {
   if (s.mode === 'over') { s.t += dt; return; }
   if (s.mode !== 'run') return;
   s.t += dt;
-  s.speed += (targetSpeed(s.got) - s.speed) * Math.min(1, dt * 1.5);   // ease into the next tier
+  // Pipes set the tier; distance adds a steady push on top, so the run always speeds up
+  // (about +60 after half a minute, +150 after a minute and a half, at most +320).
+  const drive = Math.min(320, s.x * .006);
+  s.speed += (targetSpeed(s.got) + drive - s.speed) * Math.min(1, dt * 1.5);
   s.x += s.speed * dt;
   generate();
 
