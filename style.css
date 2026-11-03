@@ -368,3 +368,4 @@ h3{font-size:1.45rem;letter-spacing:.05em}
 /* The Trudi promo shot sits on a warm brand-coloured stage instead of its white strip. */
 .sponsor-trudi{background:radial-gradient(circle at 50% 40%,#6b1420,#2a080d 75%)}
 .sponsor-trudi img{object-fit:contain;padding:6% 4% 0;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
+.product-cards.is-single{grid-template-columns:1fr}
