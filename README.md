@@ -8,7 +8,7 @@ Lézervágott, rétegelt lemez csőtároló (V1.1, gravírozott) a műhelyünkbe
 |---|---|
 | Befoglaló méret | 2265 × 600 × 1350 mm (2300 × 600 mm-es helyre) |
 | Kapacitás | 30 cső: 6 × DN200, 8 × DN150, 16 × DN100 |
-| Anyag | 6 tábla rétegelt lemez (3 × 10 mm, 3 × 6 mm), 1400 × 1400 mm, 64% kihasználás |
+| Anyag | 6 tábla rétegelt lemez (3 × 10 mm, 3 × 6 mm), 1400 × 1400 mm, 73% kihasználás |
 | Felépítés | 2 modul, 14 lemez + 56 ék, ékes átmenő csapok, csavar nélkül, kiakasztható zároléc |
 | Videó | 1:24, angol, Remotion + HyperFrames, neurális narráció, zene: Kevin MacLeod „Inspired” (CC BY 4.0) |
 
