@@ -1,9 +1,21 @@
-# Product Team – KG csőtároló weboldal
+# Product Team – KG csőtároló V1
 
-Statikus oldal (HTML + CSS + Three.js CDN-ről), build nélkül. GitHub Pages-re a mappa tartalma egy az egyben feltölthető.
+Lézervágott, rétegelt lemez csőtároló a műhelyünkbe, DN100 / DN150 / DN200 KG csövekhez. A projekt az AI kihívásra készült, Claude Opus 5.5 segítségével.
 
-## Fülek
+**Élő oldal:** https://bernathtamas.github.io/KG-cso-tarto/
+
+| | |
+|---|---|
+| Befoglaló méret | 2224 × 600 × 1350 mm (2300 × 600 mm-es helyre) |
+| Kapacitás | 30 cső: 6 × DN200, 8 × DN150, 16 × DN100 |
+| Anyag | 8 tábla rétegelt lemez (4 × 10 mm, 4 × 6 mm), 1400 × 1400 mm |
+| Felépítés | 2 modul, 18 alkatrész, csap-horony kötés, M8 csavarral összefogva |
+| Videó | 1:56, Remotion + HyperFrames, magyar narráció |
+
+## Az oldal fülei
 `#termekek` · `#tervezes` · `#mellekletek` · `#megvalositas` · `#rolunk`
+
+Statikus oldal (HTML + CSS + Three.js CDN-ről), build nélkül.
 
 ## Tartalom frissítése
 - **Modell, DXF, előnézetek:** `./sync_assets.sh` – átmásolja a `../3D_modell` aktuális kimeneteit.
