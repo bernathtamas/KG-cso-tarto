@@ -25,7 +25,7 @@ function init() {
   renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.domElement.setAttribute('aria-label', 'Forgatható 3D csőtároló modell');
+  renderer.domElement.setAttribute('aria-label', 'Rotatable 3D model of the pipe rack');
   container.prepend(renderer.domElement);
 
   const pmrem = new THREE.PMREMGenerator(renderer);
@@ -108,7 +108,7 @@ function styleGlb(root) {
 
 export async function loadGlb(url, label) {
   if (!renderer) init();
-  status.textContent = '3D MODELL BETÖLTÉSE…';
+  status.textContent = 'LOADING 3D MODEL…';
   const gltf = await new GLTFLoader().loadAsync(url);
   styleGlb(gltf.scene);
   frame(gltf.scene);
@@ -131,7 +131,7 @@ function occt() {
 
 export async function loadStep(buffer, label) {
   if (!renderer) init();
-  status.textContent = 'STEP FELDOLGOZÁSA…';
+  status.textContent = 'PROCESSING STEP…';
   const result = (await occt()).ReadStepFile(new Uint8Array(buffer), {
     linearUnit: 'millimeter', linearDeflectionType: 'bounding_box_ratio', linearDeflection: .001, angularDeflection: .5,
   });

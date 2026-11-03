@@ -1,6 +1,6 @@
 # Product Team – KG csőtároló V1
 
-Lézervágott, rétegelt lemez csőtároló a műhelyünkbe, DN100 / DN150 / DN200 KG csövekhez. A projekt az AI kihívásra készült, Claude Opus 5.5 segítségével.
+Lézervágott, rétegelt lemez csőtároló (V1.1, gravírozott) a műhelyünkbe, DN100 / DN150 / DN200 KG csövekhez. A projekt az AI kihívásra készült, Claude Opus 5.5 segítségével.
 
 **Élő oldal:** https://bernathtamas.github.io/KG-cso-tarto/
 

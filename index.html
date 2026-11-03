@@ -1,38 +1,39 @@
 <!doctype html>
-<html lang="hu">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Product Team — KG Csőtároló V1</title>
-<meta name="description" content="Lézervágott, fa KG csőtároló műhelybe – a Product Team AI kihívás projektje: 3D modell, videó, BOM, gyártási fájlok.">
+<title>Product Team — KG Pipe Rack V1.1</title>
+<meta name="description" content="A laser-cut, all-wood KG pipe rack for our workshop — Product Team's AI Challenge project: 3D model, video, BOM, cutting files and project log.">
 <link rel="icon" href="assets/product-team-logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261103c">
+<link rel="stylesheet" href="style.css?v=20261103d">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 </head>
 <body>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#termekek" aria-label="Product Team – főoldal">
+  <a class="brand" href="#products" aria-label="Product Team – home">
     <img class="brand-mark" src="assets/product-team-logo.svg" alt="">
     <span class="brand-name">PRODUCT TEAM</span>
   </a>
-  <nav class="nav-links" id="nav-links" aria-label="Fő navigáció">
-    <a href="#termekek" data-tab="termekek">Termékek</a>
-    <a href="#tervezes" data-tab="tervezes">Tervezés folyamata</a>
-    <a href="#mellekletek" data-tab="mellekletek">Mellékletek</a>
-    <a href="#megvalositas" data-tab="megvalositas">Út a megvalósításig</a>
-    <a href="#rolunk" data-tab="rolunk">Rólunk</a>
+  <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+    <a href="#products" data-tab="products">Products</a>
+    <a href="#log" data-tab="log">Project log</a>
+    <a href="#attachments" data-tab="attachments">Attachments</a>
+    <a href="#production" data-tab="production">Road to production</a>
+    <a href="#sponsors" data-tab="sponsors">Sponsors</a>
+    <a href="#about" data-tab="about">About us</a>
   </nav>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Menü" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span></button>
 </header>
 
 <main>
 
-<!-- ================= 01 TERMÉKEK ================= -->
-<section class="page" id="page-termekek" data-page="termekek">
+<!-- ================= PRODUCTS ================= -->
+<section class="page" id="page-products" data-page="products">
 
   <div class="hero">
     <div class="hero-grid" aria-hidden="true"></div>
@@ -40,52 +41,54 @@
       <img class="hero-logo-fallback" src="assets/product-team-logo.svg" alt="">
     </div>
     <div class="hero-copy">
-      <p class="eyebrow">AI KIHÍVÁS / 2026 · CLAUDE OPUS 5.5</p>
-      <h1>KG csőtároló <span class="thin">V1</span></h1>
-      <p class="lead">Lézervágott, fa csőtároló a műhelyünkbe, DN100, DN150 és DN200 méretű KG csövekhez. Rendezett, stabil, egy mozdulattal hozzáférhető.</p>
+      <p class="eyebrow">AI CHALLENGE / 2026 · CLAUDE OPUS 5.5</p>
+      <h1>KG pipe rack <span class="thin">V1.1</span></h1>
+      <p class="lead">A laser-cut plywood rack for our workshop, built for DN100, DN150 and DN200 KG pipes. Ordered, stable, and every pipe one move away.</p>
       <div class="cta-row">
-        <a class="btn" href="#modell" data-scroll>3D modell</a>
-        <a class="btn btn-ghost" href="#tervezes">Tervezés folyamata</a>
+        <a class="btn" href="#model" data-scroll>3D model</a>
+        <a class="btn btn-ghost" href="#log">Project log</a>
       </div>
     </div>
     <div class="hero-scroll" aria-hidden="true"><span></span></div>
   </div>
 
   <div class="stats" id="stats">
-    <div class="stat"><span class="stat-num" data-count="2265">2265</span><span class="stat-unit">mm</span><span class="stat-label">Befoglaló hossz, 600 mm mély<br>(2300 mm-es helyre)</span></div>
-    <div class="stat"><span class="stat-num" data-count="0">0</span><span class="stat-unit">csavar</span><span class="stat-label">Ékes átmenő csapok<br>52 ék + 4 tartalék</span></div>
-    <div class="stat"><span class="stat-num" data-count="30">30</span><span class="stat-unit">db</span><span class="stat-label">Cső kapacitás<br>6 × DN200 · 8 × DN150 · 16 × DN100</span></div>
-    <div class="stat"><span class="stat-num" data-count="64">64</span><span class="stat-unit">%</span><span class="stat-label">Anyagkihasználás<br>6 tábla, 1400 × 1400 mm</span></div>
+    <div class="stat"><span class="stat-num" data-count="2265">2265</span><span class="stat-unit">mm</span><span class="stat-label">Overall length, 600 mm deep<br>(fits a 2300 mm wall)</span></div>
+    <div class="stat"><span class="stat-num" data-count="30">30</span><span class="stat-unit">pipes</span><span class="stat-label">6 × DN200 · 8 × DN150<br>16 × DN100</span></div>
+    <div class="stat"><span class="stat-num" data-count="100">100</span><span class="stat-unit">% wood</span><span class="stat-label">No screws, no glue, no nails<br>52 wedges + 4 spares</span></div>
+    <div class="stat"><span class="stat-num stat-usage" data-usage="64" data-from="39">39</span><span class="stat-unit">%</span><span class="stat-label">Material used<br>6 sheets, 1400 × 1400 mm</span></div>
   </div>
 
-  <section class="band" id="modell">
+  <section class="band" id="model">
     <div class="band-head">
       <div>
-        <p class="eyebrow">01 / INTERAKTÍV MODELL</p>
-        <h2>Járd körbe.</h2>
+        <p class="eyebrow">01 / INTERACTIVE MODEL</p>
+        <h2>Spin it.</h2>
       </div>
-      <p class="band-note">Két modul, 14 rétegelt lemez alkatrész és 56 ék, csavar nélkül. A Fusion 360-ból exportált STEP-modell forgatható, nagyítható, és a csövek ki-be kapcsolhatók.</p>
+      <p class="band-note">Two modules, 14 plywood parts and 56 wedges. Drag to orbit, scroll to zoom, and switch the pipes on and off.</p>
     </div>
 
     <div class="viewer-shell">
       <div class="viewer-bar">
-        <span class="mono" id="model-name">CSO_TARTO_V1 / ÖSSZEÁLLÍTÁS</span>
+        <span class="mono" id="model-name">PIPE_RACK_V1.1 / ASSEMBLY</span>
         <div class="viewer-actions">
-          <button class="chip is-on" id="toggle-pipes" type="button" aria-pressed="true">Csövek</button>
-          <button class="chip" id="toggle-spin" type="button" aria-pressed="true">Forgás</button>
-          <button class="chip" id="reset-view" type="button">Alapnézet ↺</button>
-          <button class="chip" id="open-step" type="button">STEP megnyitása ＋</button>
+          <button class="chip is-on" id="toggle-pipes" type="button" aria-pressed="true">Pipes</button>
+          <button class="chip is-on" id="toggle-spin" type="button" aria-pressed="true">Spin</button>
+          <button class="chip" id="reset-view" type="button">Reset view ↺</button>
+          <button class="chip" id="load-step" type="button">Engraved STEP (15 MB)</button>
+          <button class="chip" id="open-step" type="button">Open your file ＋</button>
           <input type="file" id="step-input" accept=".step,.stp,.glb" hidden>
         </div>
       </div>
       <div class="viewer" id="viewer">
-        <div class="viewer-status mono" id="model-status" role="status">3D MODELL BETÖLTÉSE…</div>
+        <div class="viewer-status mono" id="model-status" role="status">LOADING 3D MODEL…</div>
         <div class="viewer-hud mono" aria-hidden="true">
           <span>X 2265</span><span>Y 600</span><span>Z 1350</span>
         </div>
+        <div class="viewer-stamp mono" aria-hidden="true">PRODUCT TEAM · DWG PT-KG-001 · REV 1.1 · SCALE 1:20</div>
       </div>
       <div class="viewer-foot mono">
-        <span>HÚZÁS: FORGATÁS · GÖRGETÉS: NAGYÍTÁS · JOBB GOMB: MOZGATÁS</span>
+        <span>DRAG: ORBIT · SCROLL: ZOOM · RIGHT BUTTON: PAN</span>
         <span id="model-format">.GLB / .STEP</span>
       </div>
     </div>
@@ -93,28 +96,44 @@
 
   <section class="band band-split">
     <div class="split-text">
-      <p class="eyebrow">02 / MŰKÖDÉSI ELV</p>
-      <h2>Tokkal felfelé.<br>Fésűben vezetve.<br><span class="thin">Csavar nélkül.</span></h2>
+      <p class="eyebrow">02 / HOW IT WORKS</p>
+      <h2>Socket up.<br>Comb-guided.<br><span class="thin">All wood.</span></h2>
       <ul class="spec-list">
-        <li><span class="mono">CSŐFÉSZEK</span>A csövek a talajon állnak. A 20 mm-rel megemelt padló furatai fogják meg az aljukat, így a padló egyben a csőfészek.</li>
-        <li><span class="mono">FÉSŰ</span>Két, elölről nyitott vezetőfésű 650 és 1300 mm magasan. A cső elölről becsúszik, oldalra nem dől ki.</li>
-        <li><span class="mono">ZÁROLÉC</span>Az alsó fésű felett fut végig, és megakadályozza, hogy a csövek előre kidőljenek. 20 mm-t megemelve kiakasztható, szerszám nélkül.</li>
-        <li><span class="mono">ÉKES CSAP</span>A fő kötések átmenő csapok, amelyeket egy beütött ék zár. Szétszedhető, és nincs benne egyetlen csavar sem. Modulonként 2 L-vas rögzíti a falhoz.</li>
+        <li><span class="mono">PIPE SEATS</span>Pipes stand on the floor. The raised base plate holds their ends in cut-outs, so the base is the pipe seat.</li>
+        <li><span class="mono">GUIDE COMBS</span>Two combs, open at the front, at 650 and 1300 mm. Slide a pipe in from the front; it can't tip sideways.</li>
+        <li><span class="mono">FRONT RAIL</span>Runs above the lower comb and stops pipes tipping forward. Lift it 20 mm and it unhooks, no tools needed.</li>
+        <li><span class="mono">WEDGED TENONS</span>Every joint is a through-tenon locked by a tapped-in wedge. Not a single screw, nail or drop of glue.</li>
       </ul>
     </div>
     <figure class="split-media">
-      <img src="assets/kepek/osszeallitas_csovekkel.jpg" alt="A csőtároló összeállítása csövekkel, Fusion 360 render" loading="lazy">
-      <figcaption class="mono">FUSION 360 / ÖSSZEÁLLÍTÁS 30 CSŐVEL</figcaption>
+      <img src="assets/kepek/osszeallitas_csovekkel.jpg" alt="The pipe rack with 30 pipes, Fusion 360 render" loading="lazy">
+      <figcaption class="mono">FUSION 360 / ASSEMBLY WITH 30 PIPES</figcaption>
     </figure>
+  </section>
+
+  <section class="band band-split band-split-rev">
+    <figure class="split-media">
+      <img src="assets/kepek/reszlet_gravir.jpg" alt="Laser-engraved Polinvent logo and slogan on the outer side wall" loading="lazy">
+      <figcaption class="mono">V1.1 / LASER ENGRAVING</figcaption>
+    </figure>
+    <div class="split-text">
+      <p class="eyebrow">03 / NEW IN V1.1</p>
+      <h2>Engraved, not printed.</h2>
+      <ul class="spec-list">
+        <li><span class="mono">OUTER WALLS</span>Polinvent mark, logotype and slogan, engraved facing outwards. The left wall is cut mirrored so the engraving ends up on the outside.</li>
+        <li><span class="mono">FRONT RAIL</span>DN200 / DN150 / DN100 labels above each lane: everyone knows where each pipe goes back.</li>
+        <li><span class="mono">BACK PANEL</span>Logo and slogan on the inside, visible whenever the rack is empty.</li>
+      </ul>
+    </div>
   </section>
 
   <section class="band" id="video">
     <div class="band-head">
       <div>
-        <p class="eyebrow">03 / VIDEÓ</p>
-        <h2>A projekt 82 másodpercben.</h2>
+        <p class="eyebrow">04 / VIDEO</p>
+        <h2>The project in 82 seconds.</h2>
       </div>
-      <p class="band-note">Angol nyelvű, kódból renderelt reklámfilm: Remotion és HyperFrames, zene a 120 BPM-es ütemre vágva, neurális narrációval.</p>
+      <p class="band-note">A product film rendered entirely from code with Remotion and HyperFrames, cut to a 120 BPM track, with a neural voice-over.</p>
     </div>
     <div class="video-frame" id="video-frame">
       <video id="project-video" playsinline controls preload="metadata" poster="assets/video-poster.jpg" hidden>
@@ -122,8 +141,7 @@
       </video>
       <div class="video-waiting" id="video-waiting">
         <span class="pulse"></span>
-        <p class="mono">VIDEÓ KÉSZÜL</p>
-        <p>A kész videó ide kerül fel.</p>
+        <p class="mono">VIDEO LOADING</p>
       </div>
     </div>
   </section>
@@ -131,250 +149,196 @@
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">04 / SÁVKIOSZTÁS</p>
-        <h2>Minden csőnek saját helye van.</h2>
+        <p class="eyebrow">05 / LANE LAYOUT</p>
+        <h2>Every pipe has its place.</h2>
       </div>
     </div>
-    <div class="lanes" id="lanes" aria-label="Sávkiosztás balról jobbra"></div>
-    <p class="fine">A cső DN-mérete / KG külső átmérő: DN100 = Ø110 · DN150 = Ø160 · DN200 = Ø200 mm (forrás: idomok.hu, KG cső). A tokátmérők becsültek, vágás előtt mérjük.</p>
+    <div class="lanes" id="lanes" aria-label="Lane layout, left to right"></div>
+    <p class="fine">Nominal size / KG outer diameter: DN100 = Ø110 · DN150 = Ø160 · DN200 = Ø200 mm (source: idomok.hu, KG pipe catalogue).</p>
   </section>
 
   <section class="band band-products">
     <div class="band-head">
       <div>
-        <p class="eyebrow">05 / TERMÉKEINK</p>
-        <h2>A Product Team projektjei.</h2>
+        <p class="eyebrow">06 / OUR PRODUCTS</p>
+        <h2>Product Team projects.</h2>
       </div>
     </div>
     <div class="product-cards">
-      <a class="product-card is-current" href="#modell" data-scroll>
+      <a class="product-card is-current" href="#model" data-scroll>
         <span class="mono">P02 · 2026</span>
-        <h3>KG csőtároló V1</h3>
-        <p>Lézervágott rétegelt lemez · 30 cső · műhely</p>
-        <span class="arrow">Megnézem →</span>
+        <h3>KG pipe rack V1.1</h3>
+        <p>Laser-cut plywood · 30 pipes · workshop</p>
+        <span class="arrow">Take a look →</span>
       </a>
       <a class="product-card" href="https://bernathtamas.github.io/product-team-gitartarto/" target="_blank" rel="noopener">
         <span class="mono">P01 · 2026</span>
-        <h3>Autolockos gitártartó</h3>
-        <p>3D nyomtatott PETG · fali tartó · 6 alkatrész</p>
-        <span class="arrow">Külön oldalon ↗</span>
+        <h3>Auto-lock guitar hanger</h3>
+        <p>3D-printed PETG · wall mount · 6 parts</p>
+        <span class="arrow">Separate site ↗</span>
       </a>
     </div>
   </section>
 </section>
 
-<!-- ================= 02 TERVEZÉS ================= -->
-<section class="page" id="page-tervezes" data-page="tervezes" hidden>
+<!-- ================= PROJECT LOG ================= -->
+<section class="page" id="page-log" data-page="log" hidden>
   <div class="page-hero">
-    <p class="eyebrow">02 / TERVEZÉS FOLYAMATA</p>
-    <h1>Promptól<br>a vágási fájlig.</h1>
-    <p class="lead">Hogyan jutottunk el egy egyszerű műhelyproblémától a paraméteres, ütközésvizsgált 3D modellig, a Claude Opus 5.5 segítségével.</p>
+    <p class="eyebrow">PROJECT LOG</p>
+    <h1>From prompt<br>to cutting file.</h1>
+    <p class="lead">What we used, how we worked with the AI, where we got stuck and how we got past it.</p>
   </div>
 
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">00 / KUTATÁS ÉS KÖZÖS TERVEZÉS</p>
-        <h2>Először megnéztük,<br>hogyan csinálják a profik.</h2>
+        <p class="eyebrow">AT A GLANCE</p>
+        <h2>What was made with what.</h2>
       </div>
-      <p class="band-note">Mielőtt egyetlen vonalat húztunk volna, közösen feltérképeztük, milyen eszközökkel és munkafolyamatokkal dolgoznak a tapasztalt tervezők, és mit alkottak már mások hasonló témában.</p>
     </div>
     <div class="tool-grid">
-      <div class="tool"><span class="mono">01 · ESZKÖZPIAC</span><b>Profi munkafolyamatok</b><p>Összevetettük a művészi (Blender), a parametrikus (Fusion 360, Onshape) és a kódalapú CAD-et (OpenSCAD, CadQuery), valamint az AI-s 3D-generátorokat. A kódalapú utat választottuk, mert ott az AI a legerősebb.</p></div>
-      <div class="tool"><span class="mono">02 · REFERENCIÁK</span><b>Mások munkái</b><p>Átnéztük nyílt forráskódú skillgyűjtemények (pl. claudedesignskills) Three.js- és webes 3D-mintáit, valamint műhelyes csőtárolók megoldásait.</p></div>
-      <div class="tool"><span class="mono">03 · ADATOK</span><b>Valós méretek</b><p>A KG csövek átmérőit és szálhosszait a gyártói katalógusból vettük, a helyet lemértük: 230 × 60 cm, legfeljebb 70 cm.</p></div>
-      <div class="tool"><span class="mono">04 · DIZÁJN</span><b>Vizuális irány</b><p>Weboldalhoz a SpaceX letisztult, mérnöki stílusát vettük alapul, márkához a saját Product Team logónkat és az előző projektünk elemeit.</p></div>
+      <div class="tool"><span class="mono">3D MODEL</span><b>Python + Fusion 360</b><p>Parametric generator (shapely, trimesh, ezdxf, manifold3d) and a Fusion 360 script that rebuilds the same model natively.</p></div>
+      <div class="tool"><span class="mono">VIDEO</span><b>Remotion + HyperFrames</b><p>Rendered from code: React + Three.js scenes and HTML/GSAP kinetic type, neural voice-over, music on the beat.</p></div>
+      <div class="tool"><span class="mono">WEBSITE</span><b>Three.js + GitHub Pages</b><p>Static site with a live STEP/GLB viewer, published from GitHub.</p></div>
+      <div class="tool"><span class="mono">AI</span><b>Claude Opus 5.5</b><p>In Claude Code, with two sessions running in parallel: one on the model, one on the website and video.</p></div>
     </div>
   </section>
 
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">AI-STACK</p>
-        <h2>Skillek, MCP, Opus 5.5.</h2>
+        <p class="eyebrow">SKILLS &amp; MCP</p>
+        <h2>We didn't start from zero.</h2>
       </div>
-      <p class="band-note">A projekt minden lépését a Claude Opus 5.5 modellel, Claude Code-ban végeztük. A képességeit skillekkel és MCP-szerverekkel bővítettük.</p>
+      <p class="band-note">Before building, we had the AI read what the pros have already packaged as agent skills, and follow their rules.</p>
     </div>
-    <div class="tool-grid three">
-      <div class="tool"><span class="mono">MODELL</span><b>Claude Opus 5.5</b><p>Tervezés, mérnöki döntések, paraméteres generátor, Fusion-szkript, weboldal, szövegek.</p></div>
-      <div class="tool"><span class="mono">SKILLEK</span><b>Skillkatalógusok</b><p>Átnéztük a skill- és pluginkatalógusokat és a claudedesignskills gyűjteményt. A webes 3D-hez és a felülettervezéshez belőlük vettünk mintákat.</p></div>
-      <div class="tool"><span class="mono">MCP</span><b>MCP-szerverek</b><p>MCP-regiszter a CAD-kapcsolat kereséséhez, munkamenet-MCP a párhuzamos fülek összehangolásához, böngésző-MCP az oldal élő teszteléséhez.</p></div>
+    <div class="skill-list">
+      <div class="skill"><span class="mono">SKILL</span><b>HyperFrames skills</b><span class="by">heygen-com/hyperframes</span><p>Story beats, hook in the first seconds, motion and easing rules, sound design, what gives a generated film away.</p></div>
+      <div class="skill"><span class="mono">SKILL</span><b>Remotion best practices</b><span class="by">remotion-dev/skills</span><p>Transitions, spring timing, audio ducking under voice-over, 3D scenes driven frame by frame.</p></div>
+      <div class="skill"><span class="mono">SKILL</span><b>Marketing skills</b><span class="by">coreyhaines31/marketingskills</span><p>Video and copywriting structure: problem → reveal → proof → claim → end card.</p></div>
+      <div class="skill"><span class="mono">SKILL</span><b>Claude design skills</b><span class="by">freshtechbro/claudedesignskills</span><p>Patterns for web 3D with Three.js and Blender-to-web pipelines.</p></div>
+      <div class="skill"><span class="mono">MCP</span><b>MCP registry</b><span class="by">connector search</span><p>Searched for a ready CAD (Fusion) connector before choosing the code-driven route.</p></div>
+      <div class="skill"><span class="mono">MCP</span><b>Session + browser MCP</b><span class="by">Claude Code</span><p>One session read the other's conversation to stay in sync; a browser tested every change live.</p></div>
     </div>
   </section>
 
-  <section class="band" id="ido">
+  <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">IDŐMÉRÉS</p>
-        <h2>Az idő nagy részében<br>az AI dolgozott.</h2>
+        <p class="eyebrow">HOW WE TALKED TO THE AI</p>
+        <h2>Example prompts.</h2>
       </div>
-      <p class="band-note">Megmértük, mennyi időbe telt a projekt. Az <b>aktív</b> idő a mi kérdéseink, döntéseink és ellenőrzéseink ideje. A <b>passzív</b> időben az AI önállóan modellezett, kódot írt, renderelt és élesített, mi pedig közben a másik munkameneten dolgoztunk.</p>
+    </div>
+    <div class="prompt-list">
+      <blockquote class="prompt"><span class="mono">START</span>“We need a PVC pipe rack for our workshop. We have 230 cm of length and max 70, ideally 60 cm of depth, for DN100, DN150 and DN200 pipes. They mustn't fall over, should be neatly lined up and quick to grab. Plywood, 4–10 mm, 1400 × 1400 sheets, laser cut — design it for assembly.”</blockquote>
+      <blockquote class="prompt"><span class="mono">QUALITY</span>“Use skills that others have created if needed, so the design is as good as possible.”</blockquote>
+      <blockquote class="prompt"><span class="mono">WEBSITE</span>“Several tabs, Product Team as the brand, the PT logo should spin. Take SpaceX as the base: professional, engineered.”</blockquote>
+      <blockquote class="prompt"><span class="mono">VIDEO</span>“The video is dark and lame. Analyse real commercials and advertising and video skills on GitHub to make it better. The voice should be human.”</blockquote>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">ITERATIONS</p>
+        <h2>Three versions to get it right.</h2>
+      </div>
+    </div>
+    <div class="iter-grid">
+      <article class="iter"><span class="mono">ITERATION 1</span><h3>Screwed frame</h3><p><b>Problem:</b> 34 screws and nuts, separate base plate and foot rails, 8 sheets at 39% material use. The combs alone wasted 82% of a sheet.</p><div class="iter-kpi"><span class="bad">8 sheets</span><span class="bad">39%</span><span class="bad">34 screws</span></div></article>
+      <article class="iter"><span class="mono">ITERATION 2</span><h3>Wedged &amp; nested</h3><p><b>Fix:</b> wedged through-tenons instead of screws, the base became the pipe seat, and the two combs were rotated 180° and nested into one sheet.</p><div class="iter-kpi"><span class="ok">6 sheets</span><span class="ok">64%</span><span class="ok">0 screws</span></div></article>
+      <article class="iter is-rejected"><span class="mono">SIDE BRANCH · V2</span><h3>Steel rod arms</h3><p><b>Tried:</b> M10 threaded rods instead of plywood combs: 5 sheets, 66%, only 32 wedges. <b>Rejected:</b> it's no longer an all-wood rack, and it needs nuts and washers again.</p><div class="iter-kpi"><span>5 sheets</span><span>66%</span><span class="bad">metal</span></div></article>
+      <article class="iter is-final"><span class="mono">ITERATION 3 · V1.1</span><h3>Engraved final</h3><p><b>Problem:</b> the engraving has to face outwards on both end walls, but the walls were identical parts. <b>Fix:</b> separate outer walls, the left one cut mirrored, plus DN labels on the rail.</p><div class="iter-kpi"><span class="ok">6 sheets</span><span class="ok">100% wood</span><span class="ok">engraved</span></div></article>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">WHERE WE GOT STUCK</p>
+        <h2>And how we got past it.</h2>
+      </div>
+    </div>
+    <ol class="timeline">
+      <li class="tl-item is-block"><span class="tl-step mono">STUCK · CAD</span><div class="tl-body"><h3>No Fusion connector</h3><p>There was no Fusion 360 MCP in the registry or among the skills. <b>Way out:</b> the AI wrote a parametric Python generator for DXF and 3D, plus a Fusion script that rebuilds the model natively.</p></div></li>
+      <li class="tl-item is-block"><span class="tl-step mono">STUCK · SIZE</span><div class="tl-body"><h3>2300 mm doesn't fit a 1400 mm sheet</h3><p><b>Way out:</b> two independent modules side by side, 1150 and 1029 mm between the walls.</p></div></li>
+      <li class="tl-item"><span class="tl-step mono">DECISION</span><div class="tl-body"><h3>Socket down or up?</h3><p>Socket down meant huge holes and only 3 DN100s per lane. Socket up lets the holes match the pipe and puts the sockets above the top comb. <b>Result: 30 pipes.</b></p></div></li>
+      <li class="tl-item is-block"><span class="tl-step mono">STUCK · WEB</span><div class="tl-body"><h3>A black model in the browser</h3><p>The 3D viewer showed the rack completely black. <b>Way out:</b> the AI inspected the GLB file, found the surface normals missing and now computes them on load.</p></div></li>
+      <li class="tl-item is-block"><span class="tl-step mono">STUCK · VIDEO</span><div class="tl-body"><h3>First cut: dark, slow, robotic</h3><p><b>Way out:</b> we analysed real product films and the official HyperFrames and Remotion skills, then re-cut it: a hook up front, a light look, cuts on the beat, music ducked under a neural voice.</p></div></li>
+      <li class="tl-item"><span class="tl-step mono">CHECK</span><div class="tl-body"><h3>3D collision check on every pair of parts</h3><p>The generator checks every part pair and that every wedge sits in its tenon. We tested it with a deliberate 1 mm error and it caught it. Result: <span class="ok mono">OK · NO COLLISIONS</span></p></div></li>
+    </ol>
+  </section>
+
+  <section class="band" id="time">
+    <div class="band-head">
+      <div>
+        <p class="eyebrow">TIME TRACKING</p>
+        <h2>Most of the time,<br>the AI did the work.</h2>
+      </div>
+      <p class="band-note">We measured how long the project took. <b>Active</b> time is our questions, decisions and checks. In <b>passive</b> time the AI modelled, coded, rendered and published on its own while we worked in the other session.</p>
     </div>
     <div class="time-grid">
-      <div class="time-card is-hl"><b data-count="64">64</b><span class="unit">%</span><p>passzív idő: ennyi ideig dolgozott helyettünk az AI</p></div>
-      <div class="time-card"><b>1:32</b><p>aktív munkánk</p></div>
-      <div class="time-card"><b>2:44</b><p>passzív, AI-munka</p></div>
-      <div class="time-card"><b>2:24</b><p>eltelt idő: két AI-munkamenet dolgozott párhuzamosan</p></div>
+      <div class="time-card is-hl"><b data-count="64">64</b><span class="unit">%</span><p>passive time: how long the AI worked for us</p></div>
+      <div class="time-card"><b>1:32</b><p>our active work</p></div>
+      <div class="time-card"><b>2:44</b><p>passive, AI work</p></div>
+      <div class="time-card"><b>2:24</b><p>elapsed: two AI sessions ran in parallel</p></div>
     </div>
     <div class="table-wrap">
       <table class="bom time-table">
-        <thead><tr><th>Szakasz</th><th>Munkamenet</th><th>Aktív</th><th>Passzív</th><th>Összesen</th></tr></thead>
+        <thead><tr><th>Phase</th><th>Session</th><th>Active</th><th>Passive</th><th>Total</th></tr></thead>
         <tbody>
-          <tr><td>3D modell V1: paraméteres generátor, DXF, ütközésvizsgálat</td><td>Modell</td><td class="num">0:14</td><td class="num hot">0:18</td><td class="num dim">0:32</td></tr>
-          <tr><td>V2: csavar nélküli ékes kötések, anyagoptimalizálás (8 → 6 tábla)</td><td>Modell</td><td class="num">0:11</td><td class="num hot">0:52</td><td class="num dim">1:03</td></tr>
-          <tr><td>Fusion 360: összeállítás, STEP, robbantott ábra, szerelési rajz</td><td>Modell</td><td class="num">0:19</td><td class="num hot">0:31</td><td class="num dim">0:50</td></tr>
-          <tr><td>Weboldal tervezése és élesítése GitHub Pages-en</td><td>Web + videó</td><td class="num">0:32</td><td class="num">0:16</td><td class="num dim">0:48</td></tr>
-          <tr><td>Első videó (Remotion + HyperFrames), naplózás</td><td>Web + videó</td><td class="num">0:09</td><td class="num hot">0:16</td><td class="num dim">0:25</td></tr>
-          <tr><td>Tartalom és weboldal frissítése az új modellre</td><td>Web + videó</td><td class="num">0:13</td><td class="num">0:07</td><td class="num dim">0:20</td></tr>
-          <tr><td>Reklámkutatás, angol reklámvideó: zene, narráció, újravágás</td><td>Web + videó</td><td class="num">0:11</td><td class="num hot">0:24</td><td class="num dim">0:35</td></tr>
+          <tr><td>3D model V1: parametric generator, DXF, collision check</td><td>Model</td><td class="num">0:14</td><td class="num hot">0:18</td><td class="num dim">0:32</td></tr>
+          <tr><td>Screwless wedged joints, material optimisation (8 → 6 sheets)</td><td>Model</td><td class="num">0:11</td><td class="num hot">0:52</td><td class="num dim">1:03</td></tr>
+          <tr><td>Fusion 360: assembly, STEP, exploded view, assembly drawing</td><td>Model</td><td class="num">0:19</td><td class="num hot">0:31</td><td class="num dim">0:50</td></tr>
+          <tr><td>Website design and publishing on GitHub Pages</td><td>Web + video</td><td class="num">0:32</td><td class="num">0:16</td><td class="num dim">0:48</td></tr>
+          <tr><td>First video (Remotion + HyperFrames), logging</td><td>Web + video</td><td class="num">0:09</td><td class="num hot">0:16</td><td class="num dim">0:25</td></tr>
+          <tr><td>Updating content and website to the new model</td><td>Web + video</td><td class="num">0:13</td><td class="num">0:07</td><td class="num dim">0:20</td></tr>
+          <tr><td>Ad research, English product film: music, voice, re-cut</td><td>Web + video</td><td class="num">0:11</td><td class="num hot">0:24</td><td class="num dim">0:35</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="fine">Mérés: 2026. november 3., 08:53–11:17, a két Claude Code munkamenet naplójának időbélyegei alapján. Passzív idő: a kérésünktől az AI utolsó lépéséig. Aktív idő: az AI válaszától a következő kérésünkig, fordulónként legfeljebb 15 perc. A két munkamenet egy időben futott, ezért az átfedő aktív időt az összesítésben egyszer számoltuk (soronként 1:49, ténylegesen 1:32).</p>
+    <p class="fine">Measured on 3 November 2026, 08:53–11:17, from the timestamps of both Claude Code session logs. Passive: from our request to the AI's last step. Active: from the AI's answer to our next request, capped at 15 minutes per turn. The two sessions ran at the same time, so overlapping active time is counted once in the total (1:49 by rows, 1:32 in reality).</p>
 
     <div class="band-head est-head">
       <div>
-        <p class="eyebrow">BECSLÉS · HA KÉZZEL CSINÁLTUK VOLNA</p>
-        <h2>~52 óra helyett<br><span class="thin">2 óra 24 perc.</span></h2>
+        <p class="eyebrow">ESTIMATE · IF WE HAD DONE IT BY HAND</p>
+        <h2>~52 hours,<br><span class="thin">done in 2 h 24 min.</span></h2>
       </div>
-      <p class="band-note">Mennyi idő lett volna ugyanez AI nélkül, egy tapasztalt tervezőnek és fejlesztőnek? Ez <b>becslés</b>, nem mérés. Tételenként a szokásos kézi munkaidővel számoltunk.</p>
+      <p class="band-note">How long would the same take without AI, for an experienced designer and developer? This is an <b>estimate</b>, not a measurement, using typical manual working times per task.</p>
     </div>
     <div class="table-wrap">
       <table class="bom time-table">
-        <thead><tr><th>Feladat</th><th>Kézzel (becslés)</th><th>Nálunk (mért)</th></tr></thead>
+        <thead><tr><th>Task</th><th>By hand (estimate)</th><th>With AI (measured)</th></tr></thead>
         <tbody>
-          <tr><td>Paraméteres 3D modell: 14 lemez, 56 ék, csap-horony kötések, ütközésvizsgálat</td><td class="num">~12 óra</td><td class="num hot" rowspan="3">2:23<br><span class="sub">a modell-munkamenet</span></td></tr>
-          <tr><td>Táblakiosztás (nesting) 6 táblára, DXF rétegek, gravírozás</td><td class="num">~4 óra</td></tr>
-          <tr><td>Fusion 360 összeállítás, robbantott ábra, A3 szerelési rajz, BOM</td><td class="num">~6 óra</td></tr>
-          <tr><td>Weboldal: 5 fül, 3D-néző (STEP/GLB), reszponzív design, élesítés</td><td class="num">~16 óra</td><td class="num hot" rowspan="3">2:07<br><span class="sub">a web- és videó-munkamenet</span></td></tr>
-          <tr><td>Videó: két változat, 3D animáció, kinetikus tipográfia, narráció, zene</td><td class="num">~12 óra</td></tr>
-          <tr><td>Kutatás és dokumentáció</td><td class="num">~2 óra</td></tr>
-          <tr class="total"><td>Összesen</td><td class="num">~52 óra · kb. 6,5 munkanap</td><td class="num hot">2:24 eltelt idő</td></tr>
+          <tr><td>Parametric 3D model: 14 plates, 56 wedges, tenon joints, collision check</td><td class="num">~12 h</td><td class="num hot" rowspan="3">2:23<br><span class="sub">model session</span></td></tr>
+          <tr><td>Nesting onto 6 sheets, DXF layers, engraving</td><td class="num">~4 h</td></tr>
+          <tr><td>Fusion 360 assembly, exploded view, A3 assembly drawing, BOM</td><td class="num">~6 h</td></tr>
+          <tr><td>Website: 6 tabs, 3D viewer (STEP/GLB), responsive design, publishing</td><td class="num">~16 h</td><td class="num hot" rowspan="3">2:07<br><span class="sub">web + video session</span></td></tr>
+          <tr><td>Video: two versions, 3D animation, kinetic type, voice-over, music</td><td class="num">~12 h</td></tr>
+          <tr><td>Research and documentation</td><td class="num">~2 h</td></tr>
+          <tr class="total"><td>Total</td><td class="num">~52 h · about 6.5 working days</td><td class="num hot">2:24 elapsed</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="fine">A két munkamenet párhuzamosan futott, ezért az eltelt idő kevesebb, mint a két munkamenet összege. A kézi becslés egy tapasztalt CAD-tervező és frontend-fejlesztő szokásos munkaidejével számol, tanulási idő nélkül.</p>
-  </section>
-
-  <ol class="timeline">
-    <li class="tl-item">
-      <span class="tl-step mono">T+00 · KIINDULÁS</span>
-      <div class="tl-body">
-        <h3>A feladat megfogalmazása</h3>
-        <blockquote class="prompt">„Szükségünk van egy PVC csőtartóra a műhelyünkbe. 230 cm hosszú és max. 70, de inkább 60 cm széles tér áll rendelkezésre. DN100, DN150 és DN200-as csöveket akarunk ott tárolni […] fából, lézervágással.”</blockquote>
-        <p>A csőméreteket az idomok.hu KG cső oldaláról vettük: Ø110 / 160 / 200 mm, 0,5–5 m-es szálhosszok.</p>
-      </div>
-    </li>
-    <li class="tl-item">
-      <span class="tl-step mono">T+01 · DÖNTÉSEK</span>
-      <div class="tl-body">
-        <h3>Claude kérdezett, mi döntöttünk</h3>
-        <div class="decision-grid">
-          <div><span class="mono">TÁJOLÁS</span><b>Függőleges</b></div>
-          <div><span class="mono">CSŐHOSSZ</span><b>2 m</b></div>
-          <div><span class="mono">MENNYISÉG</span><b>Ami kifér</b></div>
-          <div><span class="mono">LEMEZ</span><b>10 + 6 mm</b></div>
-        </div>
-      </div>
-    </li>
-    <li class="tl-item is-block">
-      <span class="tl-step mono">T+02 · ELAKADÁS</span>
-      <div class="tl-body">
-        <h3>Nem volt Fusion MCP</h3>
-        <p>Sem a connector-regiszterben, sem a skillek között nem volt Fusion-kapcsolat. <b>Megoldás:</b> Claude Python-generátort írt, ami közvetlenül készít DXF-et és 3D-t. Mellé egy Fusion 360 szkriptet is, ami a Fusionben natívan felépíti ugyanazt a modellt.</p>
-      </div>
-    </li>
-    <li class="tl-item is-block">
-      <span class="tl-step mono">T+03 · ELAKADÁS</span>
-      <div class="tl-body">
-        <h3>Az 1400 mm-es tábla korlátoz</h3>
-        <p>A 2300 mm-es hossz nem fér ki egy táblából. <b>Megoldás:</b> két különálló modul (1150 és 1029 mm a falak között), egymás mellett, 46 mm hézaggal.</p>
-      </div>
-    </li>
-    <li class="tl-item">
-      <span class="tl-step mono">T+04 · ITERÁCIÓ</span>
-      <div class="tl-body">
-        <h3>Tokkal le vagy fel?</h3>
-        <p>Tokkal lefelé a padlófuratok túl nagyok lettek volna, és a DN100-ból csak 3 fért volna egy sávba. Tokkal felfelé a furat a cső átmérőjéhez igazodik, a tok a felső fésű fölé kerül. <b>Így 30 cső fér el.</b></p>
-      </div>
-    </li>
-    <li class="tl-item">
-      <span class="tl-step mono">T+04B · ITERÁCIÓ</span>
-      <div class="tl-body">
-        <h3>Csavar nélkül, kevesebb anyagból</h3>
-        <p>A második körben a csavaros T-hornyos kötéseket ékes átmenő csapokra cseréltük, és újraterveztük a táblakiosztást. A felső és az alsó fésű 180°-kal elforgatva, egymásba tolva fér el egy táblán. A külön csőtalp-lemez és a talpgerendák helyett a padló furatai fogják a csöveket.</p>
-        <div class="decision-grid">
-          <div><span class="mono">TÁBLA</span><b>8 → 6</b></div>
-          <div><span class="mono">KIHASZNÁLÁS</span><b>39 → 64 %</b></div>
-          <div><span class="mono">CSAVAR</span><b>34 → 0</b></div>
-          <div><span class="mono">ÉK</span><b>52 + 4</b></div>
-        </div>
-      </div>
-    </li>
-    <li class="tl-item">
-      <span class="tl-step mono">T+05 · ELLENŐRZÉS</span>
-      <div class="tl-body">
-        <h3>3D ütközésvizsgálat minden alkatrészpárra</h3>
-        <p>A generátor minden futáskor ellenőrzi az összes alkatrészpárt. Próbaként egy 1 mm-es elcsúsztatást is kimutatott, tehát a vizsgálat valóban működik. Eredmény: <span class="ok mono">OK · NINCS ÜTKÖZÉS</span></p>
-      </div>
-    </li>
-    <li class="tl-item">
-      <span class="tl-step mono">T+06 · WEBOLDAL</span>
-      <div class="tl-body">
-        <h3>Párhuzamos munka két fülön</h3>
-        <p>Amíg az egyik Claude-munkamenet a modellen dolgozott, egy másik a weboldalt építette. A második fül az első beszélgetését is el tudta olvasni, így ugyanazokból az adatokból dolgozott. Vizuális referencia: a SpaceX oldala. Mérnöki, sötét, letisztult.</p>
-      </div>
-    </li>
-    <li class="tl-item">
-      <span class="tl-step mono">T+07 · VIDEÓ</span>
-      <div class="tl-body">
-        <h3>Kódból renderelt reklámfilm</h3>
-        <p>Az első változat sötét, lassú és gépies hangú lett. A második körben valódi termékreklámok felépítését és a <b>HyperFrames</b> és a <b>Remotion</b> hivatalos agent-skilljeit elemeztük, és ezek szabályai szerint vágtuk újra a filmet. Horoggal indul, világos, a zene 120 BPM-es ütemére vág, a narráció alatt lehalkul a zene, és hangeffekteket is kapott. A narráció angol, emberi hangzású neurális hanggal.</p>
-        <div class="decision-grid">
-          <div><span class="mono">HOSSZ</span><b>1:22</b></div>
-          <div><span class="mono">TEMPÓ</span><b>120 BPM</b></div>
-          <div><span class="mono">NYELV</span><b>Angol</b></div>
-          <div><span class="mono">MOTOR</span><b>Remotion + HF</b></div>
-        </div>
-      </div>
-    </li>
-  </ol>
-
-  <section class="band">
-    <div class="band-head">
-      <div>
-        <p class="eyebrow">ESZKÖZÖK</p>
-        <h2>Amivel dolgoztunk.</h2>
-      </div>
-    </div>
-    <div class="tool-grid">
-      <div class="tool"><span class="mono">AI</span><b>Claude Code</b><p>Tervezés, kódgenerálás, weboldal</p></div>
-      <div class="tool"><span class="mono">CAD</span><b>Python + Fusion 360</b><p>shapely, trimesh, ezdxf, manifold3d · Fusion szkript</p></div>
-      <div class="tool"><span class="mono">GYÁRTÁS</span><b>CO₂ lézer</b><p>DXF táblák, VAGAS / JELOLES rétegek</p></div>
-      <div class="tool"><span class="mono">WEB</span><b>Three.js + GitHub Pages</b><p>Forgatható GLB/STEP, statikus oldal</p></div>
-      <div class="tool"><span class="mono">VIDEÓ</span><b>Remotion</b><p>Kódból renderelt videó React-tel, a 3D modell animációjával</p></div>
-      <div class="tool"><span class="mono">HANG</span><b>Neurális narráció</b><p>Claude-dal írt forgatókönyv, emberi hangzású angol hang, zene és effektek</p></div>
-      <div class="tool"><span class="mono">MCP</span><b>Munkamenet + böngésző</b><p>Párhuzamos fülek összehangolása, élő tesztelés</p></div>
-      <div class="tool"><span class="mono">MODELL</span><b>Claude Opus 5.5</b><p>Minden lépés mögött</p></div>
-    </div>
+    <p class="fine">The two sessions ran in parallel, so elapsed time is less than their sum. The manual estimate assumes an experienced CAD designer and front-end developer, without learning time.</p>
   </section>
 </section>
 
-<!-- ================= 03 MELLÉKLETEK ================= -->
-<section class="page" id="page-mellekletek" data-page="mellekletek" hidden>
+<!-- ================= ATTACHMENTS ================= -->
+<section class="page" id="page-attachments" data-page="attachments" hidden>
   <div class="page-hero">
-    <p class="eyebrow">03 / MELLÉKLETEK</p>
-    <h1>Minden fájl,<br>ami a gyártáshoz kell.</h1>
-    <p class="lead">BOM, robbantott ábra, vágásra kész DXF táblák és 3D modell egy helyen.</p>
+    <p class="eyebrow">ATTACHMENTS</p>
+    <h1>Every file<br>you need to build it.</h1>
+    <p class="lead">BOM, exploded view, cut-ready DXF sheets, 3D model and assembly drawing in one place.</p>
   </div>
 
   <section class="band">
     <div class="band-head">
       <div>
         <p class="eyebrow">01 / BOM</p>
-        <h2>Darabjegyzék.</h2>
+        <h2>Bill of materials.</h2>
       </div>
-      <div class="dl-row" id="bom-source"><a class="btn" href="assets/dok/BOM_cso_tarto_V1.csv" download>BOM (CSV) ↓</a><a class="btn btn-ghost" href="assets/dok/Cso_tarto_V1_szerelesi_rajz.pdf" target="_blank">Szerelési rajz (PDF) ↗</a></div>
+      <div class="dl-row" id="bom-source"><a class="btn" href="assets/dok/BOM_cso_tarto_V1.csv" download>BOM (CSV) ↓</a><a class="btn btn-ghost" href="assets/dok/Cso_tarto_V1_szerelesi_rajz.pdf" target="_blank">Assembly drawing (PDF) ↗</a></div>
     </div>
     <div class="table-wrap"><table class="bom" id="bom-table"></table></div>
   </section>
@@ -382,203 +346,225 @@
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">02 / ROBBANTOTT ÁBRA</p>
-        <h2>Szétszedve.</h2>
+        <p class="eyebrow">02 / EXPLODED VIEW</p>
+        <h2>Taken apart.</h2>
       </div>
     </div>
     <figure class="exploded" id="exploded">
-      <img id="exploded-img" src="assets/robbantott.jpg" alt="A csőtároló robbantott ábrája, Fusion 360" hidden>
-      <div class="placeholder" id="exploded-wait"><span class="pulse"></span><p class="mono">ROBBANTOTT ÁBRA KÉSZÜL</p></div>
+      <img id="exploded-img" src="assets/robbantott.jpg" alt="Exploded view of the pipe rack, Fusion 360" hidden>
+      <div class="placeholder" id="exploded-wait"><span class="pulse"></span><p class="mono">LOADING</p></div>
     </figure>
   </section>
 
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">03 / CSOMÓPONTOK</p>
-        <h2>Közelről.</h2>
+        <p class="eyebrow">03 / JOINTS</p>
+        <h2>Up close.</h2>
       </div>
-      <p class="band-note">A kötések Fusion 360-ban renderelve. Minden ék a saját csapjában ül, ezt a generátor ütközésvizsgálata is ellenőrzi.</p>
+      <p class="band-note">Fusion 360 renders of the joints. Every wedge sits in its own tenon, and the generator's collision check confirms it.</p>
     </div>
     <div class="detail-grid">
-      <figure><img src="assets/kepek/reszlet_padlo_ek.jpg" alt="Padló és oldalfal ékes csapja" loading="lazy"><figcaption class="mono">PADLÓ ↔ OLDALFAL · ÉKES CSAP</figcaption></figure>
-      <figure><img src="assets/kepek/reszlet_fesu_ek.jpg" alt="Vezetőfésű ékes csapjai" loading="lazy"><figcaption class="mono">VEZETŐFÉSŰ · ÉKES CSAP</figcaption></figure>
-      <figure><img src="assets/kepek/reszlet_hatfal_ek.jpg" alt="Hátfal ékes csapja" loading="lazy"><figcaption class="mono">HÁTFAL · ÉKES CSAP</figcaption></figure>
-      <figure><img src="assets/kepek/reszlet_zarolec.jpg" alt="Zároléc az L-horonyban" loading="lazy"><figcaption class="mono">ZÁROLÉC · L-HORONY</figcaption></figure>
+      <figure><img src="assets/kepek/reszlet_padlo_ek.jpg" alt="Base to side wall wedged tenon" loading="lazy"><figcaption class="mono">BASE ↔ SIDE WALL · WEDGED TENON</figcaption></figure>
+      <figure><img src="assets/kepek/reszlet_fesu_ek.jpg" alt="Guide comb wedged tenons" loading="lazy"><figcaption class="mono">GUIDE COMB · WEDGED TENON</figcaption></figure>
+      <figure><img src="assets/kepek/reszlet_hatfal_ek.jpg" alt="Back panel wedged tenon" loading="lazy"><figcaption class="mono">BACK PANEL · WEDGED TENON</figcaption></figure>
+      <figure><img src="assets/kepek/reszlet_zarolec.jpg" alt="Front rail in its L-slot" loading="lazy"><figcaption class="mono">FRONT RAIL · L-SLOT</figcaption></figure>
     </div>
   </section>
 
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">04 / LÉZERVÁGÁS</p>
-        <h2>6 tábla. 1400 × 1400 mm.</h2>
+        <p class="eyebrow">04 / LASER CUTTING</p>
+        <h2>6 sheets. 1400 × 1400 mm.</h2>
       </div>
       <div class="dl-row">
-        <a class="btn" href="assets/dxf/dxf_tablak.zip" download>Összes tábla DXF ↓</a>
-        <a class="btn btn-ghost" href="assets/dxf/dxf_alkatreszek.zip" download>Alkatrészenként ↓</a>
+        <a class="btn" href="assets/dxf/dxf_tablak.zip" download>All sheets DXF ↓</a>
+        <a class="btn btn-ghost" href="assets/dxf/dxf_alkatreszek.zip" download>Per part ↓</a>
       </div>
     </div>
     <div class="sheet-grid" id="sheet-grid"></div>
-    <p class="fine">Rétegek: <span class="mono">VAGAS</span> (piros, vágás) · <span class="mono">JELOLES</span> (kék, gravírozott alkatrésznév) · <span class="mono">TABLA</span> (táblakontúr, nem vágandó).</p>
+    <p class="fine">Layers: <span class="mono">VAGAS</span> (red, cut) · <span class="mono">JELOLES</span> (blue, engraved part name) · <span class="mono">GRAVIR</span> (engraving, fill) · <span class="mono">TABLA</span> (sheet outline, not cut).</p>
   </section>
 
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">05 / 3D ÉS DOKUMENTÁCIÓ</p>
-        <h2>Modellfájlok.</h2>
+        <p class="eyebrow">05 / 3D &amp; DOCUMENTATION</p>
+        <h2>Model files.</h2>
       </div>
     </div>
     <div class="file-list">
-      <a class="file" href="assets/model/cso_tarto_V1_csovekkel.glb" download><span class="mono">GLB</span><b>Összeállítás csövekkel</b><span class="arrow">↓</span></a>
-      <a class="file" href="assets/model/cso_tarto_V1_allvany.glb" download><span class="mono">GLB</span><b>Csak állvány</b><span class="arrow">↓</span></a>
-      <a class="file" id="step-file" href="assets/model/cso_tarto_V1.step" download><span class="mono">STEP</span><b>Fusion 360 összeállítás</b><span class="arrow">↓</span></a>
-      <a class="file" href="assets/dok/Cso_tarto_V1_szerelesi_rajz.pdf" target="_blank"><span class="mono">PDF</span><b>A3 szerelési rajz: robbantott ábra, BOM, csomópontok</b><span class="arrow">↗</span></a>
+      <a class="file" href="assets/model/cso_tarto_V1.step" download><span class="mono">STEP</span><b>Fusion 360 assembly, engraved (15 MB)</b><span class="arrow">↓</span></a>
+      <a class="file" href="assets/model/cso_tarto_V1_csovekkel.glb" download><span class="mono">GLB</span><b>Assembly with pipes</b><span class="arrow">↓</span></a>
+      <a class="file" href="assets/model/cso_tarto_V1_allvany.glb" download><span class="mono">GLB</span><b>Rack only</b><span class="arrow">↓</span></a>
+      <a class="file" href="assets/dok/Cso_tarto_V1_szerelesi_rajz.pdf" target="_blank"><span class="mono">PDF</span><b>A3 assembly drawing: exploded view, BOM, joints</b><span class="arrow">↗</span></a>
     </div>
   </section>
 </section>
 
-<!-- ================= 04 MEGVALÓSÍTÁS ================= -->
-<section class="page" id="page-megvalositas" data-page="megvalositas" hidden>
+<!-- ================= ROAD TO PRODUCTION ================= -->
+<section class="page" id="page-production" data-page="production" hidden>
   <div class="page-hero">
-    <p class="eyebrow">04 / ÚT A MEGVALÓSÍTÁSIG</p>
-    <h1>Akadályok.<br><span class="thin">Megoldások.</span></h1>
-    <p class="lead">Egyik lépés sem ment elsőre. Így jutottunk túl a projekt legnehezebb pontjain.</p>
+    <p class="eyebrow">ROAD TO PRODUCTION</p>
+    <h1>Obstacles.<br><span class="thin">Solutions.</span></h1>
+    <p class="lead">Nothing worked the first time. This is how we got past the hardest points.</p>
   </div>
 
   <div class="obstacles">
     <article class="ob">
       <span class="ob-no mono">01</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Nincs kész CAD-kapcsolat</h3><p>A Fusion 360-hoz nem találtunk közvetlenül használható MCP-kapcsolatot.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Kódból épülő modell</h3><p>Az AI paraméteres Python-generátort írt, ami DXF-et és 3D-t készít, mellé pedig egy Fusion-szkriptet, ami ugyanezt natívan felépíti. Egy szám átírásával az egész modell újragenerálható.</p></div>
+      <div class="ob-col"><span class="mono ob-tag warn">OBSTACLE</span><h3>No ready CAD connection</h3><p>We couldn't find a usable MCP connection for Fusion 360.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">SOLUTION</span><h3>A model built from code</h3><p>The AI wrote a parametric Python generator that produces DXF and 3D, plus a Fusion script that rebuilds the same model natively. Change one number and the whole model regenerates.</p></div>
     </article>
     <article class="ob">
       <span class="ob-no mono">02</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Az 1400 mm-es tábla</h3><p>A 2300 mm-es hely nem fér ki egyetlen lemezből.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Két modul</h3><p>Az állványt két különálló modulra bontottuk (1150 és 1029 mm a falak között), amelyek egymás mellett állnak. Így minden alkatrész kifér egy táblából.</p></div>
+      <div class="ob-col"><span class="mono ob-tag warn">OBSTACLE</span><h3>Will it go together?</h3><p>14 plates and 56 wedges with tenon joints. A wrong dimension would only show up after laser cutting.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">SOLUTION</span><h3>Automatic collision check</h3><p>Every run checks every pair of parts and that every wedge sits in its tenon. We tested it with a deliberate 1 mm error, and it caught it.</p></div>
     </article>
     <article class="ob">
       <span class="ob-no mono">03</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Kevés cső fért el</h3><p>Tokkal lefelé túl nagyok lettek a furatok, és a DN100-ból csak 3 fért egy sávba.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Tokkal felfelé</h3><p>Megfordítottuk a csöveket: a furat a csőhöz igazodik, a tok a felső fésű fölé kerül. Az eredmény: 30 cső.</p></div>
-    </article>
-    <article class="ob">
-      <span class="ob-no mono">04</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Honnan tudjuk, hogy összeáll?</h3><p>14 lemez és 56 ék, csapos-ékes kötésekkel. Egy rossz méret csak a lézervágás után derülne ki.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Automatikus ütközésvizsgálat</h3><p>A generátor minden futáskor minden alkatrészpárt ellenőriz, és azt is, hogy minden ék a saját csapjában ül-e. Szándékos 1 mm-es hibával teszteltük, és kimutatta.</p></div>
-    </article>
-    <article class="ob">
-      <span class="ob-no mono">05</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Egy beszélgetés kevés</h3><p>A modell és a weboldal párhuzamosan készült, a határidő szoros volt.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Párhuzamos AI-munkamenetek</h3><p>Két Claude-munkamenet dolgozott egyszerre. A weboldalas MCP-n keresztül elolvasta a tervezős beszélgetését, és ugyanazokból az adatokból dolgozott.</p></div>
-    </article>
-    <article class="ob">
-      <span class="ob-no mono">06</span>
-      <div class="ob-col"><span class="mono ob-tag warn">AKADÁLY</span><h3>Fekete modell a weben</h3><p>A 3D-néző az állványt teljesen feketén mutatta.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Hibakeresés a fájlban</h3><p>Az AI megvizsgálta a GLB-fájl belsejét, és rájött, hogy hiányoznak a felületi normálok. Most betöltéskor számolja ki őket.</p></div>
+      <div class="ob-col"><span class="mono ob-tag warn">OBSTACLE</span><h3>One conversation isn't enough</h3><p>Model and website had to happen at the same time, on a tight deadline.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">SOLUTION</span><h3>Parallel AI sessions</h3><p>Two Claude sessions worked at once. The web session read the modelling session's conversation over MCP and worked from the same data.</p></div>
     </article>
   </div>
 
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">TANULSÁGOK MÁSOK PROJEKTJEIBŐL</p>
-        <h2>A lézervágott fa<br>tipikus buktatói.</h2>
+        <p class="eyebrow">LESSONS FROM OTHER BUILDS</p>
+        <h2>Typical pitfalls<br>of laser-cut wood.</h2>
       </div>
-      <p class="band-note">Hasonló lézervágott polcok, tárolók és bútorok elemzésekor ugyanazok a hibák jöttek elő újra és újra. Ezeket már a tervezésnél kizártuk.</p>
+      <p class="band-note">Looking at similar laser-cut shelves, racks and furniture, the same mistakes came up again and again. We designed them out from the start.</p>
     </div>
   </section>
 
   <div class="obstacles">
     <article class="ob">
+      <span class="ob-no mono">04</span>
+      <div class="ob-col"><span class="mono ob-tag warn">PITFALL</span><h3>Loose, or won't go in</h3><p>“10 mm” plywood is often really 9.6 mm, and the laser takes 0.1–0.2 mm with every cut. A tenon drawn to nominal size is either loose or won't fit.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">SOLUTION</span><h3>Parametric clearance</h3><p>Slot clearance is its own parameter: 0.2 mm in thickness and 0.4 mm in length. After one test cut, a single number regenerates all 14 plates for the real sheet.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">05</span>
+      <div class="ob-col"><span class="mono ob-tag warn">PITFALL</span><h3>Screws split the ply</h3><p>A screw driven into the edge of plywood splits it along the layers, and it loosens every time you reassemble.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">SOLUTION</span><h3>Wedged through-tenon</h3><p>The tenon passes 20 mm through the wall, and a wedge that widens from 8 to 18 mm goes into its slot. Tapped in, it pulls the joint tight. It comes apart without tools, and the wedges are cut from the same sheets.</p></div>
+    </article>
+    <article class="ob">
+      <span class="ob-no mono">06</span>
+      <div class="ob-col"><span class="mono ob-tag warn">PITFALL</span><h3>Wobbles on the shop floor</h3><p>A 1350 mm plate standing on its full edge never sits flat on an uneven concrete floor, so the rack rocks.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">SOLUTION</span><h3>Foot relief</h3><p>An 8 mm relief is cut into the bottom of the side walls and the back panel, so the rack stands only on the feet at each end. Clear contact points, no wobble.</p></div>
+    </article>
+    <article class="ob">
       <span class="ob-no mono">07</span>
-      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Lötyög vagy be sem megy</h3><p>A „10 mm-es” rétegelt lemez a valóságban gyakran 9,6 mm, a lézer pedig minden vágásnál elvisz 0,1–0,2 mm-t. A névleges méretre rajzolt csap így hol lötyög, hol be sem megy.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Paraméteres ráhagyás</h3><p>A horonyráhagyás külön paraméter: 0,2 mm vastagságban és 0,4 mm hosszban. Egy próbafül kivágása után egyetlen szám átírásával mind a 18 alkatrész újragenerálódik a valós lemezhez.</p></div>
+      <div class="ob-col"><span class="mono ob-tag warn">PITFALL</span><h3>Quick access or safety?</h3><p>A comb open at the front makes pipes quick to take out, and just as quick to tip out. Locking them usually slows access down.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">SOLUTION</span><h3>Lift-out front rail</h3><p>A rail sitting in an L-shaped slot: lift it 20 mm and it unhooks; let go and it drops back under its own weight. A centre peg rests between the comb fingers, and a hand-hole makes it one-handed.</p></div>
     </article>
     <article class="ob">
       <span class="ob-no mono">08</span>
-      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>A csavar kiszakad</h3><p>Rétegelt lemez élébe hajtott csavar a rétegek mentén szétrepesztheti a fát, ismételt szereléskor pedig kilazul.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Ékes átmenő csap</h3><p>A csap 20 mm-rel átnyúlik az oldalfalon, a furatába egy 8 → 18 mm-re szélesedő ék kerül. Beütéskor az ék a falnak feszül, és szorosra húzza a kötést. Szerszám nélkül szétszedhető, és az ékeket ugyanabból a táblából vágjuk ki.</p></div>
-    </article>
-    <article class="ob">
-      <span class="ob-no mono">09</span>
-      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Billeg a műhelypadlón</h3><p>Egy teljes élén álló, 1350 mm-es lemez soha nem fekszik fel egyenletesen az egyenetlen betonpadlón, így az állvány billeg.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Lábkivágás</h3><p>Az oldalfalak és a hátfal aljából 8 mm mély kivágás készül, így az állvány csak a két végén lévő talpakon áll. A felfekvés egyértelmű, és a billegés megszűnik.</p></div>
-    </article>
-    <article class="ob">
-      <span class="ob-no mono">10</span>
-      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Gyors hozzáférés vagy biztonság?</h3><p>Az elölről nyitott fésűből gyorsan kivehető a cső, de ugyanilyen könnyen ki is billenhet. A rögzítés általában a hozzáférést lassítja.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Kiakasztható zároléc</h3><p>L-alakú horonyban ülő léc: 20 mm-t megemelve kiakasztható, visszaengedve a saját súlyától a helyére ül. A középső csap a fésűujjak közé támaszkodik, a fogantyú-kivágással egy kézzel kezelhető.</p></div>
-    </article>
-    <article class="ob">
-      <span class="ob-no mono">11</span>
-      <div class="ob-col"><span class="mono ob-tag warn">BUKTATÓ</span><h3>Fizetünk a levegőért</h3><p>A lézervágott projekteknél gyakran a tábla fele hulladék. Az első kiosztásunk 8 táblát és 39%-os kihasználást adott, és a fésűk táblájának 82%-a ment volna a szemétbe.</p></div>
-      <div class="ob-col"><span class="mono ob-tag ok">MEGOLDÁS</span><h3>Egymásba tolt alkatrészek</h3><p>A két fésű 180°-kal elforgatva, egymás ujjai közé tolva fér el egy táblán. A falakról elhagytuk a fölösleges ablakokat, a talpgerendákat pedig a padló váltotta ki. Eredmény: 6 tábla, 64% kihasználás, rövidebb lézeridő.</p></div>
+      <div class="ob-col"><span class="mono ob-tag warn">PITFALL</span><h3>Paying for air</h3><p>In laser-cut projects, half the sheet often ends up as scrap. Our first layout needed 8 sheets at <span class="usage-bad">39%</span> use, and 82% of the comb sheet would have been waste.</p></div>
+      <div class="ob-col"><span class="mono ob-tag ok">SOLUTION</span><h3>Nested parts</h3><p>The two combs, rotated 180°, slide into each other's fingers on one sheet. The walls lost their unnecessary windows, and the base replaced the foot rails. Result: 6 sheets, <span class="usage-good">64%</span> use, and shorter laser time.</p></div>
     </article>
   </div>
 
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">A GYÁRTÁS FELÉ</p>
-        <h2>A képernyőtől a műhely faláig.</h2>
+        <p class="eyebrow">FROM SCREEN TO WORKSHOP WALL</p>
+        <h2>Only the laser is left.</h2>
       </div>
+      <p class="band-note">Design, files and measurements are done. The next and only remaining step before assembly is cutting the six sheets.</p>
     </div>
   </section>
 
   <div class="roadmap" id="roadmap">
-    <article class="rm done"><span class="rm-no mono">01</span><div><span class="rm-state mono">KÉSZ</span><h3>Paraméteres 3D modell</h3><p>Python-generátor, Fusion szkript, ütközésvizsgálat.</p></div></article>
-    <article class="rm done"><span class="rm-no mono">02</span><div><span class="rm-state mono">KÉSZ</span><h3>Vágási fájlok és dokumentáció</h3><p>6 tábla DXF-ben, gravírozott alkatrésznevekkel. Fusion 360 összeállítás, STEP, A3 szerelési rajz BOM-mal.</p></div></article>
-    <article class="rm next"><span class="rm-no mono">03</span><div><span class="rm-state mono">KÖVETKEZŐ</span><h3>Mérés és újragenerálás</h3><p>Valós tokátmérő (becsült: 128 / 183 / 228 mm) és lemezvastagság (gyakran 9,6 / 5,7 mm) lemérése, majd újragenerálás.</p></div></article>
-    <article class="rm"><span class="rm-no mono">04</span><div><span class="rm-state mono">TERVEZETT</span><h3>Próbavágás</h3><p>Egy csap a hornyával, és egy ék a hozzá tartozó ékfurattal. Akkor jó, ha a csap kézzel, kis erővel becsúszik, az ék pedig ütésre feszesen megül. Állítható: <span class="mono">CLR</span> és <span class="mono">WEDGE_HOLE_L</span>.</p></div></article>
-    <article class="rm"><span class="rm-no mono">05</span><div><span class="rm-state mono">TERVEZETT</span><h3>Lézervágás</h3><p>100–150 W-os CO₂ lézer, 1400 × 1400 mm-es asztal. 3 tábla 10 mm-es és 3 tábla 6 mm-es lemez.</p></div></article>
-    <article class="rm"><span class="rm-no mono">06</span><div><span class="rm-state mono">TERVEZETT</span><h3>Összeszerelés</h3><p>Hátfal a padlóhoz ragasztva és szegezve → padló, fésűk és hátfal csapjai az oldalfalak hornyaiba → ékek beütése → zároléc beakasztása az L-horonyba. Modulonként, szerszám nélkül.</p></div></article>
-    <article class="rm"><span class="rm-no mono">07</span><div><span class="rm-state mono">TERVEZETT</span><h3>Telepítés a műhelyben</h3><p>A két modul egymás mellé áll, és modulonként 2 db L-vas rögzíti a falhoz. Aztán jöhetnek a csövek.</p></div></article>
+    <article class="rm done"><span class="rm-no mono">01</span><div><span class="rm-state mono">DONE</span><h3>Parametric 3D model</h3><p>Python generator, Fusion script, collision check, three iterations.</p></div></article>
+    <article class="rm done"><span class="rm-no mono">02</span><div><span class="rm-state mono">DONE</span><h3>Cutting files and documentation</h3><p>6 sheets as DXF with engraving, Fusion 360 assembly, STEP, A3 assembly drawing with BOM.</p></div></article>
+    <article class="rm done"><span class="rm-no mono">03</span><div><span class="rm-state mono">DONE</span><h3>Measurements</h3><p>Pipe sockets and real plywood thickness checked against the generator parameters.</p></div></article>
+    <article class="rm next"><span class="rm-no mono">04</span><div><span class="rm-state mono">ONLY STEP LEFT</span><h3>Laser cutting</h3><p>One test tenon and wedge first, then the six sheets: 3 × 10 mm and 3 × 6 mm plywood on a 100–150 W CO₂ laser with a 1400 × 1400 mm bed.</p></div></article>
+    <article class="rm"><span class="rm-no mono">05</span><div><span class="rm-state mono">AFTER CUTTING</span><h3>Assembly</h3><p>Tenons of base, combs and back panel into the side walls → tap in the wedges → hook the front rail into its L-slots. Per module, no tools, no glue.</p></div></article>
+    <article class="rm"><span class="rm-no mono">06</span><div><span class="rm-state mono">AFTER CUTTING</span><h3>Into the workshop</h3><p>The two modules stand side by side against the wall. Then in go the pipes.</p></div></article>
   </div>
 
   <section class="band">
-    <div class="band-head">
-      <div>
-        <p class="eyebrow">KÖTŐELEMEK</p>
-        <h2>Ami a lemezeken kívül kell.</h2>
-      </div>
-    </div>
-    <div class="table-wrap">
-      <table class="bom" id="hardware-table"></table>
+    <div class="wood-statement">
+      <span class="mono">BILL OF HARDWARE</span>
+      <b>Nothing.</b>
+      <p>No screws, no nails, no glue, no brackets. Every part, including the 56 wedges, is cut from the same six plywood sheets. We're proud that it's 100% wood.</p>
     </div>
   </section>
 </section>
 
-<!-- ================= 05 RÓLUNK ================= -->
-<section class="page" id="page-rolunk" data-page="rolunk" hidden>
+<!-- ================= SPONSORS ================= -->
+<section class="page" id="page-sponsors" data-page="sponsors" hidden>
+  <div class="page-hero">
+    <p class="eyebrow">SPONSORS</p>
+    <h1>Powered by.</h1>
+    <p class="lead">Nobody paid us. But a project like this doesn't run on AI alone.</p>
+  </div>
+
+  <section class="band">
+    <div class="sponsor-grid">
+      <article class="sponsor">
+        <div class="sponsor-media sponsor-coffee" aria-hidden="true">
+          <svg viewBox="0 0 200 200"><g fill="none" stroke="#D6A85B" stroke-width="5" stroke-linecap="round">
+            <path class="steam" d="M78 48c-8 10 8 16 0 28"/><path class="steam" d="M100 40c-8 12 8 18 0 32"/><path class="steam" d="M122 48c-8 10 8 16 0 28"/></g>
+            <path d="M46 92h108v38a42 42 0 0 1-42 42h-24a42 42 0 0 1-42-42z" fill="#F2E8D5"/>
+            <path d="M154 102h10a18 18 0 0 1 0 36h-12" fill="none" stroke="#F2E8D5" stroke-width="10"/>
+            <ellipse cx="100" cy="92" rx="54" ry="9" fill="#5a3a1f"/>
+            <path d="M30 182h140" stroke="#D6A85B" stroke-width="5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="sponsor-body">
+          <span class="mono">MAIN SPONSOR · FUEL</span>
+          <h3>Coffee</h3>
+          <p>Powered every design review, every re-render and every “one more iteration”.</p>
+          <div class="sponsor-kpi"><span>Cups</span><b>Too many</b></div>
+        </div>
+      </article>
+      <article class="sponsor">
+        <div class="sponsor-media"><img src="assets/sponsors/turo-rudi.webp" alt="A box of Cserpes Túró Rudi in the office fridge" loading="lazy"></div>
+        <div class="sponsor-body">
+          <span class="mono">OFFICIAL SNACK · COOLING</span>
+          <h3>Cserpes Túró Rudi</h3>
+          <p>Kept in the office fridge, emptied faster than the laser can cut. The only thing in this project that isn't made of wood.</p>
+          <div class="sponsor-kpi"><span>Box</span><b>Empty</b></div>
+          <a class="mono sponsor-link" href="https://www.cserpestrudi.hu" target="_blank" rel="noopener">cserpestrudi.hu ↗</a>
+        </div>
+      </article>
+    </div>
+    <p class="fine">Unofficial sponsors: no money changed hands, just calories. Brand names belong to their owners.</p>
+  </section>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="page" id="page-about" data-page="about" hidden>
   <div class="about-hero">
     <div class="about-logo" aria-hidden="true"><img src="assets/product-team-logo.svg" alt=""></div>
     <div>
-      <p class="eyebrow">05 / RÓLUNK</p>
+      <p class="eyebrow">ABOUT US</p>
       <h1>Product Team</h1>
-      <p class="lead">Közös ötlet. Saját terv. Kis csapat vagyunk, és az AI kihívásban azt mutatjuk meg, hogyan lehet néhány nap alatt valami teljesen újat megtanulni, a 3D tervezéstől a videón át a weboldalig.</p>
+      <p class="lead">Shared idea. Our own design. We're a small team, and in this AI Challenge we show how you can learn something completely new in a few days: from 3D design through video to a live website.</p>
     </div>
   </div>
 
   <section class="band">
     <div class="tool-grid three">
-      <div class="tool"><span class="mono">01</span><b>Megtervezni</b><p>Valós problémából indulunk, és gyártható 3D modellig jutunk.</p></div>
-      <div class="tool"><span class="mono">02</span><b>Elmesélni</b><p>Rövid videóban mutatjuk meg a folyamatot.</p></div>
-      <div class="tool"><span class="mono">03</span><b>Megmutatni</b><p>Mindent egy helyen, nyíltan: fájlok, napló, tanulságok.</p></div>
+      <div class="tool"><span class="mono">01</span><b>Design it</b><p>From a real problem to a manufacturable 3D model.</p></div>
+      <div class="tool"><span class="mono">02</span><b>Tell it</b><p>A short film that shows how it came together.</p></div>
+      <div class="tool"><span class="mono">03</span><b>Show it</b><p>Everything in one place, openly: files, log and lessons learned.</p></div>
     </div>
   </section>
 
   <section class="band">
     <div class="band-head">
       <div>
-        <p class="eyebrow">KAPCSOLAT</p>
-        <h2>Kérdésed van a projekttel kapcsolatban?</h2>
+        <p class="eyebrow">CONTACT</p>
+        <h2>Questions about the project?</h2>
       </div>
     </div>
     <div class="cta-row">
-      <a class="btn" href="https://github.com/bernathtamas" target="_blank" rel="noopener">GitHub ↗</a>
-      <a class="btn btn-ghost" href="https://bernathtamas.github.io/product-team-gitartarto/" target="_blank" rel="noopener">Előző projektünk ↗</a>
+      <a class="btn" href="https://github.com/bernathtamas/KG-cso-tarto" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://bernathtamas.github.io/product-team-gitartarto/" target="_blank" rel="noopener">Our previous project ↗</a>
     </div>
   </section>
 </section>
@@ -587,10 +573,10 @@
 
 <footer class="foot">
   <span class="mono">PRODUCT TEAM © 2026</span>
-  <span class="mono">AI KIHÍVÁS · CSO_TARTO_V1</span>
-  <a class="mono" href="#termekek">VISSZA FEL ↑</a>
+  <span class="mono">AI CHALLENGE · PIPE_RACK_V1.1</span>
+  <a class="mono" href="#products">BACK TO TOP ↑</a>
 </footer>
 
-<script type="module" src="app.js?v=20261103b"></script>
+<script type="module" src="app.js?v=20261103d"></script>
 </body>
 </html>

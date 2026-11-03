@@ -37,7 +37,7 @@
    "n": 1,
    "vastagsag": 10.0,
    "alkatreszek": [
-    "A-OLDALFAL",
+    "A-OLDALFAL-KULSO",
     "A-OLDALFAL",
     "A-ZAROLEC"
    ]
@@ -47,7 +47,7 @@
    "vastagsag": 10.0,
    "alkatreszek": [
     "B-OLDALFAL",
-    "B-OLDALFAL",
+    "B-OLDALFAL-KULSO",
     "B-ZAROLEC"
    ]
   },
@@ -141,13 +141,22 @@
    "tetel": 1,
    "azonosito": "A-OLDALFAL",
    "megnevezes": "Oldalfal",
-   "db": 2,
+   "db": 1,
    "anyag": "rétegelt lemez 10 mm",
    "meret_mm": "600 × 1350 × 10",
    "megjegyzes": "ékes hornyok, zároléc L-horony"
   },
   {
    "tetel": 2,
+   "azonosito": "A-OLDALFAL-KULSO",
+   "megnevezes": "Külső oldalfal",
+   "db": 1,
+   "anyag": "rétegelt lemez 10 mm",
+   "meret_mm": "600 × 1350 × 10",
+   "megjegyzes": "ékes hornyok, zároléc L-horony"
+  },
+  {
+   "tetel": 3,
    "azonosito": "A-PADLO",
    "megnevezes": "Padló / csőfészek",
    "db": 1,
@@ -156,7 +165,7 @@
    "megjegyzes": "ékes csapok, csőfészkek"
   },
   {
-   "tetel": 3,
+   "tetel": 4,
    "azonosito": "A-FESU-ALSO",
    "megnevezes": "Vezetőfésű (alsó)",
    "db": 1,
@@ -165,7 +174,7 @@
    "megjegyzes": "ékes csapok"
   },
   {
-   "tetel": 4,
+   "tetel": 5,
    "azonosito": "A-FESU-FELSO",
    "megnevezes": "Vezetőfésű (felső)",
    "db": 1,
@@ -174,7 +183,7 @@
    "megjegyzes": "ékes csapok"
   },
   {
-   "tetel": 5,
+   "tetel": 6,
    "azonosito": "A-ZAROLEC",
    "megnevezes": "Zároléc",
    "db": 1,
@@ -183,7 +192,7 @@
    "megjegyzes": "oldalfalba akasztva, kiemelhető"
   },
   {
-   "tetel": 6,
+   "tetel": 7,
    "azonosito": "A-HATFAL",
    "megnevezes": "Hátfal",
    "db": 1,
@@ -192,16 +201,25 @@
    "megjegyzes": "ékes csapok, szegezve a padlóhoz"
   },
   {
-   "tetel": 7,
+   "tetel": 8,
    "azonosito": "B-OLDALFAL",
    "megnevezes": "Oldalfal",
-   "db": 2,
+   "db": 1,
    "anyag": "rétegelt lemez 10 mm",
    "meret_mm": "600 × 1350 × 10",
    "megjegyzes": "ékes hornyok, zároléc L-horony"
   },
   {
-   "tetel": 8,
+   "tetel": 9,
+   "azonosito": "B-OLDALFAL-KULSO",
+   "megnevezes": "Külső oldalfal",
+   "db": 1,
+   "anyag": "rétegelt lemez 10 mm",
+   "meret_mm": "600 × 1350 × 10",
+   "megjegyzes": "ékes hornyok, zároléc L-horony"
+  },
+  {
+   "tetel": 10,
    "azonosito": "B-PADLO",
    "megnevezes": "Padló / csőfészek",
    "db": 1,
@@ -210,7 +228,7 @@
    "megjegyzes": "ékes csapok, csőfészkek"
   },
   {
-   "tetel": 9,
+   "tetel": 11,
    "azonosito": "B-FESU-ALSO",
    "megnevezes": "Vezetőfésű (alsó)",
    "db": 1,
@@ -219,7 +237,7 @@
    "megjegyzes": "ékes csapok"
   },
   {
-   "tetel": 10,
+   "tetel": 12,
    "azonosito": "B-FESU-FELSO",
    "megnevezes": "Vezetőfésű (felső)",
    "db": 1,
@@ -228,7 +246,7 @@
    "megjegyzes": "ékes csapok"
   },
   {
-   "tetel": 11,
+   "tetel": 13,
    "azonosito": "B-ZAROLEC",
    "megnevezes": "Zároléc",
    "db": 1,
@@ -237,7 +255,7 @@
    "megjegyzes": "oldalfalba akasztva, kiemelhető"
   },
   {
-   "tetel": 12,
+   "tetel": 14,
    "azonosito": "B-HATFAL",
    "megnevezes": "Hátfal",
    "db": 1,
@@ -246,7 +264,7 @@
    "megjegyzes": "ékes csapok, szegezve a padlóhoz"
   },
   {
-   "tetel": 13,
+   "tetel": 15,
    "azonosito": "EK",
    "megnevezes": "Ék",
    "db": 56,

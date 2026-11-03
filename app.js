@@ -3,13 +3,13 @@ const $$ = s => [...document.querySelectorAll(s)];
 const exists = url => fetch(url, {method: 'HEAD', cache: 'no-store'}).then(r => r.ok).catch(() => false);
 
 /* ---------- Tabs (hash routing) ---------- */
-const PAGES = ['termekek', 'tervezes', 'mellekletek', 'megvalositas', 'rolunk'];
-const SECTION_ALIASES = {modell: 'termekek', video: 'termekek', stats: 'termekek'};
+const PAGES = ['products', 'log', 'attachments', 'production', 'sponsors', 'about'];
+const SECTION_ALIASES = {model: 'products', video: 'products', stats: 'products', time: 'log'};
 let current;
 
 function route() {
   const hash = location.hash.slice(1);
-  const page = PAGES.includes(hash) ? hash : SECTION_ALIASES[hash] || 'termekek';
+  const page = PAGES.includes(hash) ? hash : SECTION_ALIASES[hash] || 'products';
   const changed = page !== current;
   current = page;
   for (const p of PAGES) $(`#page-${p}`).hidden = p !== page;
@@ -44,7 +44,7 @@ const io = new IntersectionObserver(entries => entries.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
 }), {rootMargin: '0px 0px -8% 0px'});
 function revealIn(root) {
-  root.querySelectorAll('.band, .tl-item, .rm, .ob, .stat, .page-hero, .about-hero').forEach(el => {
+  root.querySelectorAll('.band, .tl-item, .rm, .ob, .stat, .page-hero, .about-hero, .iter, .sponsor').forEach(el => {
     if (el.classList.contains('is-in')) return;
     el.classList.add('reveal');
     io.observe(el);
@@ -65,6 +65,26 @@ const countIo = new IntersectionObserver(entries => entries.forEach(e => {
 }));
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) $$('[data-count]').forEach(el => countIo.observe(el));
 
+// Material-use counter: climbs from the first layout to the final one, red → amber → green as it goes.
+const usageColor = v => v < 50 ? '#e0563f' : v < 60 ? '#e8a94a' : '#7fd39b';
+const usageIo = new IntersectionObserver(entries => entries.forEach(e => {
+  if (!e.isIntersecting) return;
+  usageIo.unobserve(e.target);
+  const el = e.target, from = +el.dataset.from, to = +el.dataset.usage, t0 = performance.now() + 300;
+  const step = t => {
+    const k = Math.max(0, Math.min((t - t0) / 2200, 1));
+    const v = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 2)));
+    el.textContent = v;
+    el.style.color = usageColor(v);
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}, {threshold: .6}));
+$$('.stat-usage').forEach(el => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { el.textContent = el.dataset.usage; el.style.color = usageColor(+el.dataset.usage); }
+  else { el.style.color = usageColor(+el.dataset.from); usageIo.observe(el); }
+});
+
 /* ---------- Data from the generator (osszesito.json) ---------- */
 const PIPE_OD = {100: 110, 150: 160, 200: 200};
 const PER_LANE = {100: 4, 150: 2, 200: 2};
@@ -78,14 +98,14 @@ async function loadSummary() {
   for (const [key, mod] of Object.entries(summary.modulok)) {
     const m = document.createElement('div');
     m.className = 'lane-module';
-    m.dataset.label = `${key} MODUL · ${mod.belso_szelesseg} MM`;
+    m.dataset.label = `MODULE ${key} · ${mod.belso_szelesseg} MM`;
     m.style.setProperty('--w', mod.belso_szelesseg);
     for (const dn of mod.savok) {
       const l = document.createElement('div');
       l.className = 'lane';
       l.style.setProperty('--w', PIPE_OD[dn]);
       l.style.setProperty('--d', PIPE_OD[dn]);
-      l.innerHTML = `<b>DN${dn}</b><span>Ø${PIPE_OD[dn]}</span><span>${PER_LANE[dn]} DB</span>`;
+      l.innerHTML = `<b>DN${dn}</b><span>Ø${PIPE_OD[dn]}</span><span>${PER_LANE[dn]} PCS</span>`;
       m.appendChild(l);
     }
     lanes.appendChild(m);
@@ -95,11 +115,11 @@ async function loadSummary() {
   const sheets = await fetch('assets/tablak.json').then(r => r.json()).catch(() => []);
   grid.innerHTML = sheets.map(file => {
     const m = file.match(/^tabla_(\d+)_(\d+)mm$/);
-    const title = m ? `TÁBLA ${m[1]} · ${m[2]} MM` : 'TARTALÉK ÉKEK · 6 MM';
-    const img = m ? `<img src="assets/elonezet/${file}.png" alt="${title} vágási terve" loading="lazy">` : '<span class="sheet-spare mono">4 db ék</span>';
+    const title = m ? `SHEET ${m[1]} · ${m[2]} MM` : 'SPARE WEDGES · 6 MM';
+    const img = m ? `<img src="assets/elonezet/${file}.png" alt="${title} cutting layout" loading="lazy">` : '<span class="sheet-spare mono">4 wedges</span>';
     return `<a class="sheet" href="assets/dxf/${file}.dxf" download>
       <div class="sheet-img">${img}</div>
-      <div class="sheet-meta"><div><span class="mono">${title}</span><br><b>${m ? '1400 × 1400' : 'Kis tábla'}</b></div><span class="mono">DXF ↓</span></div>
+      <div class="sheet-meta"><div><span class="mono">${title}</span><br><b>${m ? '1400 × 1400' : 'Small sheet'}</b></div><span class="mono">DXF ↓</span></div>
     </a>`;
   }).join('');
 }
@@ -111,14 +131,22 @@ function renderTable(table, rows) {
   table.innerHTML = `<thead><tr>${rows[0].map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
     <tbody>${rows.slice(1).map(r => `<tr>${r.map(c => `<td${isNum(String(c)) ? ' class="num"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody>`;
 }
+// The generator writes Hungarian part names; the site shows them in English.
+const PART_EN = {
+  'Oldalfal': 'Side wall', 'Külső oldalfal': 'Outer side wall (engraved)', 'Padló / csőfészek': 'Base / pipe seat',
+  'Vezetőfésű (alsó)': 'Guide comb (lower)', 'Vezetőfésű (felső)': 'Guide comb (upper)', 'Zároléc': 'Front rail', 'Hátfal': 'Back panel', 'Ék': 'Wedge',
+};
+const NOTE_EN = {
+  'ékes hornyok, zároléc L-horony': 'wedge slots, rail L-slot', 'ékes csapok, csőfészkek': 'wedged tenons, pipe seats', 'ékes csapok': 'wedged tenons',
+  'oldalfalba akasztva, kiemelhető': 'hooks into side walls, lifts out', 'ékes csapok, szegezve a padlóhoz': 'wedged tenons', 'ebből 4 tartalék': 'incl. 4 spares',
+};
+const en = s => String(s).replace('rétegelt lemez', 'plywood');
 function loadBom() {
-  const table = $('#bom-table'), note = $('#bom-source');
-  if (!summary?.bom) { note.textContent = 'A BOM hamarosan elkészül.'; return; }
-  const rows = [['Tétel', 'Azonosító', 'Megnevezés', 'Db', 'Anyag', 'Méret (mm)', 'Megjegyzés']];
-  for (const b of summary.bom) rows.push([String(b.tetel).padStart(2, '0'), b.azonosito, b.megnevezes, String(b.db), b.anyag, b.meret_mm, b.megjegyzes]);
+  const table = $('#bom-table');
+  if (!summary?.bom) return;
+  const rows = [['Item', 'ID', 'Part', 'Qty', 'Material', 'Size (mm)', 'Note']];
+  for (const b of summary.bom) rows.push([String(b.tetel).padStart(2, '0'), b.azonosito, PART_EN[b.megnevezes] || b.megnevezes, String(b.db), en(b.anyag), b.meret_mm, NOTE_EN[b.megjegyzes] ?? b.megjegyzes]);
   renderTable(table, rows);
-  const hw = $('#hardware-table');
-  if (hw && summary.kotoelemek) renderTable(hw, [['Tétel', 'Db', 'Hová'], ...summary.kotoelemek.map(k => [k.megnevezes, String(k.db), k.megjegyzes])]);
 }
 
 /* ---------- Optional media: exploded view, video, STEP ---------- */
@@ -130,26 +158,36 @@ async function loadMedia() {
   const video = $('#project-video');
   video.addEventListener('loadedmetadata', () => { video.hidden = false; $('#video-waiting').hidden = true; });
 
-  if (await exists(STEP_URL)) $('#step-file').hidden = false;
 }
 
 /* ---------- 3D viewer ---------- */
 const STEP_URL = 'assets/model/cso_tarto_V1.step';
 let viewer;
+// The engraved STEP is 15 MB, so the light GLB loads first and the STEP is one click away.
 async function startViewer() {
   try {
     viewer = await import('./viewer.js');
-    if (await exists(STEP_URL)) {
-      const buf = await fetch(STEP_URL).then(r => r.arrayBuffer());
-      await viewer.loadStep(buf, 'CSO_TARTO_V1.STEP');
-    } else {
-      await viewer.loadGlb('assets/model/cso_tarto_V1_csovekkel.glb', 'CSO_TARTO_V1 / ÖSSZEÁLLÍTÁS');
-    }
+    await viewer.loadGlb('assets/model/cso_tarto_V1_csovekkel.glb', 'PIPE_RACK_V1.1 / ASSEMBLY');
   } catch (err) {
     console.error(err);
-    $('#model-status').textContent = 'A 3D NÉZŐ NEM TÖLTHETŐ BE.';
+    $('#model-status').textContent = 'THE 3D VIEWER COULD NOT LOAD.';
   }
 }
+$('#load-step').addEventListener('click', async e => {
+  const btn = e.currentTarget;
+  btn.disabled = true;
+  try {
+    viewer = viewer || await import('./viewer.js');
+    $('#model-status').textContent = 'DOWNLOADING STEP (15 MB)…';
+    const buf = await fetch(STEP_URL).then(r => r.arrayBuffer());
+    await viewer.loadStep(buf, 'PIPE_RACK_V1.1.STEP · ENGRAVED');
+    pipesBtn.setAttribute('aria-pressed', 'true');
+    pipesBtn.classList.add('is-on');
+  } catch (err) {
+    console.error(err);
+    $('#model-status').textContent = 'THE STEP FILE COULD NOT BE OPENED.';
+  } finally { btn.disabled = false; }
+});
 const viewerEl = $('#viewer');
 new IntersectionObserver(([e], obs) => {
   if (e.isIntersecting) { obs.disconnect(); startViewer(); }
@@ -178,17 +216,17 @@ input.addEventListener('change', async () => {
   input.value = '';
   if (!file) return;
   const status = $('#model-status');
-  if (file.size > 40 * 1024 * 1024) { status.textContent = 'A FÁJL TÚL NAGY (MAX. 40 MB).'; return; }
+  if (file.size > 40 * 1024 * 1024) { status.textContent = 'FILE TOO LARGE (MAX. 40 MB).'; return; }
   try {
     viewer = viewer || await import('./viewer.js');
     if (/\.glb$/i.test(file.name)) await viewer.loadGlb(URL.createObjectURL(file), file.name.toUpperCase());
     else if (/\.(step|stp)$/i.test(file.name)) await viewer.loadStep(await file.arrayBuffer(), file.name.toUpperCase());
-    else status.textContent = 'STEP, STP VAGY GLB FÁJLT VÁLASSZ.';
+    else status.textContent = 'PLEASE CHOOSE A STEP, STP OR GLB FILE.';
     pipesBtn.setAttribute('aria-pressed', 'true');
     pipesBtn.classList.add('is-on');
   } catch (err) {
     console.error(err);
-    status.textContent = 'A MODELL NEM NYITHATÓ MEG.';
+    status.textContent = 'THE MODEL COULD NOT BE OPENED.';
   }
 });
 

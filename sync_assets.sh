@@ -1,19 +1,20 @@
 #!/bin/sh
-# Copies the current model outputs from ../3D_modell into assets/.
+# Copies the current model outputs (V1.1) from ../../Cso_tarto_V1.1/3D_modell into assets/.
 # Run again whenever the generator or the Fusion script produces new files.
 set -e
 cd "$(dirname "$0")"
-SRC=../3D_modell
+SRC=../../Cso_tarto_V1.1/3D_modell
 mkdir -p assets/model assets/elonezet assets/dxf assets/kepek assets/dok
 
 # 3D: web GLBs and the Fusion STEP export (the viewer prefers the STEP).
-cp "$SRC"/3D_export/*.glb assets/model/
-cp "$SRC"/3D_export/cso_tarto_V1_osszeallitas.step assets/model/cso_tarto_V1.step
+cp "$SRC"/3D_export/cso_tarto_V1_1_csovekkel.glb assets/model/cso_tarto_V1_csovekkel.glb
+cp "$SRC"/3D_export/cso_tarto_V1_1_allvany.glb assets/model/cso_tarto_V1_allvany.glb
+cp "$SRC"/3D_export/cso_tarto_V1_1_osszeallitas.step assets/model/cso_tarto_V1.step
 
 # Summary (BOM, fasteners, sheet usage) drives the lanes, BOM table and stats.
 cp "$SRC"/osszesito.json assets/osszesito.json
 cp "$SRC"/dokumentacio/BOM_cso_tarto_V1.csv assets/dok/BOM_cso_tarto_V1.csv
-cp "$SRC"/dokumentacio/Cso_tarto_V1_szerelesi_rajz.pdf assets/dok/
+cp "$SRC"/dokumentacio/Cso_tarto_V1_1_szerelesi_rajz.pdf assets/dok/Cso_tarto_V1_szerelesi_rajz.pdf
 
 # Fusion renders and drawings, downsized for the web.
 for f in "$SRC"/dokumentacio/fusion_kepek/*.png "$SRC"/dokumentacio/rajz_*.png; do
